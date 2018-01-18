@@ -1,0 +1,30 @@
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 10em;
+}
+div.circle-image{
+	/* make it responsive */
+    background: url(propic.jpg) 50% 50% no-repeat;
+	width:10em;
+	height: 10em;
+
+	/* make it a circle */
+	border-radius:50%;
+
+	/* Centering on image`s center*/
+	background-position-y: center;
+	background-position-x: center;
+	background-repeat: no-repeat;
+
+	/* it makes the clue thing, takes smaller dimension to fill div */
+	background-size: cover;
+
+	/* it is optional, for making this div centered in parent*/
+	margin: 0 auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
