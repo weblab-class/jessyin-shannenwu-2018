@@ -1,26 +1,34 @@
 {
-  "name": "Catbook",
+  "name": "jessyin-shannenwu-2018",
   "version": "1.0.0",
-  "description": "Facebook for cats",
-  "main": "app.js",
-  "author": "6.148 Staff",
-  "license": "MIT",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon src/app.js"
+    "start": "webpack-dev-server --hot"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mit6148/jessyin-shannenwu-2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mit6148/jessyin-shannenwu-2018/issues"
+  },
+  "homepage": "https://github.com/mit6148/jessyin-shannenwu-2018#readme",
   "dependencies": {
-    "connect-ensure-login": "^0.1.1",
-    "cors": "^2.8.4",
-    "dotenv": "^4.0.0",
-    "express": "^4.16.1",
-    "express-session": "^1.15.6",
-    "mongoose": "^4.12.2",
-    "passport": "^0.4.0",
-    "passport-facebook": "^2.1.1",
-    "session": "^0.1.0",
-    "socket.io": "^2.0.4"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.0.0-alpha.6",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "css-loader": "^0.28.9",
+    "style-loader": "^0.19.1"
   }
 }
