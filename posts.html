@@ -3,8 +3,10 @@
 
 	<head>
 		<title>INSERT NAME HERE</title>
+	<!-- scripts here-->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	</head>
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">	
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	
 	<body>
@@ -13,17 +15,28 @@
 		<div id="post-maker" class="flex-container">
 			<div class="circle-image"></div>
             <div class="post-maker-textbox">
-                <input title="What's on your mind, Jessica?" placeholder="What's on your mind, Jessica?" class="post-text-display">
+                <input title="What's on your mind, Jessica?" placeholder="What's on your mind, Jessica?" class="post-text-display" />
             </div>
+            <form >
+            </form>
 		</div>
 		<!--posts-->
 		<div id="posts">
+			<ul id="listt">
+
+			</ul>
 			<!--username, time posted, title and description, hashtags, im interested button-->
 
 		</div>
 	</body>
-	<!-- scripts here-->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script>
+		hello = ["1","2","3"];
+		for (var i =0;i<hello.length;i++) {
+			var e = document.createElement("li");
+			e.innerHTML = "<p> " + hello[i] + "</p>";
+			$("#listt").append(e);
+		}
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </html>
