@@ -58,8 +58,7 @@ i, span {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    width: 15%;
     padding-left: 2em;
     color: black;
     transition: all 0.3s;
