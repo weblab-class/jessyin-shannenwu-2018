@@ -1,11 +1,10 @@
 var config = {
-   entry: './app/main.jsx',
+   entry: './main.js',
    output: {
-       filename: 'bundle.js',
+      path:'/',
+      filename: 'index.js',
    },
    devServer: {
-       port: 8080,
-       historyApiFallback: true,
       inline: true,
       port: 8081
    },
@@ -15,6 +14,9 @@ var config = {
             test: /\.jsx?$/,
             exclude: /node_modules/,
             loader: 'babel-loader',
+            query: {
+               presets: ['es2015', 'react']
+            }
          }
       ]
    }

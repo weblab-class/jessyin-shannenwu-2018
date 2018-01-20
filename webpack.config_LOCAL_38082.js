@@ -5,9 +5,7 @@ var config = {
    },
    devServer: {
        port: 8080,
-       historyApiFallback: true,
-      inline: true,
-      port: 8081
+       historyApiFallback: true
    },
    module: {
       loaders: [
