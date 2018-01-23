@@ -19,12 +19,9 @@
     <!--make post-->
     <div id="navbar">
     </div>
-    <div class="wrapper">
-        <!--Sidebar-->
-        <nav id="sidebar">
-            <!--Sidebar Header-->
+    <!--    <div class="wrapper">
 
-            <!--Sidebar Links-->
+        <nav id="sidebar">
             <ul class="list-unstyled components">
 
                 <li><a href="#">Tags</a></li>
@@ -32,32 +29,32 @@
             </ul>
 
         </nav>
-        <div class="container">
-            <div class="row grow">
-                <div id='new-post'>
-                </div>
+    </div>-->
+    <div class="container">
+        <div class="row grow">
+            <div id='new-post'>
             </div>
+        </div>
 
-            <div id="posts" style="width: 100%"></div>
-            <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">upload</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <input id="photoupload" type="file" accept="image/*">
-                            <!--<button type="button" class="btn btn-outline-primary"><i class="fa fa-upload"></i> choose file</button>-->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="addphoto" onclick="addPhoto()"> ink it!</button>
-                        </div>
+        <div id="posts" class="d-flex flex-wrap"></div>
+        <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">upload</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input id="photoupload" type="file" accept="image/*">
+                        <!--<button type="button" class="btn btn-outline-primary"><i class="fa fa-upload"></i> choose file</button>-->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="addphoto" onclick="addPhoto()"> ink it!</button>
                     </div>
                 </div>
             </div>
-
         </div>
+
     </div>
     <!--posts-->
 
@@ -65,6 +62,7 @@
 
 
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.182.0.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script src="/static/js/api.js"></script>
 <script src="/static/js/gallery.js"></script>
 <script src="/static/js/photo.js"></script>

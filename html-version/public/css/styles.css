@@ -1,5 +1,8 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 #post-content-input {
     width: 130px;
+    font-family: "Poppins", sans-serif;
     -webkit-transition: width 0.3s ease-in-out;
 }
 
@@ -13,6 +16,21 @@
     flex-direction: row;
     justify-content: space-between;
     max-height: 10em;
+}
+
+.card {
+    min-width: 20%;
+    margin: 20px;
+    margin-bottom: 0px;
+    padding: 20px 20px 0px 20px;
+}
+
+.card-footer {
+    text-align: right;
+    padding: 0 1.25rem;
+    background-color: white;
+    color: lightgray;
+    font-style: italic;
 }
 
 .wrapper {
@@ -86,12 +104,13 @@ a[aria-expanded="true"]::before {
     }
 }
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+}
+
+.btn {
+    font-family: 'Poppins', sans-serif;
 }
 
 p {
@@ -255,7 +274,7 @@ ul ul a {
 .grid__sizer,
 .grid__item {
     position: relative;
-    width: 20%;
+    width: 32%;
     min-width: 16.25rem;
 }
 

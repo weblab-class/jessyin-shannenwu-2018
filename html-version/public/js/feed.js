@@ -24,7 +24,6 @@ function postDOMObject(postJSON, user) {
 
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
-    card.setAttribute('style', 'width:18rem; margin:auto; padding:1.5em;');
     card.className = 'card';
     colDiv.appendChild(card);
 

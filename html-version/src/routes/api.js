@@ -26,7 +26,7 @@ router.get('/user', function (req, res) {
         _id: req.query._id
     }, function (err, user) {
         res.send(user);
-    })
+    });
 });
 
 router.get('/posts', function (req, res) {
@@ -34,6 +34,7 @@ router.get('/posts', function (req, res) {
         res.send(posts);
     });
 });
+
 
 router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
     User.findOne({
@@ -47,11 +48,30 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
         user.save();
 
         newPost.save(function (err, post) {
+            const io = req.app.get('socketio');
+            io.emit('post', {
+                _id: post._id,
+                creator_id: user._id,
+                creator_name: user.name,
+                content: req.body.content
+            });
+            //
+            const newMyPost = new MyPost({
+                'user_id': user._id,
+                'post_id': post._id
+            });
+
+            newMyPost.save(function (err, post) {
+                if (err) console.log(err);
+            });
+
+            //
             if (err) console.log(err);
         });
         res.send({});
     });
 });
+
 
 router.get('/mypost', function (req, res) {
     User.findOne({
@@ -63,7 +83,8 @@ router.get('/mypost', function (req, res) {
             res.send(posts);
         });
     });
-})
+});
+
 /* const data = {
         content: newPostInput.value,
     };
@@ -71,33 +92,18 @@ router.get('/mypost', function (req, res) {
     post('/api/posts', data);
     */
 router.post('/mypost', connect.ensureLoggedIn(), function (req, res) {
-    User.findOne({
-        _id: req.user._id
-    }, function (err, user) {
-        const newMyPost = new MyPost({
-            'user_id': user._id,
-            'post_id': req.body.content
-        });
-        user.save();
-
-        newMyPost.save(function (err, post) {
-            if (err) console.log(err);
-        });
-        res.send({});
+    const newMyPost = new MyPost({
+        'user_id': req.user._id,
+        'post_id': req.body.post_id
     });
+    user.save();
+
+    newMyPost.save(function (err, post) {
+        if (err) console.log(err);
+    });
+    res.send({});
 });
 
-router.get('/inked', function (req, res) {
-    User.findOne({
-        _id: req.user._id
-    }, function (err, user) {
-        Inked.find({
-            creator_id: user._id
-        }, function (err, posts) {
-            res.send(posts);
-        });
-    });
-})
 /* const data = {
         content: newPostInput.value,
     };
