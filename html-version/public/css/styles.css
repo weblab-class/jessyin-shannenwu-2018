@@ -180,7 +180,7 @@ ul ul a {
 #profile-picture {
             width:200px;
             height:200px;
-            background: url(../propic.jpg) 50% 50% no-repeat;
+            background: url(/propic.jpg) 50% 50% no-repeat;
             display:block;
             border-radius:50%;
             background-size:cover;
@@ -195,7 +195,7 @@ ul ul a {
             height:auto;
             overflow:hidden;
             margin:20px;
-            background: url(../propic.jpg) 50% 50% no-repeat;
+            background: url(/propic.jpg) 50% 50% no-repeat;
             background-size: cover;
 }
 #gallery-container{

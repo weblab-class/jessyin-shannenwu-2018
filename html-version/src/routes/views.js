@@ -18,4 +18,13 @@ router.get('/about', function(req, res) {
   res.sendFile('about.html', { root: 'src/views' });
 });
 
+router.get('/gallery', function(req, res) {
+  res.sendFile('gallery.html', { root: 'src/views' });
+});
+
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+})
+
 module.exports = router;

@@ -1,35 +1,15 @@
-// GET /api/posts fetches all posts
-// GET /api/comment fetches all comments for a post, given the post's id (passed as the 'parent' parameter)
-
-// {
-//   _id: "5a53b37189c7bb15141e9e40",
-//   creator_name: "Danny Tang", 
-//   content: "I don't have any cats now, but this web app has inspired me to adopt 10!"
-// }
-
-// Creates an html block for a post
-/*
-<div class="card" style="width: 18rem; margin:auto;  padding:1.5em;">
-                            <div class="card-body">
-                    
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="card-link"><i class="fa fa-plus-square" aria-hidden="true"></i> inkspired</a>
-                                <a href="#" class="card-link"><i class="fa fa-paint-brush" aria-hidden="true"></i> inked</a>
-                            </div>
-                        </div>
-                        */
-function postDOMObject(postJSON, user) {
-    const colDiv = document.createElement('div');
-    colDiv.className = 'col-sm';
+function imageDOMObject(imageJSON, user) {
+    const galleryDiv = document.createElement('div');
+    galleryDiv.className = 'd-flex flex-wrap';
     
     const card = document.createElement('div');
-    card.setAttribute('id', postJSON._id);
-    card.setAttribute('style', 'width:18rem; margin:auto; padding:1.5em;');
+    card.setAttribute('id', imageJSON._id);
+    card.setAttribute('style', 'max-width:30%; heigh: auto; margin:auto; padding:1.5em;');
     card.className = 'card';
     colDiv.appendChild(card);
     
     const cardBody = document.createElement('div');
-    cardBody.className = 'card-body';
+    cardBody.className = 'card-img';
     card.appendChild(cardBody);
 
     const contentSpan = document.createElement('p');
@@ -66,14 +46,13 @@ function postDOMObject(postJSON, user) {
     const creatorSpan = document.createElement('a');
     creatorSpan.className = 'post-creator card-title';
     creatorSpan.innerHTML = postJSON.creator_name;
-    creatorSpan.setAttribute('href','/u/profile?' + postJSON.creator_id)
     cardFooter.appendChild(creatorSpan);
 
     return card;
 }
 
 
-function newPostDOMObject() {
+/*function newPostDOMObject() {
   const newPostDiv = document.createElement('div');
   newPostDiv.className = 'input-group my-3';
 
@@ -97,16 +76,19 @@ function newPostDOMObject() {
   newPostButtonDiv.appendChild(newPostSubmit);
 
   return newPostDiv;
-}
+}*/
 
 function submitPostHandler() {
+  // TO BE IMPLEMENTED:
+  // submit the post to our newly implemented database
   const newPostInput = document.getElementById('post-content-input');
 
   const data = {
       content: newPostInput.value,
   };
 
-  post('/api/posts', data);
+  post('/api/images', data);
+  // what is this next line doing?
   newPostInput.value = '';
 }
 
@@ -119,17 +101,12 @@ function submitPostHandler() {
 
 
 // Makes API requests and calls helper functions
-function renderPosts(user) {
-  document.getElementById('new-post').appendChild(newPostDOMObject());
-
-  const postsDiv = document.getElementById('posts');
-  get('/api/posts', {}, function(postsArr) {
-    for (let i = 0; i < postsArr.length; i++) {
-      const currentPost = postsArr[i];
-      postsDiv.prepend(postDOMObject(currentPost, user));
+function renderGallery(user) {
+  const imagesDiv = document.getElementById('gallery-images');
+  get('/api/images', {}, function(imagesArr) {
+    for (let i = 0; i < imagesArr.length; i++) {
+      const currentImage = imagesArr[i];
+      imagesDiv.prepend(imageDOMObject(currentImage, user));
     }
   });
 }
-
-//function renderPosts(user){
-//console.log(newPostDOMObject())}

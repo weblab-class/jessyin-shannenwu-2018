@@ -3,6 +3,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const express = require('express');
 const session = require('express-session');
+const cors = require('cors');
 
 
 const db = require('./db');
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // enable Cross Origin Requests (CORS)
+app.use(cors());
 
 // set up sessions
 app.use(session({
@@ -45,10 +47,6 @@ function(req, res) {
   res.redirect('/');
 });
 
-app.get('/logout', function(req, res) {
-    req.logout();
-    res.redirect('/');
-})
 
 // 404 route
 app.use(function(req, res, next) {

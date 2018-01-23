@@ -7,30 +7,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
         
         <!--local dependencies-->
-        <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
 
         
     </head>
     <body>
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top">
-            <a class="navbar-brand" href="posts">inkspire</a>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav navbar-right ml-auto">
-                    <li>
-                        <a class="nav-item nav-link" href="about">About</a>
-                    </li>
-                    <li>
-                        <a class="nav-item nav-link">Gallery</a>
-                    </li>
-                    <li>
-                        <a class="active nav-item nav-link">Profile</a>
-                    </li>
-                    <li>
-                        <a class="nav-item nav-link"  href="/auth/google">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div id="navbar">
+    </div>
         <div class="container-fluid" id="profile-container">
             <div class="d-flex flex-row justify-content-center">
                 <div class="float-left" id="profile-picture"></div>
@@ -61,6 +44,10 @@
             </div>
         </div>
     </body>
+    <script src="/static/js/api.js"></script>
+
+    <script src="/static/js/navbar.js"></script>
+    <script src='/static/js/profile.js'></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
