@@ -42,11 +42,11 @@ function addPhoto() {
     }
     var file = files[0];
     var photoKey = files[0].name;
-    /* data = {
-     image_url: photoKey,
-     post_id:
- }
- post('/api/inked', data);*/
+    data = {
+        image_url: photoKey,
+        post_id: this.name
+    }
+    post('/api/inked', data);
     //TODO: upload the file to s3
 
     s3.upload({

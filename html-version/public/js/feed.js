@@ -36,22 +36,25 @@ function postDOMObject(postJSON, user) {
     contentSpan.innerHTML = postJSON.content;
     cardBody.appendChild(contentSpan);
 
-    const inkspiredButton = document.createElement('a');
-    inkspiredButton.className = 'card-link';
-    inkspiredButton.innerHTML = 'inkspired';
-    inkspiredButton.href = "#";
-    cardBody.appendChild(inkspiredButton);
+    /*    const inkspiredButton = document.createElement('a');
+        inkspiredButton.className = 'card-link';
+        inkspiredButton.innerHTML = 'inkspired';
+        inkspiredButton.href = "#";
+        cardBody.appendChild(inkspiredButton);
 
-    const inkspiredIcon = document.createElement('i');
-    inkspiredIcon.className = 'fa fa-plus-square';
-    inkspiredIcon.setAttribute('aria-hidden', 'true')
-    inkspiredButton.appendChild(inkspiredIcon)
+        const inkspiredIcon = document.createElement('i');
+        inkspiredIcon.className = 'fa fa-plus-square';
+        inkspiredIcon.setAttribute('aria-hidden', 'true')
+        inkspiredButton.appendChild(inkspiredIcon)*/
 
     const inkedButton = document.createElement('a');
     inkedButton.className = 'card-link';
     inkedButton.setAttribute('data-toggle', "modal");
     inkedButton.href = "#upload";
     inkedButton.innerHTML = 'inked';
+    inkedButton.onclick = function () {
+        document.getElementById(addphoto).setAttribute('name', postJSON._id);
+    };
 
     cardBody.appendChild(inkedButton);
 
