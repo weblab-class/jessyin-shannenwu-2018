@@ -54,7 +54,10 @@ app.get('/auth/google/callback', passport.authenticate('google', {
         // Successful authentication, redirect home.
         res.redirect('/');
     });
-
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 // 404 route
 app.use(function (req, res, next) {
