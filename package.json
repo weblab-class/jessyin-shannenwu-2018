@@ -1,0 +1,36 @@
+{
+  "name": "jessyin-shannenwu-2018",
+  "version": "1.0.0",
+  "description": "todo later",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mit6148/jessyin-shannenwu-2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mit6148/jessyin-shannenwu-2018/issues"
+  },
+  "homepage": "https://github.com/mit6148/jessyin-shannenwu-2018#readme",
+  "dependencies": {
+    "aws-sdk": "^2.186.0",
+    "body-parser": "^1.18.2",
+    "connect-ensure-login": "^0.1.1",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "http": "*",
+    "mongoose": "^5.0.1",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
