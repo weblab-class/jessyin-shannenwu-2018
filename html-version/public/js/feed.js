@@ -83,6 +83,7 @@ function submitPostHandler() {
     };
 
     post('/api/posts', data);
+
     newPostInput.value = '';
 }
 

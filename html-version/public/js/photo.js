@@ -42,6 +42,7 @@ function addPhoto() {
     }
     var file = files[0];
     var photoKey = files[0].name;
+    console.log(photoKey);
     //TODO: upload the file to s3
 
     s3.upload({
