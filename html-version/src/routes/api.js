@@ -4,6 +4,7 @@ const connect = require('connect-ensure-login')
 
 // models
 const Post = require('../models/post');
+const User = require('../models/user');
 //const GalleryImage = require('../models/galleryimage.js');
 //const Comment = require('../models/comment');
 
