@@ -216,6 +216,7 @@ ul ul a {
 #gallery-container{
             max-height:600px;
             height:600px;
+}
 .card {
     margin: auto;
 }
@@ -224,4 +225,6 @@ ul ul a {
     padding-left: 1em;
 }
 
-
+.nav-item nav-link.active {
+    border-bottom: red solid 1px;
+ }
