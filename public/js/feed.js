@@ -96,7 +96,7 @@ function newPostDOMObject() {
     // input for creating a new Post
     const newPostContent = document.createElement('input');
     newPostContent.setAttribute('type', 'text');
-    newPostContent.setAttribute('placeholder', 'New Post');
+    newPostContent.setAttribute('placeholder', 'new idea!');
     newPostContent.className = 'form-control';
     newPostContent.setAttribute('id', 'post-content-input');
     newPostDiv.appendChild(newPostContent);
@@ -106,7 +106,7 @@ function newPostDOMObject() {
     newPostDiv.appendChild(newPostButtonDiv);
 
     const newPostSubmit = document.createElement('button');
-    newPostSubmit.innerHTML = 'Submit';
+    newPostSubmit.innerHTML = 'submit';
     newPostSubmit.className = 'btn btn-outline-primary';
     // here: handler for when we submit the post
     newPostSubmit.addEventListener('click', submitPostHandler);
