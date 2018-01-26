@@ -4,15 +4,24 @@ function main() {
         '_id': profileId
     }, function (profileUser) {
         renderUserData(profileUser);
-        console.log('hi');
         get('/api/posts', {
-            creator_id: profileId
+            'creator_id': profileId
         }, function (postsArr) {
-            console.log('hi');
             for (let i = 0; i < postsArr.length; i++) {
-                console.log(postsArr[i].creator_id);
                 if (profileUser._id == postsArr[i].creator_id) {
                     renderUserPosts(postsArr[i]);
+                }
+            }
+        });
+        console.log('here');
+        get('/api/inked', {
+            'creator_id': profileId
+        }, function (inkedArr) {
+            console.log('hi')
+            for (let i = 0; i < inkedArr.length; i++) {
+                if (profileUser._id == inkedArr[i].creator_id) {
+                    console.log(inkedArr[i].image_url);
+                    renderUserGallery(inkedArr[i]);
                 }
             }
         });
@@ -22,6 +31,10 @@ function main() {
         renderNavbar(user);
     });
 
+
+}
+
+function renderUserGallery(inkedJSON) {
 
 }
 
