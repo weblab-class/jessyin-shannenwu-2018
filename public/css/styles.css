@@ -143,6 +143,18 @@ body {
 
 .btn {
     font-family: 'Poppins', sans-serif;
+    background-color: #AADDDD;
+}
+
+.btn-outline-primary{
+    color:white;
+    border-color:#AADDDD
+}
+
+.btn-outline-primary:hover{
+/*    color:white;*/
+    background-color: #baefef;
+    border-color:#baefef;
 }
 
 p {

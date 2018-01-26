@@ -1,8 +1,8 @@
 function newNavbarItem(text, url) {
     const listItem = document.createElement('li');
     const itemLink = document.createElement('a');
-    itemLink.setAttribute('id', text);
     itemLink.className = 'nav-item nav-link';
+    itemLink.setAttribute('id', text);
     itemLink.innerHTML = text;
     itemLink.href = url;
     listItem.appendChild(itemLink);
@@ -10,27 +10,6 @@ function newNavbarItem(text, url) {
     return listItem;
 }
 
-/*
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top">
-            <a class="navbar-brand" style="padding-left: 1em;" href="posts">inkspire</a>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav navbar-right ml-auto">
-                    <li>
-                        <a class="nav-item nav-link" href="about">About</a>
-                    </li>
-                    <li>
-                        <a class="nav-item nav-link" href="#">Gallery</a>
-                    </li>
-                    <li>
-                        <a class="active nav-item nav-link" href="u/profile">Profile</a>
-                    </li>
-                    <li>
-                        <a class="nav-item nav-link" href="#">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        */
 
 function renderNavbar(user) {
     const navbarDiv = document.getElementById('navbar');
@@ -57,14 +36,29 @@ function renderNavbar(user) {
     navbarLinksList.className = 'navbar-nav navbar-right ml-auto'
     navbarLinksDiv.appendChild(navbarLinksList);
 
-    navbarLinksList.appendChild(newNavbarItem('Gallery', '/gallery'));
+
 
     if (user._id) {
-        navbarLinksList.appendChild(newNavbarItem('Profile', '/u/profile?' + user._id));
-        navbarLinksList.appendChild(newNavbarItem('Logout', '/logout'));
+        navbarLinksList.appendChild(newNavbarItem('ideas', '/posts'));
+        navbarLinksList.appendChild(newNavbarItem('gallery', '/gallery'));
+        navbarLinksList.appendChild(newNavbarItem('profile', '/u/profile?' + user._id));
+        navbarLinksList.appendChild(newNavbarItem('logout', '/logout'));
     } else {
-        navbarLinksList.appendChild(newNavbarItem('Login', 'auth/google'));
+        navbarLinksList.appendChild(newNavbarItem('login', 'auth/google'));
     }
 
-    navbarLinksList.appendChild(newNavbarItem('About', '/about'));
+
+    navbarLinksList.appendChild(newNavbarItem('about', '/about'));
+    if (navbarDiv.className == "ideas") {
+        document.getElementById("ideas").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+    }
+    if (navbarDiv.className == "about") {
+        document.getElementById("about").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+    }
+    if (navbarDiv.className == "gallery") {
+        document.getElementById("gallery").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+    }
+    if (navbarDiv.className == "profile") {
+        document.getElementById("profile").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+    }
 }
