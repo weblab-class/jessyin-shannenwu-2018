@@ -71,32 +71,6 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
     });
 });
 
-/*
-router.get('/mypost', function (req, res) {
-    User.findOne({
-        _id: req.user._id
-    }, function (err, user) {
-        MyPost.find({
-            user_id: user._id
-        }, function (err, posts) {
-            res.send(posts);
-        });
-    });
-});
-
-router.post('/mypost', connect.ensureLoggedIn(), function (req, res) {
-    const newMyPost = new MyPost({
-        'user_id': req.user._id,
-        'post_id': req.body.post_id
-    });
-    user.save();
-
-    newMyPost.save(function (err, post) {
-        if (err) console.log(err);
-    });
-    res.send({});
-});*/
-
 router.get('/inked', function (req, res) {
     Inked.find({}, function (err, posts) {
         res.send(posts);

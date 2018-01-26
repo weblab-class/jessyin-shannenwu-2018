@@ -1,12 +1,13 @@
 function newNavbarItem(text, url) {
-  const listItem = document.createElement('li');
-  const itemLink = document.createElement('a');
-  itemLink.className = 'nav-item nav-link';
-  itemLink.innerHTML = text;
-  itemLink.href = url;
-  listItem.appendChild(itemLink);
-    
-  return listItem;
+    const listItem = document.createElement('li');
+    const itemLink = document.createElement('a');
+    itemLink.setAttribute('id', text);
+    itemLink.className = 'nav-item nav-link';
+    itemLink.innerHTML = text;
+    itemLink.href = url;
+    listItem.appendChild(itemLink);
+
+    return listItem;
 }
 
 /*
@@ -32,39 +33,38 @@ function newNavbarItem(text, url) {
         */
 
 function renderNavbar(user) {
-  const navbarDiv = document.getElementById('navbar');
-  const navbarDivStyles = document.createElement('nav');
-  navbarDivStyles.setAttribute('class', "navbar navbar-toggleable-md navbar-light bg-faded sticky-top");
- navbarDiv.appendChild(navbarDivStyles);
-    
-  const navbarBrand = document.createElement('a');
-  navbarBrand.setAttribute('class', 'navbar-brand');
-  if(user._id){
-    navbarBrand.href = '/posts';
-  }else{
-      navbarBrand.href = '/about'
-  }
-  navbarBrand.innerHTML = "inkspire"
-  navbarDivStyles.appendChild(navbarBrand);
-    
-  const navbarLinksDiv = document.createElement('div');
-  navbarLinksDiv.setAttribute('class', 'collapse navbar-collapse');
-  navbarLinksDiv.setAttribute('id', 'navbarNavAltMarkup');
-    navbarDivStyles.appendChild(navbarLinksDiv);
-    
-  const navbarLinksList = document.createElement('ul');
-  navbarLinksList.className = 'navbar-nav navbar-right ml-auto'
-  navbarLinksDiv.appendChild(navbarLinksList);
-    
-  navbarLinksList.appendChild(newNavbarItem('Gallery', '/gallery'));
-    
-  if(user._id){
-    navbarLinksList.appendChild(newNavbarItem('Profile', '/u/profile?'+user._id));
-    navbarLinksList.appendChild(newNavbarItem('Logout','/logout'));
-  }
-  else{
-      navbarLinksList.appendChild(newNavbarItem('Login', 'auth/google'));
-  }
+    const navbarDiv = document.getElementById('navbar');
+    const navbarDivStyles = document.createElement('nav');
+    navbarDivStyles.setAttribute('class', "navbar navbar-toggleable-md navbar-light bg-faded sticky-top");
+    navbarDiv.appendChild(navbarDivStyles);
 
-navbarLinksList.appendChild(newNavbarItem('About','/about'));
+    const navbarBrand = document.createElement('a');
+    navbarBrand.setAttribute('class', 'navbar-brand');
+    if (user._id) {
+        navbarBrand.href = '/posts';
+    } else {
+        navbarBrand.href = '/about'
+    }
+    navbarBrand.innerHTML = "inkspire"
+    navbarDivStyles.appendChild(navbarBrand);
+
+    const navbarLinksDiv = document.createElement('div');
+    navbarLinksDiv.setAttribute('class', 'collapse navbar-collapse');
+    navbarLinksDiv.setAttribute('id', 'navbarNavAltMarkup');
+    navbarDivStyles.appendChild(navbarLinksDiv);
+
+    const navbarLinksList = document.createElement('ul');
+    navbarLinksList.className = 'navbar-nav navbar-right ml-auto'
+    navbarLinksDiv.appendChild(navbarLinksList);
+
+    navbarLinksList.appendChild(newNavbarItem('Gallery', '/gallery'));
+
+    if (user._id) {
+        navbarLinksList.appendChild(newNavbarItem('Profile', '/u/profile?' + user._id));
+        navbarLinksList.appendChild(newNavbarItem('Logout', '/logout'));
+    } else {
+        navbarLinksList.appendChild(newNavbarItem('Login', 'auth/google'));
+    }
+
+    navbarLinksList.appendChild(newNavbarItem('About', '/about'));
 }

@@ -4,23 +4,18 @@ function main() {
         '_id': profileId
     }, function (profileUser) {
         renderUserData(profileUser);
-        get('/api/posts', {
-            'creator_id': profileId
-        }, function (postsArr) {
+
+        get('/api/posts', {}, function (postsArr) {
             for (let i = 0; i < postsArr.length; i++) {
                 if (profileUser._id == postsArr[i].creator_id) {
                     renderUserPosts(postsArr[i]);
                 }
             }
         });
-        console.log('here');
-        get('/api/inked', {
-            'creator_id': profileId
-        }, function (inkedArr) {
-            console.log('hi')
+
+        get('/api/inked', {}, function (inkedArr) {
             for (let i = 0; i < inkedArr.length; i++) {
                 if (profileUser._id == inkedArr[i].creator_id) {
-                    console.log(inkedArr[i].image_url);
                     renderUserGallery(inkedArr[i]);
                 }
             }
@@ -35,20 +30,26 @@ function main() {
 }
 
 function renderUserGallery(inkedJSON) {
-
+    const postContainer = document.getElementById('user-inks');
+    const cardDiv = document.createElement('div');
+    cardDiv.className = "card";
+    cardDiv.setAttribute("style", 'padding:0px');
+    const cardImg = document.createElement('img');
+    cardImg.className = 'card-img';
+    const url = "https://s3.amazonaws.com/inkspire/" + inkedJSON.image_url;
+    cardImg.setAttribute('src', url);
+    cardDiv.appendChild(cardImg);
+    postContainer.appendChild(cardDiv);
 }
 
 function renderUserPosts(postJSON) {
 
-    const postContainer = document.getElementById('gallery-container');
-    const colDiv = document.createElement('div');
-    colDiv.className = 'col-sm';
-    postContainer.appendChild(colDiv);
+    const postContainer = document.getElementById('user-ideas');
 
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
     card.className = 'card';
-    colDiv.appendChild(card);
+    postContainer.appendChild(card);
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
@@ -85,5 +86,6 @@ function renderUserData(user) {
 
 
 }
+
 
 main();

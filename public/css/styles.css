@@ -1,5 +1,15 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+#ideas-icon,
+#inked-icon {
+    border-bottom: 4px solid transparent;
+}
+
+#ideas-icon:hover,
+#inked-icon:hover {
+    border-bottom: 4px solid #DDDDDD;
+}
+
 #post-content-input {
     width: 130px;
     font-family: "Poppins", sans-serif;
@@ -18,16 +28,38 @@
     max-height: 10em;
 }
 
+@media (min-width: 576px) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+}
+
 .card {
     min-width: 20%;
-    margin: 20px;
     margin-bottom: 0px;
     padding: 20px 20px 0px 20px;
 }
 
 .card-footer {
     text-align: right;
-    padding: 0 1.25rem;
     background-color: white;
     color: lightgray;
     font-style: italic;
@@ -229,19 +261,6 @@ ul ul a {
     margin: 50px;
 }
 
-#gallery-picture-container {
-    width: 30%;
-    height: auto;
-    overflow: hidden;
-    margin: 20px;
-    background-size: cover;
-}
-
-#gallery-container {
-    max-height: 600px;
-    height: 600px;
-
-}
 
 .item__overlay {
     position: absolute;
