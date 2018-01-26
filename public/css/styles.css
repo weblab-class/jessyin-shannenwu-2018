@@ -146,6 +146,10 @@ body {
     background-color: #AADDDD;
 }
 
+.btn-primary{
+    color:white;
+    border-color:#aadddd;
+}
 .btn-outline-primary{
     color:white;
     border-color:#AADDDD
