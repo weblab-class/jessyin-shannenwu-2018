@@ -7,8 +7,7 @@ const Post = require('../models/post');
 const User = require('../models/user');
 const MyPost = require('../models/mypost');
 const Inked = require('../models/inked');
-//const GalleryImage = require('../models/galleryimage.js');
-//const Comment = require('../models/comment');
+
 
 const router = express.Router();
 
@@ -72,7 +71,7 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
     });
 });
 
-
+/*
 router.get('/mypost', function (req, res) {
     User.findOne({
         _id: req.user._id
@@ -85,12 +84,6 @@ router.get('/mypost', function (req, res) {
     });
 });
 
-/* const data = {
-        content: newPostInput.value,
-    };
-
-    post('/api/posts', data);
-    */
 router.post('/mypost', connect.ensureLoggedIn(), function (req, res) {
     const newMyPost = new MyPost({
         'user_id': req.user._id,
@@ -102,14 +95,14 @@ router.post('/mypost', connect.ensureLoggedIn(), function (req, res) {
         if (err) console.log(err);
     });
     res.send({});
+});*/
+
+router.get('/inked', function (req, res) {
+    Inked.find({}, function (err, posts) {
+        res.send(posts);
+    });
 });
 
-/* const data = {
-        content: newPostInput.value,
-    };
-
-    post('/api/posts', data);
-    */
 router.post('/inked', connect.ensureLoggedIn(), function (req, res) {
     User.findOne({
         _id: req.user._id
@@ -129,23 +122,6 @@ router.post('/inked', connect.ensureLoggedIn(), function (req, res) {
     });
 });
 
-/*router.get('/images', function(req, res) {
-    GalleryImage.find({}, function(err, images){
-        res.send(images);
-    });
-});
-
-router.post('/images', function(req,res) {
-    const newGalleryImage = new GalleryImage({
-        'creator_id': 'anonid',
-        'creator_name': 'anonymous',
-        'image_url': req.body.content
-    });
-    newGalleryImage.save(function(err,images) {
-        if (err) console.log(err);
-    });
-    res.send({});
-});*/
 
 
 
