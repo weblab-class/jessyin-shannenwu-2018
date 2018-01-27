@@ -14,17 +14,24 @@ function newNavbarItem(text, url) {
 function renderNavbar(user) {
     const navbarDiv = document.getElementById('navbar');
     const navbarDivStyles = document.createElement('nav');
-    navbarDivStyles.setAttribute('class', "navbar navbar-toggleable-md navbar-light bg-faded sticky-top");
+    navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light bg-faded");
     navbarDiv.appendChild(navbarDivStyles);
-
+    
+    const navbarToggler = document.createElement('button');
+    const toggleButton=document.createElement("span");
+    toggleButton.setAttribute('class',"navbar-toggler-icon");
+    navbarToggler.setAttribute('class', "navbar-toggler");
+    navbarToggler.setAttribute('type',"button");
+    navbarToggler.setAttribute('data-toggle',"collapse");
+    navbarToggler.setAttribute('data-target',"#navbarNavAltMarkup" );
+    navbarToggler.setAttribute('aria-controls',"navbarNavAltMarkup");
+    navbarToggler.setAttribute('aria-expanded',"false");
+    navbarToggler.setAttribute('aria-label',"Toggle navigation");
+    navbarToggler.appendChild(toggleButton);
+    
     const navbarBrand = document.createElement('a');
     navbarBrand.setAttribute('class', 'navbar-brand');
-    if (user._id) {
-        navbarBrand.href = '/posts';
-    } else {
-        navbarBrand.href = '/about'
-    }
-    navbarBrand.innerHTML = "inkspire"
+
     navbarDivStyles.appendChild(navbarBrand);
 
     const navbarLinksDiv = document.createElement('div');
@@ -36,7 +43,12 @@ function renderNavbar(user) {
     navbarLinksList.className = 'navbar-nav navbar-right ml-auto'
     navbarLinksDiv.appendChild(navbarLinksList);
 
-
+    if (user._id) {
+        navbarBrand.href = '/posts';
+    } else {
+        navbarBrand.href = '/about'
+    }
+    navbarBrand.innerHTML = "inkspire"
 
     if (user._id) {
         navbarLinksList.appendChild(newNavbarItem('ideas', '/posts'));
