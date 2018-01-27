@@ -366,6 +366,9 @@ img {
     margin-bottom: 50px;
 }
 
+.collapse {
+    display: block;
+}
 
 @media (min-width: 768px) {
     .masthead {
@@ -378,4 +381,11 @@ img {
     .masthead .intro-body .intro-text {
         font-size: 22px;
     }
+}
+
+small {
+    font-size: 50%;
+    color: darkgray;
+    line-height: 1.2em;
+
 }

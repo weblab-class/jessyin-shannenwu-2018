@@ -39,6 +39,29 @@ function renderUserGallery(inkedJSON) {
     const url = "https://s3.amazonaws.com/inkspire/" + inkedJSON.image_url;
     cardImg.setAttribute('src', url);
     cardDiv.appendChild(cardImg);
+
+    const overlayText = document.createElement('div');
+    const overlayPostContent = document.createElement('h1');
+    const overlayPostAuthor = document.createElement('p');
+    const overlayPostArtist = document.createElement('p');
+    overlayPostArtist.innerHTML = inkedJSON.creator_name;
+
+    get('/api/posts', {}, function (postsArr) {
+        for (let i = 0; i < postsArr.length; i++) {
+            if (inkedJSON.post_id == postsArr[i]._id) {
+                overlayPostContent.innerHTML = postsArr[i].content;
+                overlayPostAuthor.innerHTML = postsArr[i].creator_name;
+            }
+        }
+    });
+
+    overlayText.appendChild(overlayPostContent);
+    overlayText.appendChild(overlayPostAuthor);
+    overlayText.appendChild(overlayPostArtist);
+    //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
+    overlayText.className = 'text overlay d-flex align-items-center justify-content-center';
+
+    cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
 }
 
@@ -48,7 +71,7 @@ function renderUserPosts(postJSON) {
 
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
-    card.className = 'card';
+    card.className = 'card photo-container';
     postContainer.appendChild(card);
 
     const cardBody = document.createElement('div');

@@ -24,26 +24,30 @@ function renderGallery(inkedJSON) {
     cardImg.setAttribute('src', url);
     cardDiv.appendChild(cardImg);
 
-    const cardOverlay = document.createElement('div');
-    cardOverlay.className = "overlay";
-    var postcontent;
-
-    console.log(postcontent);
     const overlayText = document.createElement('div');
+
+    const overlayPostContent = document.createElement('h1');
+    const overlayPostAuthor = document.createElement('small');
+    const overlayPostArtist = document.createElement('small');
+    overlayPostArtist.innerHTML = inkedJSON.creator_name;
 
     get('/api/posts', {}, function (postsArr) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
-                overlayText.innerHTML = postsArr[i].content;
+                overlayPostContent.innerHTML = postsArr[i].content;
+                overlayPostAuthor.innerHTML = postsArr[i].creator_name;
             }
         }
     });
 
-    overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
-    overlayText.className = 'text';
-    cardOverlay.appendChild(overlayText);
+    overlayText.appendChild(overlayPostContent);
+    overlayText.appendChild(overlayPostAuthor);
+    overlayText.appendChild(overlayPostArtist);
 
-    cardDiv.appendChild(cardOverlay);
+    //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
+    overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
+
+    cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
 }
 
