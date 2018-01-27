@@ -23,7 +23,7 @@ function renderNavbar(user) {
     navbarDivStyles.appendChild(navbarBrand);
     // do the toggler
     const navbarToggler = document.createElement('button');
-    navbarToggler.setAttribute('class', "navbar-toggler");
+    navbarToggler.setAttribute('class', "navbar-toggler navbar-toggler-right");
     navbarToggler.setAttribute('type',"button");
     navbarToggler.setAttribute('data-toggle',"collapse");
     navbarToggler.setAttribute('data-target',"#navbarNavAltMarkup" );
@@ -34,6 +34,7 @@ function renderNavbar(user) {
     const toggleButton = document.createElement("span");
     toggleButton.setAttribute('class',"navbar-toggler-icon");
     navbarToggler.appendChild(toggleButton);
+    navbarDivStyles.appendChild(navbarToggler);
 
     // next div after button
     const navbarLinksDiv = document.createElement('div');

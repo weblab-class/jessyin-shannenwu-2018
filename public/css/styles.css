@@ -357,9 +357,6 @@ img {
     margin-bottom: 50px;
 }
 
-.collapse{
-    display:block;
-}
 
 @media (min-width: 768px) {
     .masthead {
