@@ -1,16 +1,18 @@
 function main() {
     const ideaId = window.location.search.substring(1);
-    get('/api/post', {
-        '_id': ideaId
-    }, function (ideaPost) {
-        renderPostData(ideaPost);
-        get('/api/inked', {}, function (inkedArr) {
-            for (let i = 0; i < inkedArr.length; i++) {
-                if (ideaPost._id == inkedArr[i].post_id) {
-                    renderUserGallery(inkedArr[i]);
-                }
+    get('/api/posts', {}, function (ideaPosts) {
+        for (let p = 0; p < ideaPosts.length; p++) {
+            if (ideaPosts[p]._id == ideaId) {
+                renderPostData(ideaPosts[p]);
+                get('/api/inked', {}, function (inkedArr) {
+                    for (let i = 0; i < inkedArr.length; i++) {
+                        if (ideaPosts[p]._id == inkedArr[i].post_id) {
+                            renderUserGallery(inkedArr[i]);
+                        }
+                    }
+                });
             }
-        });
+        }
     });
 
     get('/api/whoami', {}, function (user) {
@@ -22,15 +24,21 @@ function main() {
 
 function renderPostData(post) {
     // rendering name
-    const nameContainer = document.getElementById('post-container');
-    const nameHeader = document.createElement('h1');
-    nameHeader.innerHTML = post.content;
-    nameContainer.appendChild(nameHeader);
-
+    const postContainer = document.getElementById('post-container');
+    const postSpan = document.createElement('span');
+    /*const ideaIcon = document.createElement('i');
+ideaIcon.className = 'fa fa-lightbulb-o';*/
+    const postHeader = document.createElement('h1');
+    postHeader.setAttribute('class', 'page-description text-center');
+    postHeader.innerHTML = post.content;
+    //postSpan.appendChild(ideaIcon);
+    postSpan.appendChild(postHeader);
+    postContainer.appendChild(postSpan);
 }
 
 function renderUserGallery(inkedJSON) {
-    const postContainer = document.getElementById('user-inks');
+    console.log(inkedJSON);
+    const postContainer = document.getElementById('post-inks');
     const cardDiv = document.createElement('div');
     cardDiv.className = "card";
     cardDiv.setAttribute("style", 'padding:0px');

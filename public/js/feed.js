@@ -12,7 +12,7 @@ function postDOMObject(postJSON, user) {
     card.appendChild(cardBody);
 
     const contentLink = document.createElement('a');
-    contentLink.setAttribute('href', '/i/idea?' + postJSON._id);
+    contentLink.setAttribute('href', '/p/idea?' + postJSON._id);
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
     contentSpan.innerHTML = postJSON.content;

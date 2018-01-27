@@ -19,18 +19,17 @@ var s3 = new AWS.S3({
     }
 });
 
-//get all the data from the bucket and call addAllPhotos to display it
-function viewAlbum() {
-    s3.listObjects({}, function (err, data) {
-        if (err) {
-            return alert('There was an error viewing your album: ' + err.message);
+function photoExists(img_url) {
+    get('/api/inked', {}, function (inkedArr) {
+        for (let i = 0; i < inkedArr.length; i++) {
+            if (inkedArr[i].image_url == img_url) {
+                console.log('photo exists');
+                return true;
+            }
         }
-        // `this` references the AWS.Response instance that represents the response
-        var href = this.request.httpRequest.endpoint.href;
-        console.log(href)
-        var bucketUrl = "https://s3.amazonaws.com/" + albumBucketName + '/';
-        addAllPhotos(bucketUrl, data)
-    });
+        console.log('photo doesnt exist');
+        return false;
+    })
 }
 
 //adds a photo to our S3 database
@@ -42,21 +41,27 @@ function addPhoto(postid) {
     }
     var file = files[0];
     var photoKey = files[0].name;
-    data = {
-        image_url: photoKey,
-        post_id: postid
-    }
-    post('/api/inked', data);
-    //TODO: upload the file to s3
+    console.log(photoExists(photoKey));
+    if (photoExists(photoKey) == false) {
 
-    s3.upload({
-        Key: photoKey,
-        Body: file,
-        ACL: 'public-read'
-    }, function (err, data) {
-        if (err) {
-            return alert('There was an error uploading your photo: ', err.message);
+        data = {
+            image_url: photoKey,
+            post_id: postid
         }
-        console.log('Successfully uploaded photo.');
-    });
+        post('/api/inked', data);
+        //TODO: upload the file to s3
+
+        s3.upload({
+            Key: photoKey,
+            Body: file,
+            ACL: 'public-read'
+        }, function (err, data) {
+            if (err) {
+                return alert('There was an error uploading your photo: ', err.message);
+            }
+            console.log('Successfully uploaded photo.');
+        });
+    } else {
+        console.log('duplicate: photo not uploaded');
+    }
 }

@@ -110,6 +110,7 @@
 #navbar {
     min-width: 800px;
     min-height: 5vh;
+    margin: 20px;
 }
 
 #sidebar.active {

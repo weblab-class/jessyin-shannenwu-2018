@@ -8,37 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
     <!--local dependencies-->
-    <link rel="stylesheet" href="/static/css/sidebar.css">
+    <link rel="stylesheet" href="/static/css/hovereffect.css">
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
 </head>
 
 <body>
     <!--navbar-->
-    <!--make post-->
     <div id="navbar" class="gallery">
     </div>
-    <!--<div class="wrapper">
-    <nav id="sidebar">
-        <ul class="list-unstyled components">
-
-            <li><a href="#">Tags</a></li>
-        </ul>
-    </nav>
-    </div> -->
-    <!--<div class="upload">
-    <input id="photoupload" type="file" accept="image/*">
-    <button id="addphoto" onclick="addPhoto()">
-      Add Photo
-      </button>
-</div>-->
-    <!--Div to hold all the photos we load from s3-->
-    <div class="photo-holder">
-        <div class="grid" id="photogrid">
-        </div>
+    <h1 class='text-center' style="margin-top: 20px;margin-bottom: 20px">Gallery</h1>
+    <div id="photo-holder" class='card-columns' style="margin: 2rem 10% 0 10%;">
     </div>
-
-    <!--<div id="gallery-images" style="width: 100%">  
-            </div>-->
 
 
 </body>
@@ -48,15 +28,6 @@
 <script src="/static/js/navbar.js"></script>
 <script src="/static/js/gallery.js"></script>
 <script src="/static/js/photo.js"></script>
-<script>
-    get('/api/whoami', {}, function(user) {
-        renderNavbar(user);
-    });
-    viewAlbum();
-
-</script>
-<!--<script src="static/js/galleryfeed.js"></script>
--->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
