@@ -11,10 +11,13 @@ function postDOMObject(postJSON, user) {
     cardBody.className = 'card-body';
     card.appendChild(cardBody);
 
+    const contentLink = document.createElement('a');
+    contentLink.setAttribute('href', '/i/idea?' + postJSON._id);
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
-    contentSpan.innerText = postJSON.content;
-    cardBody.appendChild(contentSpan);
+    contentSpan.innerHTML = postJSON.content;
+    contentLink.appendChild(contentSpan);
+    cardBody.appendChild(contentLink);
 
     const inkedButton = document.createElement('a');
     inkedButton.className = 'card-link';
