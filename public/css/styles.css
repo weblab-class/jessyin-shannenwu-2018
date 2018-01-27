@@ -28,6 +28,11 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -110,7 +115,6 @@
 #navbar {
     min-width: 800px;
     min-height: 5vh;
-    margin: 20px;
 }
 
 #sidebar.active {
