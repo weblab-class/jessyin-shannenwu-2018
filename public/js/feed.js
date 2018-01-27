@@ -15,7 +15,7 @@ function postDOMObject(postJSON, user) {
     contentLink.setAttribute('href', '/p/idea?' + postJSON._id);
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
-    contentSpan.innerHTML = postJSON.content;
+    contentSpan.innerText = postJSON.content;
     contentLink.appendChild(contentSpan);
     cardBody.appendChild(contentLink);
 
@@ -55,10 +55,13 @@ function submitPostHandler() {
     const data = {
         content: newPostInput.value,
     };
+    if (newPostInput.value !== ""){
+        post('/api/posts', data);
+    }
+    else{
+        alert("u stupid");
+    }
 
-    post('/api/posts', data);
-
-    newPostInput.value = '';
 }
 
 function newPostDOMObject() {
