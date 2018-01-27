@@ -1,23 +1,3 @@
-// GET /api/posts fetches all posts
-// GET /api/comment fetches all comments for a post, given the post's id (passed as the 'parent' parameter)
-
-// {
-//   _id: "5a53b37189c7bb15141e9e40",
-//   creator_name: "Danny Tang", 
-//   content: "I don't have any cats now, but this web app has inspired me to adopt 10!"
-// }
-
-// Creates an html block for a post
-/*
-<div class="card" style="width: 18rem; margin:auto;  padding:1.5em;">
-                            <div class="card-body">
-                    
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="card-link"><i class="fa fa-plus-square" aria-hidden="true"></i> inkspired</a>
-                                <a href="#" class="card-link"><i class="fa fa-paint-brush" aria-hidden="true"></i> inked</a>
-                            </div>
-                        </div>
-                        */
 function postDOMObject(postJSON, user) {
     const colDiv = document.createElement('div');
     colDiv.className = 'col-sm';
@@ -36,24 +16,13 @@ function postDOMObject(postJSON, user) {
     contentSpan.innerHTML = postJSON.content;
     cardBody.appendChild(contentSpan);
 
-    /*    const inkspiredButton = document.createElement('a');
-        inkspiredButton.className = 'card-link';
-        inkspiredButton.innerHTML = 'inkspired';
-        inkspiredButton.href = "#";
-        cardBody.appendChild(inkspiredButton);
-
-        const inkspiredIcon = document.createElement('i');
-        inkspiredIcon.className = 'fa fa-plus-square';
-        inkspiredIcon.setAttribute('aria-hidden', 'true')
-        inkspiredButton.appendChild(inkspiredIcon)*/
-
     const inkedButton = document.createElement('a');
     inkedButton.className = 'card-link';
     inkedButton.setAttribute('data-toggle', "modal");
     inkedButton.href = "#upload";
     inkedButton.innerHTML = 'inked';
     inkedButton.onclick = function () {
-        document.getElementById(addphoto).setAttribute('name', postJSON._id);
+        document.getElementById('addphoto').setAttribute('name', postJSON._id);
     };
 
     cardBody.appendChild(inkedButton);
@@ -116,15 +85,6 @@ function newPostDOMObject() {
 }
 
 
-
-// {
-//   _id: "5a53ba14a6078f28283eb9a1",
-//   creator_name: "Rupayan Neogy", 
-//   parent: "5a53b37189c7bb15141e9e40", 
-//   content: "I think a good name is Winston"
-// }
-
-
 // Makes API requests and calls helper functions
 function renderPosts(user) {
     if (user._id !== undefined) {
@@ -139,6 +99,3 @@ function renderPosts(user) {
         }
     });
 }
-
-//function renderPosts(user){
-//console.log(newPostDOMObject())}
