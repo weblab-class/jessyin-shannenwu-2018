@@ -1,5 +1,12 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #DDD;
+    opacity: 1;
+    /* Firefox */
+}
+
 #ideas-icon,
 #inked-icon {
     border-bottom: 4px solid transparent;
@@ -146,19 +153,20 @@ body {
     background-color: #AADDDD;
 }
 
-.btn-primary{
-    color:white;
-    border-color:#aadddd;
-}
-.btn-outline-primary{
-    color:white;
-    border-color:#AADDDD
+.btn-primary {
+    color: white;
+    border-color: #aadddd;
 }
 
-.btn-outline-primary:hover{
-/*    color:white;*/
+.btn-outline-primary {
+    color: white;
+    border-color: #AADDDD
+}
+
+.btn-outline-primary:hover {
+    /*    color:white;*/
     background-color: #baefef;
-    border-color:#baefef;
+    border-color: #baefef;
 }
 
 p {
@@ -357,8 +365,8 @@ img {
     margin-bottom: 50px;
 }
 
-.collapse{
-    display:block;
+.collapse {
+    display: block;
 }
 
 @media (min-width: 768px) {

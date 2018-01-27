@@ -34,7 +34,7 @@ function viewAlbum() {
 }
 
 //adds a photo to our S3 database
-function addPhoto() {
+function addPhoto(postid) {
     //get the file out of the upload widget	
     var files = document.getElementById('photoupload').files;
     if (!files.length) {
@@ -44,7 +44,7 @@ function addPhoto() {
     var photoKey = files[0].name;
     data = {
         image_url: photoKey,
-        post_id: this.name
+        post_id: postid
     }
     post('/api/inked', data);
     //TODO: upload the file to s3
