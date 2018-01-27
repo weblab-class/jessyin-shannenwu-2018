@@ -55,10 +55,13 @@ function submitPostHandler() {
     const data = {
         content: newPostInput.value,
     };
+    if (newPostInput.value !== ""){
+        post('/api/posts', data);
+    }
+    else{
+        alert("u stupid");
+    }
 
-    post('/api/posts', data);
-
-    newPostInput.value = '';
 }
 
 function newPostDOMObject() {
