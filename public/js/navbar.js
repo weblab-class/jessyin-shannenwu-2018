@@ -1,9 +1,10 @@
 function newNavbarItem(text, url) {
     const listItem = document.createElement('li');
+    listItem.className = "nav-item active";
     const itemLink = document.createElement('a');
-    itemLink.className = 'nav-item nav-link';
+    itemLink.className = 'nav-link';
     itemLink.setAttribute('id', text);
-    itemLink.innerHTML = text;
+    itemLink.innerText = text;
     itemLink.href = url;
     listItem.appendChild(itemLink);
 
@@ -16,10 +17,12 @@ function renderNavbar(user) {
     const navbarDivStyles = document.createElement('nav');
     navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light bg-faded");
     navbarDiv.appendChild(navbarDivStyles);
-    
+    // do the brand stuff 
+    const navbarBrand = document.createElement('a');
+    navbarBrand.setAttribute('class', 'navbar-brand');
+    navbarDivStyles.appendChild(navbarBrand);
+    // do the toggler
     const navbarToggler = document.createElement('button');
-    const toggleButton=document.createElement("span");
-    toggleButton.setAttribute('class',"navbar-toggler-icon");
     navbarToggler.setAttribute('class', "navbar-toggler");
     navbarToggler.setAttribute('type',"button");
     navbarToggler.setAttribute('data-toggle',"collapse");
@@ -27,18 +30,18 @@ function renderNavbar(user) {
     navbarToggler.setAttribute('aria-controls',"navbarNavAltMarkup");
     navbarToggler.setAttribute('aria-expanded',"false");
     navbarToggler.setAttribute('aria-label',"Toggle navigation");
+        // toggler button
+    const toggleButton = document.createElement("span");
+    toggleButton.setAttribute('class',"navbar-toggler-icon");
     navbarToggler.appendChild(toggleButton);
-    
-    const navbarBrand = document.createElement('a');
-    navbarBrand.setAttribute('class', 'navbar-brand');
 
-    navbarDivStyles.appendChild(navbarBrand);
-
+    // next div after button
     const navbarLinksDiv = document.createElement('div');
     navbarLinksDiv.setAttribute('class', 'collapse navbar-collapse');
     navbarLinksDiv.setAttribute('id', 'navbarNavAltMarkup');
     navbarDivStyles.appendChild(navbarLinksDiv);
 
+    // ul block
     const navbarLinksList = document.createElement('ul');
     navbarLinksList.className = 'navbar-nav navbar-right ml-auto'
     navbarLinksDiv.appendChild(navbarLinksList);
@@ -46,9 +49,9 @@ function renderNavbar(user) {
     if (user._id) {
         navbarBrand.href = '/posts';
     } else {
-        navbarBrand.href = '/about'
+        navbarBrand.href = '/about';
     }
-    navbarBrand.innerHTML = "inkspire"
+    navbarBrand.innerText = "inkspire";
 
     if (user._id) {
         navbarLinksList.appendChild(newNavbarItem('ideas', '/posts'));
@@ -61,16 +64,20 @@ function renderNavbar(user) {
 
 
     navbarLinksList.appendChild(newNavbarItem('about', '/about'));
-    if (navbarDiv.className == "ideas") {
-        document.getElementById("ideas").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-    }
-    if (navbarDiv.className == "about") {
-        document.getElementById("about").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-    }
-    if (navbarDiv.className == "gallery") {
-        document.getElementById("gallery").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-    }
-    if (navbarDiv.className == "profile") {
-        document.getElementById("profile").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+
+    switch (navbarDiv.className) {
+        case "ideas":
+            document.getElementById("ideas").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            break;
+        case "about":
+            document.getElementById("about").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            break;
+        case "gallery":
+            document.getElementById("gallery").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            break;
+        case "profile":
+            document.getElementById("profile").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            break;
+
     }
 }

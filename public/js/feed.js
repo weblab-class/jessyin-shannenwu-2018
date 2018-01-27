@@ -13,7 +13,7 @@ function postDOMObject(postJSON, user) {
 
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
-    contentSpan.innerHTML = postJSON.content;
+    contentSpan.innerText = postJSON.content;
     cardBody.appendChild(contentSpan);
 
     const inkedButton = document.createElement('a');
@@ -68,6 +68,7 @@ function newPostDOMObject() {
     newPostContent.setAttribute('placeholder', 'new idea!');
     newPostContent.className = 'form-control';
     newPostContent.setAttribute('id', 'post-content-input');
+    newPostContent.setAttribute('maxlength', 140);
     newPostDiv.appendChild(newPostContent);
 
     const newPostButtonDiv = document.createElement('div');
