@@ -222,9 +222,12 @@ ul ul a {
 }
 
 .navbar-brand {
-    padding-left: 1em;
+    padding-left: 3em;
 }
 
-.nav-item nav-link.active {
-    border-bottom: red solid 1px;
- }
+.container{
+    padding-top:45px;
+}
+
+
+

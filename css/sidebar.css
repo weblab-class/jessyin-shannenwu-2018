@@ -1,5 +1,7 @@
-
 /*
+    DEMO STYLE
+*/
+
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 
@@ -57,11 +59,15 @@ a:hover::before, a:focus::before {
 }
 
 .navbar {
-    padding: 15px 10px;
+    padding-top:15px;
+    padding-right:10px;
+    padding-bottom:15px;
+    padding-left:20px;
     background: #fff;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
+    margin-left:15px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -230,7 +236,7 @@ a.article, a.article:hover {
 
 
 
-@media (max-width: 768px) {
+@media and (max-width: 768px) {
     #sidebar {
         min-width: 80px;
         max-width: 80px;
@@ -283,4 +289,3 @@ a.article, a.article:hover {
         display: none;
     }
 }
-*/
