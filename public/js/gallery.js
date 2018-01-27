@@ -40,7 +40,7 @@ function renderGallery(inkedJSON) {
     });
 
     overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
-    overlayText.className = 'text';
+    overlayText.className = "text";
     cardOverlay.appendChild(overlayText);
 
     cardDiv.appendChild(cardOverlay);
