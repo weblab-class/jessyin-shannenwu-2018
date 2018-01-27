@@ -71,6 +71,7 @@ function newPostDOMObject() {
     newPostContent.setAttribute('placeholder', 'new idea!');
     newPostContent.className = 'form-control';
     newPostContent.setAttribute('id', 'post-content-input');
+    newPostContent.setAttribute('maxlength', 140);
     newPostDiv.appendChild(newPostContent);
 
     const newPostButtonDiv = document.createElement('div');
