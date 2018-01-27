@@ -8,11 +8,16 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #fff;
+    background-color: #000;
+}
+
+.photo-container {
+    position: relative;
+    width: 50%;
 }
 
 .photo-container:hover .overlay {
-    opacity: .5;
+    opacity: .8;
 }
 
 .text {

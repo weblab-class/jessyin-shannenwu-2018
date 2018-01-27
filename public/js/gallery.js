@@ -1,11 +1,8 @@
 function main() {
 
     get('/api/inked', {}, function (inkedArr) {
-
         for (let i = 0; i < inkedArr.length; i++) {
-            console.log(inkedArr[i]);
             renderGallery(inkedArr[i]);
-
         }
     });
 
@@ -16,6 +13,7 @@ function main() {
 
 
 function renderGallery(inkedJSON) {
+
     const postContainer = document.getElementById('photo-holder');
     const cardDiv = document.createElement('div');
     cardDiv.className = "card photo-container";
@@ -28,10 +26,21 @@ function renderGallery(inkedJSON) {
 
     const cardOverlay = document.createElement('div');
     cardOverlay.className = "overlay";
+    var postcontent;
 
+    console.log(postcontent);
     const overlayText = document.createElement('div');
-    overlayText.innerHTML = "post description";
-    overlayText.class = 'text';
+
+    get('/api/posts', {}, function (postsArr) {
+        for (let i = 0; i < postsArr.length; i++) {
+            if (inkedJSON.post_id == postsArr[i]._id) {
+                overlayText.innerHTML = postsArr[i].content;
+            }
+        }
+    });
+
+    overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
+    overlayText.className = 'text';
     cardOverlay.appendChild(overlayText);
 
     cardDiv.appendChild(cardOverlay);
