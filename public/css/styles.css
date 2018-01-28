@@ -169,10 +169,17 @@ body {
 /*    background-color: #AADDDD;*/
 }
 
+/*inked button*/
 .btn-success {
     color:white;
-    border-color: #AADDDD;
-    background-color: #AADDDD;
+    border-color: #aaddc1;
+    background-color: #aaddc1;
+}
+
+.btn-success:hover {
+    color:white;
+    border-color: #5cb85c;
+    background-color: #5cb85c;
 }
 
 .btn-danger {
@@ -186,6 +193,11 @@ body {
     border-color: #aadddd;
     background-color: #AADDDD;
 }
+.btn-primary:hover{
+    color: #AADDDD;
+    background-color: white;
+    border-color: #AADDDD;    
+}
 
 .btn-outline-primary {
     color: white;
@@ -194,15 +206,21 @@ body {
 }
 
 .btn-outline-primary:hover {
-    /*    color:white;*/
-    background-color: #baefef;
-    border-color: #baefef;
+    color: #AADDDD;
+    background-color: white;
+    border-color: #AADDDD;
 }
-
+/*secondary is cancel button*/
 .btn-secondary {
     color: white;
     border-color: #AADDDD;
     background-color: #AADDDD;
+}
+
+.btn-secondary:hover{
+    color:white;
+    border-color:#ccc;
+    background-color:#ccc;
 }
 
 p {
@@ -430,7 +448,7 @@ img {
 .container {
     max-width: 100%;
     width: 80%;
-    padding-top:30px;
+    padding-top:20px;
     }
 }
 

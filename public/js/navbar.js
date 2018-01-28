@@ -66,11 +66,12 @@ function renderNavbar(user) {
         navbarLinksList.appendChild(newNavbarItem('profile', '/u/profile?' + user._id));
         navbarLinksList.appendChild(newNavbarItem('logout', '/logout'));
     } else {
+        navbarLinksList.appendChild(newNavbarItem('gallery', '/gallery'));
         navbarLinksList.appendChild(newNavbarItem('login', 'auth/google'));
     }
 
-
     navbarLinksList.appendChild(newNavbarItem('about', '/about'));
+    
 
     switch (navbarDiv.className) {
         case "ideas":
