@@ -388,7 +388,7 @@ img {
 }
 
 small {
-    font-size: 50%;
+    font-size: small;
     color: darkgray;
     line-height: 1.2em;
 
