@@ -23,7 +23,7 @@ function postDOMObject(postJSON, user) {
     inkedButton.className = 'card-link';
     inkedButton.setAttribute('data-toggle', "modal");
     inkedButton.href = "#upload";
-    inkedButton.innerText = 'inked';
+    inkedButton.innerHTML = 'inked';
     inkedButton.onclick = function () {
         document.getElementById('addphoto').setAttribute('name', postJSON._id);
     };
@@ -32,8 +32,8 @@ function postDOMObject(postJSON, user) {
 
     const inkedIcon = document.createElement('i');
     inkedIcon.className = 'fa fa-paint-brush';
-    inkedIcon.setAttribute('aria-hidden', 'true');
-    inkedButton.appendChild(inkedIcon);
+    inkedIcon.setAttribute('aria-hidden', 'true')
+    inkedButton.appendChild(inkedIcon)
 
 
     const cardFooter = document.createElement('div');
@@ -55,11 +55,10 @@ function submitPostHandler() {
     const data = {
         content: newPostInput.value,
     };
-    if (newPostInput.value !== ""){
+    if (newPostInput.value !== "") {
         post('/api/posts', data);
-    }
-    else{
-        alert("please input an idea!");
+    } else {
+        alert("u stupid");
     }
 
 }
@@ -91,6 +90,16 @@ function newPostDOMObject() {
     return newPostDiv;
 }
 
+function predicateBy(prop) {
+    return function (a, b) {
+        if (a[prop] > b[prop]) {
+            return 1;
+        } else if (a[prop] < b[prop]) {
+            return -1;
+        }
+        return 0;
+    }
+}
 
 // Makes API requests and calls helper functions
 function renderPosts(user) {
@@ -100,6 +109,7 @@ function renderPosts(user) {
 
     const postsDiv = document.getElementById('posts');
     get('/api/posts', {}, function (postsArr) {
+        postsArr.sort(predicateBy('creator_name'));
         for (let i = 0; i < postsArr.length; i++) {
             const currentPost = postsArr[i];
             postsDiv.prepend(postDOMObject(currentPost, user));
