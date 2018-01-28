@@ -213,14 +213,14 @@ body {
 /*secondary is cancel button*/
 .btn-secondary {
     color: white;
-    border-color: #AADDDD;
-    background-color: #AADDDD;
+    border-color: #ccc;
+    background-color: #ccc;
 }
 
-.btn-secondary:hover{
+.btn-secondary:hover, focus{
     color:white;
-    border-color:#ccc;
-    background-color:#ccc;
+    border-color:#636c72;
+    background-color:#636c72;
 }
 
 p {
