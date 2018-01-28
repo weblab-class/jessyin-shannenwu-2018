@@ -80,7 +80,7 @@ const io = socketio(server);
 app.set('socketio', io);
 
 // port config
-const port = process.env.PORT || 3000; // config 
+const port = process.env.PORT || 3001; // config 
 server.listen(port, function () {
     console.log('Server running on port: ' + port);
 });
