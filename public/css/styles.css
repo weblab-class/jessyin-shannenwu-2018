@@ -184,6 +184,7 @@ body {
 .btn-primary {
     color: white;
     border-color: #aadddd;
+    background-color: #AADDDD;
 }
 
 .btn-outline-primary {
@@ -289,6 +290,15 @@ ul ul a {
     padding: 20px;
     border: 1px solid #888;
     width: 100%;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }
 
 /* The Close Button */
