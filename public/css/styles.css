@@ -161,6 +161,7 @@ a[aria-expanded="true"]::before {
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+    padding-top: 30px;
 }
 
 .btn {
@@ -391,7 +392,7 @@ img {
 
 .masthead .intro-body .brand-heading {
     font-size: 50px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .masthead .intro-body .intro-text {
@@ -419,6 +420,7 @@ img {
 .container {
     max-width: 100%;
     width: 80%;
+    padding-top:30px;
     }
 }
 
