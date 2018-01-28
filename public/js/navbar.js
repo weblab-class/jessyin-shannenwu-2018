@@ -48,7 +48,7 @@ function renderNavbar(user) {
     navbarLinksDiv.appendChild(navbarLinksList);
     const logo = document.createElement('img');
     logo.setAttribute('src', "/static/logov6.png");
-    logo.setAttribute('style', 'width: auto; height:50px');
+    logo.setAttribute('style', 'width: auto; height:30px');
     navbarBrand.appendChild(logo);
     if (user._id) {
         navbarBrand.href = '/posts';
