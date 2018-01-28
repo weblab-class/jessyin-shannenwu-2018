@@ -28,6 +28,7 @@ function main() {
         const socket = io();
 
         socket.on('updateProPic', function (msg) {
+            console.log('updating profile picture');
             const profileImage = document.getElementById('profile-picture');
             profileImage.style = 'background:url(https://s3.amazonaws.com/inkspire/' + msg.image_url + ') 50% 50% no-repeat; background-size:cover;';
         });
@@ -85,7 +86,7 @@ function renderUserGallery(inkedJSON) {
     const overlayPostArtist = document.createElement('small');
 
     const postAuthorIcon = document.createElement('i');
-    postAuthorIcon.className = "far fa-lightbulb";   
+    postAuthorIcon.className = "far fa-lightbulb";
     overlayPostAuthor.appendChild(postAuthorIcon);
 
     const postArtistIcon = document.createElement('i');
@@ -94,18 +95,32 @@ function renderUserGallery(inkedJSON) {
 
     overlayPostArtist.innerHTML += ("  " + inkedJSON.creator_name);
 
+    const artistLink = document.createElement('a');
+    artistLink.setAttribute('href', '/u/profile?' + inkedJSON.creator_id);
+    artistLink.appendChild(overlayPostArtist);
+
     get('/api/posts', {}, function (postsArr) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
+
+                const contentLink = document.createElement('a');
+                contentLink.setAttribute('href', '/p/idea?' + postsArr[i]._id);
+                contentLink.appendChild(overlayPostContent);
+
+                const authorLink = document.createElement('a');
+                authorLink.setAttribute('href', '/u/profile?' + postsArr[i].creator_id);
+                authorLink.appendChild(overlayPostAuthor);
+                overlayText.prepend(contentLink);
+                overlayText.appendChild(authorLink);
             }
         }
     });
 
-    overlayText.appendChild(overlayPostContent);
-    overlayText.appendChild(overlayPostAuthor);
-    overlayText.appendChild(overlayPostArtist);
+
+
+    overlayText.appendChild(artistLink);
     //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
     overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
 
@@ -200,7 +215,6 @@ function renderUserData(user) {
 }
 
 function deletePost(postId) {
-    alert('post deleted!');
     get('/api/post/' + postId + '/remove', {}, function (post) {
         console.log('deleting post' + post._id);
     });
@@ -210,7 +224,6 @@ function deleteInk(inkId) {
     get('/api/ink/' + inkId + '/remove', {}, function (post) {
         console.log('deleting post' + inkId);
     });
-    alert('post deleted!');
 }
 
 
