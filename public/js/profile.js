@@ -72,15 +72,27 @@ function renderUserPosts(postJSON) {
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
     card.className = 'card photo-container';
-    postContainer.appendChild(card);
+    postContainer.appendChild(card);    
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
     card.appendChild(cardBody);
 
+    const deleteButton= document.createElement('a');
+    deleteButton.className="trash-link";
+    deleteButton.setAttribute('data-toggle',"modal");
+    deleteButton.href="#delete";
+    cardBody.appendChild(deleteButton);
+
+
+    const trashIcon=document.createElement('i');
+    trashIcon.className="far fa-trash-alt pull-right";
+    trashIcon.setAttribute('aria-hidden','true');
+    deleteButton.appendChild(trashIcon);
+
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
-    contentSpan.innerHTML = postJSON.content;
+    contentSpan.innerText = postJSON.content;
     cardBody.appendChild(contentSpan);
 
     const cardFooter = document.createElement('div');
@@ -89,7 +101,7 @@ function renderUserPosts(postJSON) {
 
     const creatorSpan = document.createElement('a');
     creatorSpan.className = 'post-creator card-title';
-    creatorSpan.innerHTML = postJSON.creator_name;
+    creatorSpan.innerText = postJSON.creator_name;
     creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id)
     cardFooter.appendChild(creatorSpan);
 
@@ -100,7 +112,7 @@ function renderUserData(user) {
     // rendering name
     const nameContainer = document.getElementById('name-container');
     const nameHeader = document.createElement('h1');
-    nameHeader.innerHTML = user.name;
+    nameHeader.innerText = user.name;
     nameContainer.appendChild(nameHeader);
 
     // rendering profile image

@@ -28,6 +28,15 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
+.navbar-brand{
+    margin-left:10%;
+}
+@media (min-width: 992px){
+    .navbar-toggleable-md .navbar-collapse{
+        margin-right:10%        
+    }
+
+}
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -77,6 +86,7 @@
     font-style: italic;
 }
 
+}
 .wrapper {
     display: flex;
     align-items: stretch;
@@ -155,7 +165,19 @@ body {
 
 .btn {
     font-family: 'Poppins', sans-serif;
+/*    background-color: #AADDDD;*/
+}
+
+.btn-success {
+    color:white;
+    border-color: #AADDDD;
     background-color: #AADDDD;
+}
+
+.btn-danger {
+    color:white;
+    border-color: #ecb5b8;
+    background-color: #ecb5b8;
 }
 
 .btn-primary {
@@ -165,13 +187,20 @@ body {
 
 .btn-outline-primary {
     color: white;
-    border-color: #AADDDD
+    border-color: #AADDDD;
+    background: #AADDDD;
 }
 
 .btn-outline-primary:hover {
     /*    color:white;*/
     background-color: #baefef;
     border-color: #baefef;
+}
+
+.btn-secondary {
+    color: white;
+    border-color: #AADDDD;
+    background-color: #AADDDD;
 }
 
 p {
@@ -258,7 +287,7 @@ ul ul a {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 100%;
 }
 
 /* The Close Button */
@@ -370,9 +399,7 @@ img {
     margin-bottom: 50px;
 }
 
-.collapse {
-    display: block;
-}
+
 
 @media (min-width: 768px) {
     .masthead {
@@ -384,6 +411,14 @@ img {
     }
     .masthead .intro-body .intro-text {
         font-size: 22px;
+    }
+
+}
+
+@media (min-width: 1200px){
+.container {
+    max-width: 100%;
+    width: 80%;
     }
 }
 

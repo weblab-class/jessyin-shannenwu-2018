@@ -23,7 +23,7 @@ function postDOMObject(postJSON, user) {
     inkedButton.className = 'card-link';
     inkedButton.setAttribute('data-toggle', "modal");
     inkedButton.href = "#upload";
-    inkedButton.innerHTML = 'inked';
+    inkedButton.innerText = 'inked';
     inkedButton.onclick = function () {
         document.getElementById('addphoto').setAttribute('name', postJSON._id);
     };
@@ -32,8 +32,8 @@ function postDOMObject(postJSON, user) {
 
     const inkedIcon = document.createElement('i');
     inkedIcon.className = 'fa fa-paint-brush';
-    inkedIcon.setAttribute('aria-hidden', 'true')
-    inkedButton.appendChild(inkedIcon)
+    inkedIcon.setAttribute('aria-hidden', 'true');
+    inkedButton.appendChild(inkedIcon);
 
 
     const cardFooter = document.createElement('div');
@@ -59,7 +59,7 @@ function submitPostHandler() {
         post('/api/posts', data);
     }
     else{
-        alert("u stupid");
+        alert("please input an idea!");
     }
 
 }

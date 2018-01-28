@@ -23,11 +23,14 @@
      <div class="container">
 
         <div class="container-fluid">
-            <div id='new-post' style="padding-top:20px; padding-bottom: 20px;">
+            <div id='new-post' style="padding-top:20px">
             </div>
         </div>
 
-        <div id="posts" class="card-columns"></div>
+        <div id="posts" class="card-columns">
+            <!--posts inserted here-->
+        </div>
+
         <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -37,10 +40,10 @@
                     </div>
                     <div class="modal-body">
                         <input id="photoupload" type="file" accept="image/*">
-                        <button type="button" class="btn btn-outline-primary"><i class="fa fa-upload"></i> choose file</button>
+                        <!-- <button type="button" class="btn btn-outline-primary"><input id="photoupload" type="file" accept="image/*"><i class="fa fa-upload"></i> choose file</button> -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="addphoto" data-dismiss="modal" onclick="addPhoto(this.name)"> ink it!</button>
+                        <button type="button" class="btn btn-success" id="addphoto" data-dismiss="modal" onclick="addPhoto(this.name)"> ink it!</button>
                     </div>
                 </div>
             </div>
@@ -64,10 +67,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
-<!--
-<script>
-    document.getElementById('ideas').classList.add('active');
-</script>
--->
 
 </html>

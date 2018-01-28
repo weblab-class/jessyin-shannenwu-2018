@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
+
+
     <!--local dependencies-->
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/static/css/hovereffect.css">
@@ -38,10 +40,31 @@
 
         <div class="d-flex justify-content-around" style="padding-bottom: 20px">
             <a id='inked-icon' onclick="showhide(this.id)" style='border-bottom: 4px solid #DDDDDD' href="#gallery"><i class="fa fa-paint-brush" aria-hidden="true" style="font-size: 30px" alt="Inks"></i></a>
-            <a id='ideas-icon' onclick="showhide(this.id)" href="#gallery"><i class="fa fa-lightbulb-o" aria-hidden="true" style="font-size: 30px" alt="Ideas" ></i></a>
+            <a id='ideas-icon' onclick="showhide(this.id)" href="#gallery"><i class="far fa-lightbulb" aria-hidden="true" style="font-size: 30px" alt="Ideas" ></i></a>
         </div>
         <div class="container-fluid" id='gallery-container'>
-            <div class="card-columns" id="user-ideas" style="display:none; margin: 2rem 10% 0 10%;"></div>
+
+            <div class="card-columns" id="user-ideas" style="display:none; margin: 2rem 10% 0 10%;">
+                <!-- text posts inserted here-->
+            </div>
+
+            <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="profileModal">delete?</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-text" id="modalConfirm">are you sure you want to delete this idea?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">no</button>
+                            <button type="button" class="btn btn-danger" id="deletepost" data-dismiss="modal" onclick="deletePost(this.name)"> delete </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="card-columns" id="user-inks" style="margin: 2rem 10% 0 10%;"></div>
         </div>
     </div>
@@ -72,5 +95,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 </html>

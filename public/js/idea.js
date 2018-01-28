@@ -30,7 +30,7 @@ function renderPostData(post) {
 ideaIcon.className = 'fa fa-lightbulb-o';*/
     const postHeader = document.createElement('h1');
     postHeader.setAttribute('class', 'page-description text-center');
-    postHeader.innerHTML = post.content;
+    postHeader.innerText = post.content;
     //postSpan.appendChild(ideaIcon);
     postSpan.appendChild(postHeader);
     postContainer.appendChild(postSpan);
