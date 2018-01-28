@@ -45,7 +45,7 @@ function postDOMObject(postJSON, user) {
     creatorSpan.innerHTML = postJSON.creator_name;
     creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id)
     cardFooter.appendChild(creatorSpan);
-
+    card.setAttribute('style', 'margin-bottom:2rem');
     return card;
 }
 

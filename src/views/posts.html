@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div id="posts" class="card-columns"></div>
+        <div id="posts"></div>
         <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -34,14 +34,13 @@
                         <h5 class="modal-title" id="exampleModalLabel">upload</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body"> 
+                    <div class="modal-body">
 
-                        <input id="photoupload" class="inputfile" name="file" type="file" accept="image/*"/>
+                        <input id="photoupload" class="inputfile" name="file" type="file" accept="image/*" />
                         <label class="btn btn-primary" for="photoupload"><i class="fa fa-upload"></i>  choose a file</label>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-                        <button type="button" class="btn btn-success" id="addphoto" data-dismiss="modal" onclick="addPhoto(this.name)">ink it!</button>
+                        <button type="button" class="btn btn-primary" id="addphoto" data-dismiss="modal" onclick="addPhoto(this.name)">ink it!</button>
                     </div>
                 </div>
             </div>
