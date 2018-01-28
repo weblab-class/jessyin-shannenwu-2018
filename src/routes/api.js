@@ -120,7 +120,19 @@ router.post('/profilepicture', connect.ensureLoggedIn(), function (req, res) {
     });
 });
 
-
+router.get('/post/:id/remove', connect.ensureLoggedIn(), function (req, res) {
+    Post.findByIdAndRemove({
+            _id: req.params.id
+        },
+        function (err, docs) {
+            if (err) console.log(err);
+            else console.log('delete success');
+        });
+    const io = req.app.get('socketio');
+    io.emit("deletePost", {
+        post_id: req.params.id
+    });
+});
 
 
 module.exports = router;

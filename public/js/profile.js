@@ -31,6 +31,11 @@ function main() {
             const profileImage = document.getElementById('profile-picture');
             profileImage.style = 'background:url(https://s3.amazonaws.com/inkspire/' + msg.image_url + ') 50% 50% no-repeat; background-size:cover;';
         });
+
+        socket.on('deletePost', function (msg) {
+            const profileImage = document.getElementById(msg.post_id);
+            profileImage.setAttribute('style', 'display:none');
+        });
     });
 
 
@@ -82,21 +87,38 @@ function renderUserGallery(inkedJSON) {
 }
 
 function renderUserPosts(postJSON) {
-
     const postContainer = document.getElementById('user-ideas');
 
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
-    card.className = 'card';
+    card.className = 'card photo-container';
     postContainer.appendChild(card);
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
     card.appendChild(cardBody);
+    //get('/api/whoami', {}, function (browsingUser) {
+    //    if (postJSON.creator_id == browsingUser._id) {
+    const deleteButton = document.createElement('a');
+    deleteButton.className = "trash-link";
+    deleteButton.setAttribute('data-toggle', "modal");
+    deleteButton.href = "#delete";
+    deleteButton.onclick = function () {
+        document.getElementById('deletepost').setAttribute('name', postJSON._id);
+    }
+    cardBody.prepend(deleteButton);
+
+    const trashIcon = document.createElement('i');
+    trashIcon.className = "far fa-trash-alt pull-right";
+    trashIcon.setAttribute('aria-hidden', 'true');
+    deleteButton.prepend(trashIcon);
+    //    }
+    //});
+
 
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
-    contentSpan.innerHTML = postJSON.content;
+    contentSpan.innerText = postJSON.content;
     cardBody.appendChild(contentSpan);
 
     const cardFooter = document.createElement('div');
@@ -105,8 +127,8 @@ function renderUserPosts(postJSON) {
 
     const creatorSpan = document.createElement('a');
     creatorSpan.className = 'post-creator card-title';
-    creatorSpan.innerHTML = postJSON.creator_name;
-    creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id)
+    creatorSpan.innerText = postJSON.creator_name;
+    creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id);
     cardFooter.appendChild(creatorSpan);
 
     return card;
@@ -145,6 +167,13 @@ function renderUserData(user) {
     //profileImage.style = 'background:url(/static/css/propic.jpg) 50% 50% no-repeat; background-size:cover;';
     profileImage.appendChild(overlay);
 
+}
+
+function deletePost(postId) {
+    alert('post deleted!');
+    get('/api/post/' + postId + '/remove', {}, function (post) {
+        console.log('deleting post' + post._id);
+    });
 }
 
 
