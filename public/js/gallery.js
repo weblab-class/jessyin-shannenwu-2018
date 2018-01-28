@@ -40,18 +40,30 @@ function renderGallery(inkedJSON) {
 
     overlayPostArtist.innerHTML += ("  " + inkedJSON.creator_name);
 
+    const artistLink = document.createElement('a');
+    artistLink.setAttribute('href', '/u/profile?' + inkedJSON.creator_id);
+    artistLink.appendChild(overlayPostArtist);
+
     get('/api/posts', {}, function (postsArr) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
+
+                const contentLink = document.createElement('a');
+                contentLink.setAttribute('href', '/p/idea?' + postsArr[i]._id);
+                contentLink.appendChild(overlayPostContent);
+
+                const authorLink = document.createElement('a');
+                authorLink.setAttribute('href', '/u/profile?' + postsArr[i].creator_id);
+                authorLink.appendChild(overlayPostAuthor);
+                overlayText.prepend(contentLink);
+                overlayText.appendChild(authorLink);
             }
         }
     });
 
-    overlayText.appendChild(overlayPostContent);
-    overlayText.appendChild(overlayPostAuthor);
-    overlayText.appendChild(overlayPostArtist);
+    overlayText.appendChild(artistLink);
 
     //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
     overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
