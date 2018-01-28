@@ -24,6 +24,13 @@ function main() {
 
     get('/api/whoami', {}, function (user) {
         renderNavbar(user);
+
+        const socket=io();
+
+        socket.on('updateProPic', function (msg) {
+            const profileImage = document.getElementById('profile-picture');
+            profileImage.style = 'background:url(https://s3.amazonaws.com/inkspire/' + msg.image_url + ') 50% 50% no-repeat; background-size:cover;';
+        });
     });
 
 
@@ -32,7 +39,7 @@ function main() {
 function renderUserGallery(inkedJSON) {
     const postContainer = document.getElementById('user-inks');
     const cardDiv = document.createElement('div');
-    cardDiv.className = "card";
+    cardDiv.className = "card photo-container";
     cardDiv.setAttribute("style", 'padding:0px');
     const cardImg = document.createElement('img');
     cardImg.className = 'card-img';
@@ -42,15 +49,24 @@ function renderUserGallery(inkedJSON) {
 
     const overlayText = document.createElement('div');
     const overlayPostContent = document.createElement('h1');
-    const overlayPostAuthor = document.createElement('p');
-    const overlayPostArtist = document.createElement('p');
-    overlayPostArtist.innerHTML = inkedJSON.creator_name;
+    const overlayPostAuthor = document.createElement('small');
+    const overlayPostArtist = document.createElement('small');
+
+    const postAuthorIcon = document.createElement('i');
+    postAuthorIcon.className = 'fa fa-lightbulb-o';
+    overlayPostAuthor.appendChild(postAuthorIcon);
+
+    const postArtistIcon = document.createElement('i');
+    postArtistIcon.className = 'fa fa-paint-brush';
+    overlayPostArtist.appendChild(postArtistIcon);
+
+    overlayPostArtist.innerHTML += ("  " + inkedJSON.creator_name);
 
     get('/api/posts', {}, function (postsArr) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
-                overlayPostAuthor.innerHTML = postsArr[i].creator_name;
+                overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
             }
         }
     });
@@ -82,6 +98,9 @@ function renderUserPosts(postJSON) {
     deleteButton.className="trash-link";
     deleteButton.setAttribute('data-toggle',"modal");
     deleteButton.href="#delete";
+    deleteButton.onclick=function(){
+        document.getElementById('deletepost');
+    }
     cardBody.appendChild(deleteButton);
 
 
@@ -109,16 +128,35 @@ function renderUserPosts(postJSON) {
 }
 
 function renderUserData(user) {
-    // rendering name
-    const nameContainer = document.getElementById('name-container');
-    const nameHeader = document.createElement('h1');
-    nameHeader.innerText = user.name;
-    nameContainer.appendChild(nameHeader);
+const nameContainer = document.getElementById('name-container');
+    const nameHeader = document.createElement('h1');
+    nameHeader.innerHTML = user.name;
+    nameContainer.appendChild(nameHeader);
 
-    // rendering profile image
-    const profileImage = document.getElementById('profile-picture');
-    profileImage.style = 'background:url(/static/css/propic.jpg) 50% 50% no-repeat; background-size:cover;';
+    // rendering profile image
+    const profileImage = document.getElementById('profile-picture');
+    profileImage.className = 'photo-container';
+    const overlay = document.createElement('div');
+    overlay.setAttribute('style', 'background-color:transparent');
 
+    get('/api/whoami', {}, function (browsingUser) {
+        if (window.location.search.substring(1) == browsingUser._id) {
+            const uploadLink = document.createElement('a');
+            uploadLink.className = 'card-link';
+            uploadLink.setAttribute('data-toggle', "modal");
+            uploadLink.href = "#upload";
+
+            const overlayIcon = document.createElement('i');
+            overlayIcon.className = 'fa fa-upload';
+            overlayIcon.setAttribute('style', 'font-size: 3em; color: white;');
+            uploadLink.appendChild(overlayIcon);
+            overlay.appendChild(uploadLink);
+        }
+    });
+    overlay.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
+    profileImage.style = 'background:url(https://s3.amazonaws.com/inkspire/' + user.profile_picture + ') 50% 50% no-repeat; background-size:cover;';
+    //profileImage.style = 'background:url(/static/css/propic.jpg) 50% 50% no-repeat; background-size:cover;';
+    profileImage.appendChild(overlay);
 
 }
 

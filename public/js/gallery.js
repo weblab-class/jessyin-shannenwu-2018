@@ -29,13 +29,22 @@ function renderGallery(inkedJSON) {
     const overlayPostContent = document.createElement('h1');
     const overlayPostAuthor = document.createElement('small');
     const overlayPostArtist = document.createElement('small');
-    overlayPostArtist.innerHTML = inkedJSON.creator_name;
+
+    const postAuthorIcon = document.createElement('i');
+    postAuthorIcon.className = 'fa fa-lightbulb-o';
+    overlayPostAuthor.appendChild(postAuthorIcon);
+
+    const postArtistIcon = document.createElement('i');
+    postArtistIcon.className = 'fa fa-paint-brush';
+    overlayPostArtist.appendChild(postArtistIcon);
+
+    overlayPostArtist.innerHTML += ("  " + inkedJSON.creator_name);
 
     get('/api/posts', {}, function (postsArr) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
-                overlayPostAuthor.innerHTML = postsArr[i].creator_name;
+                overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
             }
         }
     });

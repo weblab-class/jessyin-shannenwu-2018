@@ -7,6 +7,7 @@ const Post = require('../models/post');
 const User = require('../models/user');
 const MyPost = require('../models/mypost');
 const Inked = require('../models/inked');
+const ProfilePicture = require('../models/profilepicture');
 
 
 const router = express.Router();
@@ -90,6 +91,29 @@ router.post('/inked', connect.ensureLoggedIn(), function (req, res) {
         user.save();
 
         newInked.save(function (err, post) {
+            if (err) console.log(err);
+        });
+        res.send({});
+    });
+});
+
+router.post('/profilepicture', connect.ensureLoggedIn(), function (req, res) {
+    User.findOne({
+        _id: req.user._id
+    }, function (err, user) {
+        const newProfilePicture = new ProfilePicture({
+            'image_url': req.body.image_url
+        });
+        user.set({
+            profile_picture: req.body.image_url
+        });
+        user.save();
+
+        newProfilePicture.save(function (err, post) {
+            const io = req.app.get('socketio');
+            io.emit("updateProPic", {
+                image_url: req.body.image_url
+            });
             if (err) console.log(err);
         });
         res.send({});

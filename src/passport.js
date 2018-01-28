@@ -17,7 +17,8 @@ passport.use(new GoogleStrategy({
         if (!user) {
             const user = new User({
                 name: profile.displayName,
-                fbid: profile.id
+                fbid: profile.id,
+                profile_picture: 'propic.jpg'
             });
 
             user.save(function (err) {

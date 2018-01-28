@@ -24,15 +24,15 @@ function renderNavbar(user) {
     // do the toggler
     const navbarToggler = document.createElement('button');
     navbarToggler.setAttribute('class', "navbar-toggler navbar-toggler-right");
-    navbarToggler.setAttribute('type',"button");
-    navbarToggler.setAttribute('data-toggle',"collapse");
-    navbarToggler.setAttribute('data-target',"#navbarNavAltMarkup" );
-    navbarToggler.setAttribute('aria-controls',"navbarNavAltMarkup");
-    navbarToggler.setAttribute('aria-expanded',"false");
-    navbarToggler.setAttribute('aria-label',"Toggle navigation");
-        // toggler button
+    navbarToggler.setAttribute('type', "button");
+    navbarToggler.setAttribute('data-toggle', "collapse");
+    navbarToggler.setAttribute('data-target', "#navbarNavAltMarkup");
+    navbarToggler.setAttribute('aria-controls', "navbarNavAltMarkup");
+    navbarToggler.setAttribute('aria-expanded', "false");
+    navbarToggler.setAttribute('aria-label', "Toggle navigation");
+    // toggler button
     const toggleButton = document.createElement("span");
-    toggleButton.setAttribute('class',"navbar-toggler-icon");
+    toggleButton.setAttribute('class', "navbar-toggler-icon");
     navbarToggler.appendChild(toggleButton);
     navbarDivStyles.appendChild(navbarToggler);
 
@@ -46,13 +46,19 @@ function renderNavbar(user) {
     const navbarLinksList = document.createElement('ul');
     navbarLinksList.className = 'navbar-nav navbar-right ml-auto'
     navbarLinksDiv.appendChild(navbarLinksList);
-
+    const logo = document.createElement('img');
+    logo.setAttribute('src', "/static/logov6.png");
+    logo.setAttribute('style', 'width: auto; height:50px');
+    navbarBrand.appendChild(logo);
     if (user._id) {
         navbarBrand.href = '/posts';
     } else {
         navbarBrand.href = '/about';
     }
-    navbarBrand.innerText = "inkspire";
+    navLogoText = document.createElement('span');
+    navLogoText.innerHTML = '   inkspire';
+    navbarBrand.appendChild(navLogoText);
+    //navbarBrand.innerText = "inkspire";
 
     if (user._id) {
         navbarLinksList.appendChild(newNavbarItem('ideas', '/posts'));
