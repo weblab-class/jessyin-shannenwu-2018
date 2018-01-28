@@ -85,7 +85,7 @@ function renderUserGallery(inkedJSON) {
     const overlayPostArtist = document.createElement('small');
 
     const postAuthorIcon = document.createElement('i');
-    postAuthorIcon.className = 'fa fa-lightbulb-o';
+    postAuthorIcon.className = "far fa-lightbulb";   
     overlayPostAuthor.appendChild(postAuthorIcon);
 
     const postArtistIcon = document.createElement('i');
