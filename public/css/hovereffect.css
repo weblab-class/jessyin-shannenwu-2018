@@ -43,3 +43,9 @@ small {
     vertical-align: middle;
     line-height: 100%;
 }
+
+.hoverright {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}

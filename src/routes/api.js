@@ -134,5 +134,19 @@ router.get('/post/:id/remove', connect.ensureLoggedIn(), function (req, res) {
     });
 });
 
+router.get('/ink/:id/remove', connect.ensureLoggedIn(), function (req, res) {
+    Inked.findByIdAndRemove({
+            _id: req.params.id
+        },
+        function (err, docs) {
+            if (err) console.log(err);
+            else console.log('delete success');
+        });
+    const io = req.app.get('socketio');
+    io.emit("deleteInk", {
+        inked_id: req.params.id
+    });
+});
+
 
 module.exports = router;
