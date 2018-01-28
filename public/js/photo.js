@@ -41,30 +41,23 @@ function addPhoto(postid) {
     }
     var file = files[0];
     var photoKey = files[0].name;
-
+    console.log(postid);
     get('/api/inked', {}, function (inkedArr) {
-        for (let i = 0; i < inkedArr.length; i++) {
-            if (inkedArr[i].image_url == photoKey) {
-                console.log('photo exists');
-                console.log('UPLOADING');
-                console.log(pe);
-                data = {
-                    image_url: photoKey,
-                    post_id: postid
-                }
-                post('/api/inked', data);
-
-                s3.upload({
-                    Key: photoKey,
-                    Body: file,
-                    ACL: 'public-read'
-                }, function (err, data) {
-                    if (err) {
-                        return alert('There was an error uploading your photo: ', err.message);
-                    }
-                    console.log('Successfully uploaded photo.');
-                });
-            }
+        data = {
+            image_url: photoKey,
+            post_id: postid
         }
+        post('/api/inked', data);
+        console.log('uploading');
+        s3.upload({
+            Key: photoKey,
+            Body: file,
+            ACL: 'public-read'
+        }, function (err, data) {
+            if (err) {
+                return alert('There was an error uploading your photo: ', err.message);
+            }
+            console.log('Successfully uploaded photo.');
+        });
     });
 }
