@@ -33,8 +33,13 @@ function main() {
         });
 
         socket.on('deletePost', function (msg) {
-            const profileImage = document.getElementById(msg.post_id);
-            profileImage.setAttribute('style', 'display:none');
+            const deletedpost = document.getElementById(msg.post_id);
+            deletedpost.setAttribute('style', 'display:none');
+        });
+
+        socket.on('deleteInk', function (msg) {
+            const deletedink = document.getElementById(msg.inked_id);
+            deletedink.setAttribute('style', 'display:none');
         });
     });
 
@@ -46,6 +51,7 @@ function renderUserGallery(inkedJSON) {
     const cardDiv = document.createElement('div');
     cardDiv.className = "card photo-container";
     cardDiv.setAttribute("style", 'padding:0px');
+
     const cardImg = document.createElement('img');
     cardImg.className = 'card-img';
     const url = "https://s3.amazonaws.com/inkspire/" + inkedJSON.image_url;
@@ -53,6 +59,27 @@ function renderUserGallery(inkedJSON) {
     cardDiv.appendChild(cardImg);
 
     const overlayText = document.createElement('div');
+
+    //UNCOMMENT TO TURN ON USER TEST
+    //get('/api/whoami', {}, function (browsingUser) {
+    //    if (postJSON.creator_id == browsingUser._id) {
+    const deleteButton = document.createElement('a');
+    deleteButton.className = "trash-link";
+    deleteButton.setAttribute('data-toggle', "modal");
+    deleteButton.href = "#delete";
+    deleteButton.onclick = function () {
+        document.getElementById('deletepost').setAttribute('name', inkedJSON._id);
+        document.getElementById('deletepost').setAttribute('onclick', 'deleteInk(this.name)');
+    }
+    overlayText.prepend(deleteButton);
+
+    const trashIcon = document.createElement('i');
+    trashIcon.className = "far fa-trash-alt hoverright";
+    trashIcon.setAttribute('aria-hidden', 'true');
+    deleteButton.prepend(trashIcon);
+    //    }
+    //});
+
     const overlayPostContent = document.createElement('h1');
     const overlayPostAuthor = document.createElement('small');
     const overlayPostArtist = document.createElement('small');
@@ -83,6 +110,7 @@ function renderUserGallery(inkedJSON) {
     overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
 
     cardDiv.appendChild(overlayText);
+    cardDiv.setAttribute('id', inkedJSON._id);
     postContainer.appendChild(cardDiv);
 }
 
@@ -97,6 +125,7 @@ function renderUserPosts(postJSON) {
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
     card.appendChild(cardBody);
+    //UNCOMMENT TO TURN ON USER TEST
     //get('/api/whoami', {}, function (browsingUser) {
     //    if (postJSON.creator_id == browsingUser._id) {
     const deleteButton = document.createElement('a');
@@ -105,6 +134,7 @@ function renderUserPosts(postJSON) {
     deleteButton.href = "#delete";
     deleteButton.onclick = function () {
         document.getElementById('deletepost').setAttribute('name', postJSON._id);
+        document.getElementById('deletepost').setAttribute('onclick', 'deletePost(this.name)');
     }
     cardBody.prepend(deleteButton);
 
@@ -174,6 +204,13 @@ function deletePost(postId) {
     get('/api/post/' + postId + '/remove', {}, function (post) {
         console.log('deleting post' + post._id);
     });
+}
+
+function deleteInk(inkId) {
+    get('/api/ink/' + inkId + '/remove', {}, function (post) {
+        console.log('deleting post' + inkId);
+    });
+    alert('post deleted!');
 }
 
 
