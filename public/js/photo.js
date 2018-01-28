@@ -41,13 +41,10 @@ function addPhoto(postid) {
     }
     var file = files[0];
     var photoKey = files[0].name;
-
+    console.log("hi");
     get('/api/inked', {}, function (inkedArr) {
         for (let i = 0; i < inkedArr.length; i++) {
             if (inkedArr[i].image_url == photoKey) {
-                console.log('photo exists');
-                console.log('UPLOADING');
-                console.log(pe);
                 data = {
                     image_url: photoKey,
                     post_id: postid
