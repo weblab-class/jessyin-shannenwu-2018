@@ -51,17 +51,17 @@ function renderUserGallery(inkedJSON) {
     const overlayText = document.createElement('div');
     //THIS IS THE EXPAND ICON TO ZOOM IMAGES
     const expandButton = document.createElement('a');
+    expandButton.setAttribute('href', '#');
     expandButton.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
-    expandButton.className = "trash-link";
-    expandButton.href = "#expand";
-    expandButton.onclick = function () {
-        expandButton.setAttribute('onclick', 'zoomImage(this)');
-    }
+    expandButton.className = "trash-link hover-bottom-right";
+
+    expandButton.setAttribute('onclick', 'zoomImage(this)');
+
     overlayText.prepend(expandButton);
 
     const expandIcon = document.createElement('i');
 
-    expandIcon.className = "fas fa-expand-arrows-alt hoverleft";
+    expandIcon.className = "fas fa-expand-arrows-alt hover-bottom-right";
     expandIcon.setAttribute('id', "expand-icon");
 
     expandIcon.setAttribute('aria-hidden', 'true');

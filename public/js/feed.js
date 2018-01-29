@@ -9,8 +9,8 @@ function postDOMObject(postJSON, user) {
     colDiv.appendChild(card);
 
     //creates div to append inked button first
-    const inkedDiv=document.createElement('div');
-    inkedDiv.className='inked-body';
+    const inkedDiv = document.createElement('div');
+    inkedDiv.className = 'inked-body';
     //creates link to the button
     const inkedButton = document.createElement('a');
     inkedButton.className = 'card-link pull-right';
@@ -27,7 +27,7 @@ function postDOMObject(postJSON, user) {
     inkedButton.appendChild(inkedIcon)
     inkedDiv.appendChild(inkedButton);
     //append ink button
-    card.appendChild(inkedDiv); 
+    card.appendChild(inkedDiv);
 
     //cardBody contains actual text post
     const cardBody = document.createElement('div');
@@ -54,11 +54,11 @@ function postDOMObject(postJSON, user) {
     creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id);
     inkedDiv.appendChild(creatorSpan);
     card.setAttribute('style', 'margin-bottom:1rem');
-    
-    const timeStamp=document.createElement('p');
-    timeStamp.className='time-stamp';
+
+    const timeStamp = document.createElement('p');
+    timeStamp.className = 'time-stamp';
     var date = new Date(postJSON.date);
-    timeStamp.innerText=date.toLocaleDateString();
+    timeStamp.innerText = date.toLocaleDateString();
     cardFooter.appendChild(timeStamp);
 
 
@@ -73,7 +73,7 @@ function submitPostHandler() {
     };
     if (newPostInput.value !== "") {
         post('/api/posts', data);
-        newPostInput.value="";
+        newPostInput.value = "";
     } else {
         alert("please enter an idea!");
     }
@@ -86,12 +86,17 @@ function newPostDOMObject() {
 
     // input for creating a new Post
     const newPostContent = document.createElement('input');
+
     newPostContent.setAttribute('type', 'text');
     newPostContent.setAttribute('placeholder', 'new idea!');
     newPostContent.className = 'form-control';
     newPostContent.setAttribute('id', 'post-content-input');
     newPostContent.setAttribute('maxlength', 140);
+
+    const line = document.createElement('span');
+    line.className = 'focus-border';
     newPostDiv.appendChild(newPostContent);
+    newPostDiv.appendChild(line);
 
     const newPostButtonDiv = document.createElement('div');
     newPostButtonDiv.className = 'input-group-append';

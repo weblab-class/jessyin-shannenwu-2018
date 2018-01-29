@@ -260,6 +260,10 @@ body {
     background: #ddddddb8;
 }
 
+button {
+    border: 0px;
+}
+
 .btn {
     font-family: 'Poppins', sans-serif;
     background-color: #AADDDD;
