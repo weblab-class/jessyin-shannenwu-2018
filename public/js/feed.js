@@ -59,6 +59,7 @@ function postDOMObject(postJSON, user) {
     const timeStamp = document.createElement('p');
     timeStamp.className = 'time-stamp';
     var date = new Date(postJSON.date);
+    console.log(timeStamp);
     timeStamp.innerText = date.toLocaleDateString();
     cardFooter.appendChild(timeStamp);
 

@@ -48,15 +48,18 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
 
 
         newPost.save(function (err, post) {
+            console.log(Date.now());
             const io = req.app.get('socketio');
             io.emit('post', {
                 _id: post._id,
                 creator_id: user._id,
                 creator_name: user.name,
                 content: req.body.content,
+                date: Date.now(),
             });
 
-            
+
+
             if (err) console.log(err);
         });
         res.send({});
