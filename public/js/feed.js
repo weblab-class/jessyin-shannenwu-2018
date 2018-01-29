@@ -2,14 +2,38 @@ function postDOMObject(postJSON, user) {
     const colDiv = document.createElement('div');
     colDiv.className = 'col-sm';
 
+    // creates entire card, adds it to the column
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
     card.className = 'card';
     colDiv.appendChild(card);
 
+    //creates div to append inked button first
+    const inkedDiv=document.createElement('div');
+    inkedDiv.className='inked-body align-top';
+    //creates link to the button
+    const inkedButton = document.createElement('a');
+    inkedButton.className = 'card-link pull-right';
+    inkedButton.setAttribute('data-toggle', "modal");
+    inkedButton.href = "#upload";
+    inkedButton.innerText = 'inked ';
+    inkedButton.onclick = function () {
+        document.getElementById('addphoto').setAttribute('name', postJSON._id);
+    };
+    //gets icon from fontawesome
+    const inkedIcon = document.createElement('i');
+    inkedIcon.className = 'fa fa-paint-brush';
+    inkedIcon.setAttribute('aria-hidden', 'true')
+    inkedButton.appendChild(inkedIcon)
+    inkedDiv.appendChild(inkedButton);
+    //append ink button
+    card.appendChild(inkedDiv); 
+
+    //cardBody contains actual text post
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
     card.appendChild(cardBody);
+
 
     const contentLink = document.createElement('a');
     contentLink.setAttribute('href', '/p/idea?' + postJSON._id);
@@ -18,23 +42,6 @@ function postDOMObject(postJSON, user) {
     contentSpan.innerText = postJSON.content;
     contentLink.appendChild(contentSpan);
     cardBody.appendChild(contentLink);
-
-    const inkedButton = document.createElement('a');
-    inkedButton.className = 'card-link';
-    inkedButton.setAttribute('data-toggle', "modal");
-    inkedButton.href = "#upload";
-    inkedButton.innerHTML = 'inked';
-    inkedButton.onclick = function () {
-        document.getElementById('addphoto').setAttribute('name', postJSON._id);
-    };
-
-    cardBody.appendChild(inkedButton);
-
-    const inkedIcon = document.createElement('i');
-    inkedIcon.className = 'fa fa-paint-brush';
-    inkedIcon.setAttribute('aria-hidden', 'true')
-    inkedButton.appendChild(inkedIcon)
-
 
     const cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
@@ -57,8 +64,9 @@ function submitPostHandler() {
     };
     if (newPostInput.value !== "") {
         post('/api/posts', data);
+        newPostInput.value="";
     } else {
-        alert("u stupid");
+        alert("please enter an idea!");
     }
 
 }
@@ -109,7 +117,7 @@ function renderPosts(user) {
 
     const postsDiv = document.getElementById('posts');
     get('/api/posts', {}, function (postsArr) {
-        postsArr.sort(predicateBy('creator_name'));
+        // postsArr.sort(predicateBy('creator_name'));
         for (let i = 0; i < postsArr.length; i++) {
             const currentPost = postsArr[i];
             postsDiv.prepend(postDOMObject(currentPost, user));

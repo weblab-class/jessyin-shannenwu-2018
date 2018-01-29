@@ -37,6 +37,10 @@
     }
 
 }
+/*inked icon accessible*/
+.card-link:hover{
+    font-weight:bold;
+}
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -75,10 +79,11 @@
     }
 }
 
+/*customizes cards in posts*/
 .card {
     min-width: 20%;
     margin-bottom: 0px;
-    padding: 20px 20px 0px 20px;
+    padding: 15px 20px 0px 20px;
 }
 
 .card-footer {
@@ -88,6 +93,7 @@
     font-style: italic;
     padding-top: 6px;
     padding-top: 6px;
+    padding-right:6px;
 }
 
 }
