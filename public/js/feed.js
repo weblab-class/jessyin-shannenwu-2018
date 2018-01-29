@@ -16,15 +16,16 @@ function postDOMObject(postJSON, user) {
     inkedButton.className = 'card-link pull-right';
     inkedButton.setAttribute('data-toggle', "modal");
     inkedButton.href = "#upload";
-    inkedButton.innerText = 'inked ';
+    inkedButton.innerText = 'ink it! ';
     inkedButton.onclick = function () {
         document.getElementById('addphoto').setAttribute('name', postJSON._id);
     };
     //gets icon from fontawesome
     const inkedIcon = document.createElement('i');
     inkedIcon.className = 'fa fa-paint-brush';
-    inkedIcon.setAttribute('aria-hidden', 'true')
-    inkedButton.appendChild(inkedIcon)
+    // inkedIcon.setAttribute('style', "font-size:1em");
+    inkedIcon.setAttribute('aria-hidden', 'true');
+    inkedButton.appendChild(inkedIcon);
     inkedDiv.appendChild(inkedButton);
     //append ink button
     card.appendChild(inkedDiv);
@@ -104,7 +105,7 @@ function newPostDOMObject() {
 
     const newPostSubmit = document.createElement('button');
     newPostSubmit.innerHTML = 'submit';
-    newPostSubmit.className = 'btn btn-outline-primary';
+    newPostSubmit.className = 'btn btn-outline-primary submit';
     // here: handler for when we submit the post
     newPostSubmit.addEventListener('click', submitPostHandler);
     newPostButtonDiv.appendChild(newPostSubmit);
