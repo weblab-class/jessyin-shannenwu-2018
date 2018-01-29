@@ -1,11 +1,12 @@
 function newNavbarItem(text, url) {
     const listItem = document.createElement('li');
-    listItem.className = "nav-item active";
+    listItem.className = "nav-item active shadow";
     const itemLink = document.createElement('a');
     itemLink.className = 'nav-link';
     itemLink.setAttribute('id', text);
     itemLink.innerText = text;
     itemLink.href = url;
+    itemLink.setAttribute("style","color:white;")
     listItem.appendChild(itemLink);
 
     return listItem;
@@ -16,6 +17,7 @@ function renderNavbar(user) {
     const navbarDiv = document.getElementById('navbar');
     const navbarDivStyles = document.createElement('nav');
     navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light bg-faded");
+    navbarDivStyles.setAttribute('style',"background-color: #AADDDD73")
     navbarDiv.appendChild(navbarDivStyles);
     // do the brand stuff 
     const navbarBrand = document.createElement('a');
@@ -56,9 +58,9 @@ function renderNavbar(user) {
         navbarBrand.href = '/about';
     }
     navLogoText = document.createElement('span');
-    navLogoText.innerHTML = '   inkspire';
+    navLogoText.innerText = '   inkspire';
+    navLogoText.className='shadow';
     navbarBrand.appendChild(navLogoText);
-    //navbarBrand.innerText = "inkspire";
 
     if (user._id) {
         navbarLinksList.appendChild(newNavbarItem('ideas', '/posts'));
@@ -75,16 +77,16 @@ function renderNavbar(user) {
 
     switch (navbarDiv.className) {
         case "ideas":
-            document.getElementById("ideas").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            document.getElementById("ideas").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
             break;
         case "about":
-            document.getElementById("about").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            document.getElementById("about").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
             break;
         case "gallery":
-            document.getElementById("gallery").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            document.getElementById("gallery").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
             break;
         case "profile":
-            document.getElementById("profile").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
             break;
 
     }

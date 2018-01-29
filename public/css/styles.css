@@ -32,18 +32,58 @@
     margin-left:10%;
 }
 
+.shadow{
+    color:white;
+    text-shadow: 1px 1px #AADDDD, 
+                2px 2px #AADDDD, 
+                3px 3px #AADDDD;
+   -webkit-transition: all 0.12s ease-out;
+   -moz-transition:    all 0.12s ease-out;
+   -ms-transition:     all 0.12s ease-out;
+   -o-transition:      all 0.12s ease-out;
+}
+
+.shadow:hover {
+    color:white;
+    position: relative; 
+    top: -3px; 
+    left: -3px; 
+    text-shadow: 1px 1px #AADDDD, 
+                2px 2px #AADDDD, 
+                3px 3px #AADDDD, 
+                4px 4px #AADDDD, 
+                5px 5px #AADDDD, 
+                6px 6px #AADDDD;
+}
+
+.box {
+  transition: box-shadow .3s;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  
+}
+.box:hover {
+  box-shadow: 0 0 20px rgba(33,33,33,.2); 
+}
+
 p{
-    overflow-wrap: break-word; ;
+    overflow-wrap: break-word; 
+    margin-bottom:0.25em;
 }
 @media (min-width: 992px){
     .navbar-toggleable-md .navbar-collapse{
         margin-right:10%        
     }
-
 }
+
 /*inked icon accessible*/
 .card-link:hover{
     font-weight:bold;
+}
+
+.card-title{
+    margin-bottom:0.25rem;
 }
 .container-fluid {
     padding-left: 0px;
@@ -51,6 +91,12 @@ p{
     margin-left: 20%;
     margin-right: 20%;
 }
+
+/*post creator accessible*/
+.post-creator:hover{
+    text-decoration:underline;
+}
+
 
 .flex-container {
     display: flex;
@@ -95,9 +141,11 @@ p{
     background-color: white;
     color: lightgray;
     font-style: italic;
-    padding-top: 6px;
-    padding-top: 6px;
-    padding-right:6px;
+    padding-top: 0.25em;
+    padding-top: 0.25em;
+    padding-bottom:0em;
+    padding-right:0.25em;
+
 }
 
 }
@@ -175,7 +223,7 @@ a[aria-expanded="true"]::before {
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
-    padding-top: 30px;
+    padding-top: 0.25em;
 }
 
 .btn {

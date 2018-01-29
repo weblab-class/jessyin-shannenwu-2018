@@ -5,12 +5,12 @@ function postDOMObject(postJSON, user) {
     // creates entire card, adds it to the column
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
-    card.className = 'card';
+    card.className = 'card box';
     colDiv.appendChild(card);
 
     //creates div to append inked button first
     const inkedDiv=document.createElement('div');
-    inkedDiv.className='inked-body align-top';
+    inkedDiv.className='inked-body';
     //creates link to the button
     const inkedButton = document.createElement('a');
     inkedButton.className = 'card-link pull-right';
@@ -48,11 +48,20 @@ function postDOMObject(postJSON, user) {
     card.appendChild(cardFooter);
 
     const creatorSpan = document.createElement('a');
-    creatorSpan.className = 'post-creator card-title';
-    creatorSpan.innerHTML = postJSON.creator_name;
+    creatorSpan.className = 'post-creator card-title pull-left';
+    creatorSpan.innerText = postJSON.creator_name;
+    creatorSpan.setAttribute('style', 'color:#AADDDD')
     creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id)
-    cardFooter.appendChild(creatorSpan);
+    inkedDiv.appendChild(creatorSpan);
     card.setAttribute('style', 'margin-bottom:1rem');
+    
+    const timeStamp=document.createElement('p');
+    timeStamp.className='time-stamp';
+    var date = new Date(postJSON.date);
+    timeStamp.innerText=date.toLocaleDateString();
+    cardFooter.appendChild(timeStamp);
+
+
     return card;
 }
 
