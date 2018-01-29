@@ -1,7 +1,8 @@
 .text h1 {
     font-size: large;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top:10%;
 }
 
 .overlay {

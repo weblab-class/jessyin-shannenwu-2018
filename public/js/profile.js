@@ -171,6 +171,7 @@ function renderUserPosts(postJSON) {
     const trashIcon = document.createElement('i');
     trashIcon.className = "far fa-trash-alt pull-right";
     trashIcon.setAttribute('aria-hidden', 'true');
+
     deleteButton.prepend(trashIcon);
 
 

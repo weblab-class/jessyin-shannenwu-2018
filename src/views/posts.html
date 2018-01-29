@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/styles.css">
 
 
@@ -36,9 +37,9 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-
-                        <input id="photoupload" class="inputfile" name="file" type="file" accept="image/*" />
-                        <label class="btn btn-primary" for="photoupload"><i class="fa fa-upload"></i>  choose a file</label>
+                        <label class="btn btn-primary" for="photoupload"><i class="fa fa-upload"></i>   choose a file</label>
+                        <input id="photoupload" name="file" type="file" accept="image/*" style="display:none;"/>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
@@ -51,6 +52,13 @@
 
 </body>
 
+<script>
+    $('#photoupload').change(function() {
+  var i = $(this).prev('label').clone();
+  var file = $('#photoupload')[0].files[0].name;
+  $(this).prev('label').text(file);
+}); 
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.182.0.min.js"></script>

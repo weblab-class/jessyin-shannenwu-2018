@@ -28,6 +28,10 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
+.trash-link{
+    color:black;
+}
+
 .navbar-brand {
     margin-left: 10%;
 }
@@ -392,14 +396,14 @@ ul ul a {
     width: 100%;
 }
 
-.inputfile {
+/*.inputfile {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
     overflow: hidden;
     position: absolute;
     z-index: -1;
-}
+}*/
 
 /* The Close Button */
 

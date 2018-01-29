@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!--local dependencies-->
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/static/css/hovereffect.css">
@@ -77,8 +77,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input id="photoupload" class="inputfile" name="file" type="file" accept="image/*">
-                    <label class="btn btn-primary" for="photoupload">  choose a file</label>
+                    <label class="btn btn-primary" for="photoupload"><i class="fa fa-upload"></i>   choose a file</label>
+                    <input id="photoupload" name="file" type="file" accept="image/*" style="display:none;">
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
@@ -88,6 +89,14 @@
         </div>
     </div>
 </body>
+<script>
+    $('#photoupload').change(function() {
+  var i = $(this).prev('label').clone();
+  var file = $('#photoupload')[0].files[0].name;
+  $(this).prev('label').text(file);
+}); 
+</script>
+
 <script>
     function showhide(id) {
         if (id == 'ideas-icon') {

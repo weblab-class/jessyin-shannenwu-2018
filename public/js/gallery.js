@@ -70,7 +70,7 @@ function renderGallery(inkedJSON) {
                 timeStamp.innerText=date.toLocaleDateString();
                 timeStamp.setAttribute('style','font-size:0.75em');
                 overlayText.append(timeStamp);
-                console.log(postsArr[i].date);
+                
             }
         }
     });
