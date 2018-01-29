@@ -31,6 +31,10 @@
 .navbar-brand{
     margin-left:10%;
 }
+
+p{
+    overflow-wrap: break-word; ;
+}
 @media (min-width: 992px){
     .navbar-toggleable-md .navbar-collapse{
         margin-right:10%        
