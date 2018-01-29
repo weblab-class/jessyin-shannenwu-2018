@@ -52,20 +52,24 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="profileModal">delete?</h5>
-                        </div>
-                        <div class="modal-body">
-                            <p class="modal-text" id="modalConfirm">are you sure you want to delete this?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-                            <button type="button" class="btn btn-danger" id="deletepost" data-dismiss="modal"> delete </button>
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="profileModal">delete?</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p class="modal-text" id="modalConfirm">are you sure you want to delete this?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                                <button type="button" class="btn btn-danger" id="deletepost" data-dismiss="modal"> delete </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div id='inksdiv'>
+                <div class="d-flex flex-wrap justify-content-center" id="user-inks" style="margin: 0 0 0 0;"></div>
+            </div>
 
-            <div class="d-flex flex-wrap justify-content-center" id="user-inks" style="margin: 0 0 0 0;"></div>
         </div>
     </div>
 
@@ -79,7 +83,7 @@
                 <div class="modal-body">
                     <label class="btn btn-primary" for="photoupload"><i class="fa fa-upload"></i>   choose a file</label>
                     <input id="photoupload" name="file" type="file" accept="image/*" style="display:none;">
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
@@ -88,13 +92,19 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container text-center" style="margin-top: 10rem;">
+            <p>Copyright &copy; team boop 2018</p>
+        </div>
+    </footer>
 </body>
 <script>
     $('#photoupload').change(function() {
-  var i = $(this).prev('label').clone();
-  var file = $('#photoupload')[0].files[0].name;
-  $(this).prev('label').text(file);
-}); 
+        var i = $(this).prev('label').clone();
+        var file = $('#photoupload')[0].files[0].name;
+        $(this).prev('label').text(file);
+    });
+
 </script>
 
 <script>
@@ -103,13 +113,13 @@
             document.getElementById('ideas-icon').style.borderBottom = '4px solid #DDDDDD ';
             document.getElementById('inked-icon').style.borderBottom = '0px';
 
-            document.getElementById('user-inks').style.display = 'none';
+            document.getElementById('inksdiv').style.display = 'none';
             document.getElementById('user-ideas').style.display = 'block';
         } else {
             document.getElementById('inked-icon').style.borderBottom = '4px solid #DDDDDD';
             document.getElementById('ideas-icon').style.borderBottom = '0px';
             document.getElementById('user-ideas').style.display = 'none';
-            document.getElementById('user-inks').style.display = 'block';
+            document.getElementById('inksdiv').style.display = 'block';
         }
 
     }

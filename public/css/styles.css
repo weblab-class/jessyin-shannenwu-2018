@@ -15,6 +15,7 @@
 #ideas-icon:hover,
 #inked-icon:hover {
     border-bottom: 4px solid #DDDDDD;
+    color: #57a7a7;
 }
 
 #post-content-input {
@@ -28,8 +29,12 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
-.trash-link{
-    color:black;
+.trash-link {
+    color: black;
+}
+
+.trash-link:hover {
+    color: #57a7a7;
 }
 
 .navbar-brand {

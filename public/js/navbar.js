@@ -23,7 +23,7 @@ function renderNavbar(user) {
     navbarDiv.appendChild(navbarDivStyles);
     // do the brand stuff 
     const navbarBrand = document.createElement('a');
-    navbarBrand.setAttribute('class', 'navbar-brand js-scroll-trigger');
+    navbarBrand.setAttribute('class', 'navbar-brand js-scroll-trigger shadow');
     navbarBrand.href = "#page-top";
     navbarDivStyles.appendChild(navbarBrand);
     // do the toggler

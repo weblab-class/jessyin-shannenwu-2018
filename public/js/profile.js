@@ -145,12 +145,13 @@ function renderUserPosts(postJSON) {
 
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
-    card.className = 'card photo-container box';
+    card.className = 'card box';
     postContainer.appendChild(card);
 
     const cardHeader = document.createElement('div');
     cardHeader.className = "card-header";
     card.appendChild(cardHeader);
+    card.setAttribute('style', 'margin-bottom:1rem;')
 
 
     const cardBody = document.createElement('div');
