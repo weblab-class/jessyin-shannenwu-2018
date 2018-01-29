@@ -55,7 +55,7 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
                 content: req.body.content
             });
 
-            //
+            
             if (err) console.log(err);
         });
         res.send({});
