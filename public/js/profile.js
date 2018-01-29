@@ -60,7 +60,7 @@ function renderUserGallery(inkedJSON) {
     cardDiv.appendChild(cardImg);
 
     const overlayText = document.createElement('div');
-
+    
     //UNCOMMENT TO TURN ON USER TEST
     //get('/api/whoami', {}, function (browsingUser) {
     //    if (postJSON.creator_id == browsingUser._id) {
@@ -117,6 +117,12 @@ function renderUserGallery(inkedJSON) {
                 authorLink.appendChild(overlayPostAuthor);
                 overlayText.prepend(contentLink);
                 overlayText.appendChild(authorLink);
+                const timeStamp=document.createElement('p');
+                timeStamp.className='time-stamp';
+                var date = new Date(postsArr[i].date);
+                timeStamp.innerText=date.toLocaleDateString();
+                timeStamp.setAttribute('style','font-size:0.75em');
+                overlayText.append(timeStamp);
             }
         }
     });
