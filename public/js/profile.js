@@ -60,6 +60,8 @@ function renderUserGallery(inkedJSON) {
     //cardDiv.appendChild(cardImg);
 
     const overlayText = document.createElement('div');
+    overlayText.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
+
 
     //UNCOMMENT TO TURN ON USER TEST
     //get('/api/whoami', {}, function (browsingUser) {
@@ -107,6 +109,7 @@ function renderUserGallery(inkedJSON) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
+                overlayText.setAttribute('id', postsArr[i].content);
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
                 overlayPostContent.setAttribute("style", "color:#464a4c;")
                 const contentLink = document.createElement('a');
@@ -134,7 +137,7 @@ function renderUserGallery(inkedJSON) {
     overlayText.appendChild(artistLink);
     //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
     overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
-
+    overlayText.setAttribute('onclick', 'zoomImage(this)');
     cardDiv.appendChild(overlayText);
     cardDiv.setAttribute('id', inkedJSON._id);
     postContainer.appendChild(cardDiv);
@@ -252,6 +255,17 @@ function deleteInk(inkId) {
     get('/api/ink/' + inkId + '/remove', {}, function (post) {
         console.log('deleting post' + inkId);
     });
+}
+
+function zoomImage(ink) {
+    console.log(ink);
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('img01');
+    const captionText = document.getElementById('caption');
+
+    modal.style.display = 'block';
+    modalImg.src = 'https://s3.amazonaws.com/inkspire/' + ink.getAttribute('name');
+    captionText.innerHTML = ink.getAttribute('id');
 }
 
 

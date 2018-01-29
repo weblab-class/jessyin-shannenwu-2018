@@ -49,7 +49,8 @@ function renderUserGallery(inkedJSON) {
     //    cardImg.setAttribute('src', url);
     //    cardDiv.appendChild(cardImg);
     const overlayText = document.createElement('div');
-
+    overlayText.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
+    overlayText.setAttribute('onclick', 'zoomImage(this)');
     const overlayPostContent = document.createElement('h1');
     const overlayPostAuthor = document.createElement('small');
     const overlayPostArtist = document.createElement('small');
@@ -57,12 +58,12 @@ function renderUserGallery(inkedJSON) {
     const postAuthorIcon = document.createElement('i');
     postAuthorIcon.className = 'fa fa-lightbulb-o';
     overlayPostAuthor.appendChild(postAuthorIcon);
-    overlayPostAuthor.className="post-creator";
+    overlayPostAuthor.className = "post-creator";
 
     const postArtistIcon = document.createElement('i');
     postArtistIcon.className = 'fa fa-paint-brush';
     overlayPostArtist.appendChild(postArtistIcon);
-    overlayPostArtist.className="post-creator";
+    overlayPostArtist.className = "post-creator";
     overlayPostArtist.innerHTML += ("  " + inkedJSON.creator_name);
 
     const artistLink = document.createElement('a');
@@ -73,6 +74,7 @@ function renderUserGallery(inkedJSON) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
+                overlayText.setAttribute('id', postsArr[i].content);
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
                 overlayPostContent.setAttribute("style", "color:#464a4c;")
 
@@ -87,12 +89,12 @@ function renderUserGallery(inkedJSON) {
                 overlayText.prepend(contentLink);
                 overlayText.appendChild(authorLink);
 
-                const timeStamp=document.createElement('p');
-                timeStamp.className='time-stamp';
+                const timeStamp = document.createElement('p');
+                timeStamp.className = 'time-stamp';
                 var date = new Date(postsArr[i].date);
-                timeStamp.innerText=date.toLocaleDateString();
-                timeStamp.setAttribute('style','font-size:0.75em');
-                overlayText.append(timeStamp);                
+                timeStamp.innerText = date.toLocaleDateString();
+                timeStamp.setAttribute('style', 'font-size:0.75em');
+                overlayText.append(timeStamp);
             }
         }
     });
@@ -106,5 +108,15 @@ function renderUserGallery(inkedJSON) {
     postContainer.appendChild(cardDiv);
 }
 
+function zoomImage(ink) {
+    console.log(ink);
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('img01');
+    const captionText = document.getElementById('caption');
+
+    modal.style.display = 'block';
+    modalImg.src = 'https://s3.amazonaws.com/inkspire/' + ink.getAttribute('name');
+    captionText.innerHTML = ink.getAttribute('id');
+}
 
 main();

@@ -92,6 +92,13 @@
             </div>
         </div>
     </div>
+    <div id="imageModal" class="modal">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('imageModal').style.display='none'">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
     <footer>
         <div class="container text-center" style="margin-top: 10rem;">
             <p>Copyright &copy; team boop 2018</p>
@@ -105,9 +112,16 @@
 
     });
 
-</script>
+    // Get the modal
+    var modal = document.getElementById('imageModal');
 
-<script>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
     function showhide(id) {
         if (id == 'ideas-icon') {
             document.getElementById('ideas-icon').style.borderBottom = '4px solid #DDDDDD ';
