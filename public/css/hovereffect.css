@@ -2,7 +2,7 @@
     font-size: large;
     padding-left: 10%;
     padding-right: 10%;
-    padding-top:10%;
+    padding-top: 10%;
 }
 
 .overlay {
@@ -55,4 +55,10 @@ small {
     position: absolute;
     top: 5%;
     right: 5%;
+}
+
+.hoverleft {
+    position: absolute;
+    top: 5%;
+    left: 5%;
 }

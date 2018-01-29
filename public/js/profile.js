@@ -60,8 +60,26 @@ function renderUserGallery(inkedJSON) {
     //cardDiv.appendChild(cardImg);
 
     const overlayText = document.createElement('div');
-    overlayText.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
 
+
+    //THIS IS THE EXPAND ICON TO ZOOM IMAGES
+    const expandButton = document.createElement('a');
+    expandButton.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
+    expandButton.className = "trash-link";
+    expandButton.href = "#expand";
+    expandButton.onclick = function () {
+        expandButton.setAttribute('onclick', 'zoomImage(this)');
+    }
+    overlayText.prepend(expandButton);
+
+    const expandIcon = document.createElement('i');
+
+    expandIcon.className = "fas fa-expand-arrows-alt hoverleft";
+    expandIcon.setAttribute('id', "expand-icon");
+
+    expandIcon.setAttribute('aria-hidden', 'true');
+    expandButton.prepend(expandIcon);
+    //-----
 
     //UNCOMMENT TO TURN ON USER TEST
     //get('/api/whoami', {}, function (browsingUser) {
@@ -109,7 +127,7 @@ function renderUserGallery(inkedJSON) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
-                overlayText.setAttribute('id', postsArr[i].content);
+                expandButton.setAttribute('id', postsArr[i].content);
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
                 overlayPostContent.setAttribute("style", "color:#464a4c;")
                 const contentLink = document.createElement('a');
@@ -137,7 +155,6 @@ function renderUserGallery(inkedJSON) {
     overlayText.appendChild(artistLink);
     //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
     overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
-    overlayText.setAttribute('onclick', 'zoomImage(this)');
     cardDiv.appendChild(overlayText);
     cardDiv.setAttribute('id', inkedJSON._id);
     postContainer.appendChild(cardDiv);
@@ -215,6 +232,7 @@ function renderUserData(user) {
     const nameContainer = document.getElementById('name-container');
     const nameHeader = document.createElement('h1');
     nameHeader.innerHTML = user.name;
+    nameHeader.className = 'page-description'
     nameContainer.appendChild(nameHeader);
 
     // rendering profile image

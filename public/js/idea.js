@@ -49,14 +49,30 @@ function renderUserGallery(inkedJSON) {
     //    cardImg.setAttribute('src', url);
     //    cardDiv.appendChild(cardImg);
     const overlayText = document.createElement('div');
-    overlayText.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
-    overlayText.setAttribute('onclick', 'zoomImage(this)');
+    //THIS IS THE EXPAND ICON TO ZOOM IMAGES
+    const expandButton = document.createElement('a');
+    expandButton.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
+    expandButton.className = "trash-link";
+    expandButton.href = "#expand";
+    expandButton.onclick = function () {
+        expandButton.setAttribute('onclick', 'zoomImage(this)');
+    }
+    overlayText.prepend(expandButton);
+
+    const expandIcon = document.createElement('i');
+
+    expandIcon.className = "fas fa-expand-arrows-alt hoverleft";
+    expandIcon.setAttribute('id', "expand-icon");
+
+    expandIcon.setAttribute('aria-hidden', 'true');
+    expandButton.prepend(expandIcon);
+    //-----    overlayText.setAttribute('onclick', 'zoomImage(this)');
     const overlayPostContent = document.createElement('h1');
     const overlayPostAuthor = document.createElement('small');
     const overlayPostArtist = document.createElement('small');
 
     const postAuthorIcon = document.createElement('i');
-    postAuthorIcon.className = 'fa fa-lightbulb-o';
+    postAuthorIcon.className = 'far fa-lightbulb';
     overlayPostAuthor.appendChild(postAuthorIcon);
     overlayPostAuthor.className = "post-creator";
 
@@ -74,7 +90,7 @@ function renderUserGallery(inkedJSON) {
         for (let i = 0; i < postsArr.length; i++) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
-                overlayText.setAttribute('id', postsArr[i].content);
+                expandButton.setAttribute('id', postsArr[i].content);
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
                 overlayPostContent.setAttribute("style", "color:#464a4c;")
 
