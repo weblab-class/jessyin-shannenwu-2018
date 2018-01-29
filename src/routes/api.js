@@ -5,7 +5,6 @@ const connect = require('connect-ensure-login')
 // models
 const Post = require('../models/post');
 const User = require('../models/user');
-const MyPost = require('../models/mypost');
 const Inked = require('../models/inked');
 const ProfilePicture = require('../models/profilepicture');
 
@@ -54,15 +53,6 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
                 creator_id: user._id,
                 creator_name: user.name,
                 content: req.body.content
-            });
-            //
-            const newMyPost = new MyPost({
-                'user_id': user._id,
-                'post_id': post._id
-            });
-
-            newMyPost.save(function (err, post) {
-                if (err) console.log(err);
             });
 
             //
