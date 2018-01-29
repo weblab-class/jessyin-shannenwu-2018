@@ -32,7 +32,7 @@ function renderGallery(inkedJSON) {
     const expandButton = document.createElement('a');
     expandButton.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
     expandButton.className = "trash-link";
-    expandButton.href = "#expand";
+    // expandButton.href = "#expand";
     expandButton.onclick = function () {
         expandButton.setAttribute('onclick', 'zoomImage(this)');
     }
@@ -40,7 +40,7 @@ function renderGallery(inkedJSON) {
 
     const expandIcon = document.createElement('i');
 
-    expandIcon.className = "fas fa-expand-arrows-alt hoverleft";
+    expandIcon.className = "fas fa-expand-arrows-alt hoverright";
     expandIcon.setAttribute('id', "expand-icon");
 
     expandIcon.setAttribute('aria-hidden', 'true');

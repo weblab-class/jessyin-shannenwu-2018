@@ -42,9 +42,10 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
         const newPost = new Post({
             'creator_id': user._id,
             'creator_name': user.name,
-            'content': req.body.content
+            'content': req.body.content,
         });
         user.save();
+
 
         newPost.save(function (err, post) {
             const io = req.app.get('socketio');
@@ -52,7 +53,7 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
                 _id: post._id,
                 creator_id: user._id,
                 creator_name: user.name,
-                content: req.body.content
+                content: req.body.content,
             });
 
             
