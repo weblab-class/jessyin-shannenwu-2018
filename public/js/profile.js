@@ -6,7 +6,7 @@ function main() {
         renderUserData(profileUser);
 
         get('/api/posts', {}, function (postsArr) {
-            for (let i = postsArr.length-1; i >= 0; i--) {
+            for (let i = postsArr.length - 1; i >= 0; i--) {
                 if (profileUser._id == postsArr[i].creator_id) {
                     renderUserPosts(postsArr[i]);
                 }
@@ -52,15 +52,15 @@ function renderUserGallery(inkedJSON) {
     const cardDiv = document.createElement('div');
     cardDiv.className = "card photo-container";
     cardDiv.setAttribute("style", 'padding:0px');
-
-    const cardImg = document.createElement('img');
-    cardImg.className = 'card-img';
-    const url = "https://s3.amazonaws.com/inkspire/" + inkedJSON.image_url;
-    cardImg.setAttribute('src', url);
-    cardDiv.appendChild(cardImg);
+    cardDiv.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(inkedJSON.image_url) + '\') 50% 50% no-repeat; background-size:cover;');
+    //const cardImg = document.createElement('img');
+    //cardImg.className = 'card-img';
+    //const url = "https://s3.amazonaws.com/inkspire/" + inkedJSON.image_url;
+    //cardImg.setAttribute('src', url);
+    //cardDiv.appendChild(cardImg);
 
     const overlayText = document.createElement('div');
-    
+
     //UNCOMMENT TO TURN ON USER TEST
     //get('/api/whoami', {}, function (browsingUser) {
     //    if (postJSON.creator_id == browsingUser._id) {
@@ -75,8 +75,10 @@ function renderUserGallery(inkedJSON) {
     overlayText.prepend(deleteButton);
 
     const trashIcon = document.createElement('i');
+
     trashIcon.className = "far fa-trash-alt hoverright";
-    trashIcon.setAttribute('id',"trash-icon");
+    trashIcon.setAttribute('id', "trash-icon");
+
     trashIcon.setAttribute('aria-hidden', 'true');
     deleteButton.prepend(trashIcon);
     //    }
@@ -89,12 +91,12 @@ function renderUserGallery(inkedJSON) {
     const postAuthorIcon = document.createElement('i');
     postAuthorIcon.className = "far fa-lightbulb";
     overlayPostAuthor.appendChild(postAuthorIcon);
-    overlayPostAuthor.className="post-creator";
+    overlayPostAuthor.className = "post-creator";
 
     const postArtistIcon = document.createElement('i');
     postArtistIcon.className = 'fa fa-paint-brush';
     overlayPostArtist.appendChild(postArtistIcon);
-    overlayPostArtist.className="post-creator";
+    overlayPostArtist.className = "post-creator";
     overlayPostArtist.innerHTML += ("  " + inkedJSON.creator_name);
 
     const artistLink = document.createElement('a');
@@ -106,9 +108,9 @@ function renderUserGallery(inkedJSON) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
-                overlayPostContent.setAttribute("style","color:#464a4c;")
+                overlayPostContent.setAttribute("style", "color:#464a4c;")
                 const contentLink = document.createElement('a');
-                contentLink.className="shadow";
+                contentLink.className = "shadow";
                 contentLink.setAttribute('href', '/p/idea?' + postsArr[i]._id);
                 contentLink.appendChild(overlayPostContent);
 
@@ -117,11 +119,11 @@ function renderUserGallery(inkedJSON) {
                 authorLink.appendChild(overlayPostAuthor);
                 overlayText.prepend(contentLink);
                 overlayText.appendChild(authorLink);
-                const timeStamp=document.createElement('p');
-                timeStamp.className='time-stamp';
+                const timeStamp = document.createElement('p');
+                timeStamp.className = 'time-stamp';
                 var date = new Date(postsArr[i].date);
-                timeStamp.innerText=date.toLocaleDateString();
-                timeStamp.setAttribute('style','font-size:0.75em');
+                timeStamp.innerText = date.toLocaleDateString();
+                timeStamp.setAttribute('style', 'font-size:0.75em');
                 overlayText.append(timeStamp);
             }
         }
@@ -146,8 +148,8 @@ function renderUserPosts(postJSON) {
     card.className = 'card photo-container box';
     postContainer.appendChild(card);
 
-    const cardHeader=document.createElement('div');
-    cardHeader.className="card-header";
+    const cardHeader = document.createElement('div');
+    cardHeader.className = "card-header";
     card.appendChild(cardHeader);
 
 
@@ -187,10 +189,10 @@ function renderUserPosts(postJSON) {
     cardFooter.className = 'card-footer';
     card.appendChild(cardFooter);
 
-    const timeStamp=document.createElement('p');
-    timeStamp.className='time-stamp';
+    const timeStamp = document.createElement('p');
+    timeStamp.className = 'time-stamp';
     var date = new Date(postJSON.date);
-    timeStamp.innerText=date.toLocaleDateString();
+    timeStamp.innerText = date.toLocaleDateString();
     cardFooter.appendChild(timeStamp);
 
     const creatorSpan = document.createElement('a');
@@ -215,7 +217,7 @@ function renderUserData(user) {
     const profileImage = document.getElementById('profile-picture');
     profileImage.className = 'photo-container';
     const overlay = document.createElement('div');
-    overlay.setAttribute('style', 'background-color:transparent');
+    overlay.setAttribute('style', 'background-color:transparent; width:200px;height:200px');
 
     get('/api/whoami', {}, function (browsingUser) {
         if (window.location.search.substring(1) == browsingUser._id) {

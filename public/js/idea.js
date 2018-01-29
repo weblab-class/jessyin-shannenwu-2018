@@ -42,12 +42,12 @@ function renderUserGallery(inkedJSON) {
     const cardDiv = document.createElement('div');
     cardDiv.className = "card photo-container";
     cardDiv.setAttribute("style", 'padding:0px');
-    const cardImg = document.createElement('img');
-    cardImg.className = 'card-img';
-    const url = "https://s3.amazonaws.com/inkspire/" + inkedJSON.image_url;
-    cardImg.setAttribute('src', url);
-    cardDiv.appendChild(cardImg);
-
+    cardDiv.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(inkedJSON.image_url) + '\') 50% 50% no-repeat; background-size:cover;');
+    //    const cardImg = document.createElement('img');
+    //    cardImg.className = 'card-img';
+    //    const url = "https://s3.amazonaws.com/inkspire/" + inkedJSON.image_url;
+    //    cardImg.setAttribute('src', url);
+    //    cardDiv.appendChild(cardImg);
     const overlayText = document.createElement('div');
 
     const overlayPostContent = document.createElement('h1');
