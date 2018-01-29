@@ -1,5 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
+@import 'https://fonts.googleapis.com/css?family=Sacramento';
 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #DDD;
@@ -28,8 +28,8 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
-.navbar-brand{
-    margin-left:10%;
+.navbar-brand {
+    margin-left: 10%;
 }
 /*bg color for gallery posts*/
 .card-header{
@@ -39,59 +39,63 @@
     margin-bottom:0.25rem;
 }
 
-.shadow{
-    color:white;
-    text-shadow: 1px 1px #AADDDD, 
-                2px 2px #AADDDD, 
-                3px 3px #AADDDD;
-   -webkit-transition: all 0.12s ease-out;
-   -moz-transition:    all 0.12s ease-out;
-   -ms-transition:     all 0.12s ease-out;
-   -o-transition:      all 0.12s ease-out;
+.shadow {
+    color: white;
+    text-shadow: 1px 1px #AADDDD,
+    2px 2px #AADDDD,
+    3px 3px #AADDDD;
+    -webkit-transition: all 0.12s ease-out;
+    -moz-transition: all 0.12s ease-out;
+    -ms-transition: all 0.12s ease-out;
+    -o-transition: all 0.12s ease-out;
 }
 
 .shadow:hover {
-    color:white;
-    position: relative; 
-    top: -3px; 
-    left: -3px; 
-    text-shadow: 1px 1px #AADDDD, 
-                2px 2px #AADDDD, 
-                3px 3px #AADDDD, 
-                4px 4px #AADDDD, 
-                5px 5px #AADDDD, 
-                6px 6px #AADDDD;
+    color: white;
+    position: relative;
+    top: -3px;
+    left: -3px;
+    text-shadow: 1px 1px #AADDDD,
+    2px 2px #AADDDD,
+    3px 3px #AADDDD,
+    4px 4px #AADDDD,
+    5px 5px #AADDDD,
+    6px 6px #AADDDD;
 }
 
 .box {
-  transition: box-shadow .3s;
-  border-radius:10px;
-  border: 1px solid #ccc;
-  background: #fff;
-  
-}
-.box:hover {
-  box-shadow: 0 0 20px rgba(33,33,33,.2); 
+    transition: box-shadow .3s;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+
 }
 
-p{
-    overflow-wrap: break-word; 
-    margin-bottom:0.25em;
+.box:hover {
+    box-shadow: 0 0 20px rgba(33, 33, 33, .2);
 }
-@media (min-width: 992px){
-    .navbar-toggleable-md .navbar-collapse{
-        margin-right:10%        
+
+p {
+    overflow-wrap: break-word;
+    margin-bottom: 0.25em;
+}
+
+@media (min-width: 992px) {
+    .navbar-toggleable-md .navbar-collapse {
+        margin-right: 10%
     }
 }
 
 /*inked icon accessible*/
-.card-link:hover{
-    font-weight:bold;
+
+.card-link:hover {
+    font-weight: bold;
 }
 
-.card-title{
-    margin-bottom:0.25rem;
+.card-title {
+    margin-bottom: 0.25rem;
 }
+
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -101,8 +105,9 @@ p{
 
 
 /*post creator accessible*/
-.post-creator:hover{
-    text-decoration:underline;
+
+.post-creator:hover {
+    text-decoration: underline;
 }
 
 
@@ -138,6 +143,7 @@ p{
 }
 
 /*customizes cards in posts*/
+
 .card {
     min-width: 20%;
     margin-bottom: 0px;
@@ -151,12 +157,13 @@ p{
     font-style: italic;
     padding-top: 0.25em;
     padding-top: 0.25em;
-    padding-bottom:0em;
-    padding-right:0.25em;
+    padding-bottom: 0em;
+    padding-right: 0.25em;
 
 }
 
 }
+
 .wrapper {
     display: flex;
     align-items: stretch;
@@ -236,24 +243,25 @@ body {
 
 .btn {
     font-family: 'Poppins', sans-serif;
-/*    background-color: #AADDDD;*/
+    /*    background-color: #AADDDD;*/
 }
 
 /*inked button*/
+
 .btn-success {
-    color:white;
+    color: white;
     border-color: #aaddc1;
     background-color: #aaddc1;
 }
 
 .btn-success:hover {
-    color:white;
+    color: white;
     border-color: #5cb85c;
     background-color: #5cb85c;
 }
 
 .btn-danger {
-    color:white;
+    color: white;
     border-color: #ecb5b8;
     background-color: #ecb5b8;
 }
@@ -263,10 +271,11 @@ body {
     border-color: #aadddd;
     background-color: #AADDDD;
 }
-.btn-primary:hover{
+
+.btn-primary:hover {
     color: #AADDDD;
     background-color: white;
-    border-color: #AADDDD;    
+    border-color: #AADDDD;
 }
 
 .btn-outline-primary {
@@ -280,17 +289,20 @@ body {
     background-color: white;
     border-color: #AADDDD;
 }
+
 /*secondary is cancel button*/
+
 .btn-secondary {
     color: white;
     border-color: #ccc;
     background-color: #ccc;
 }
 
-.btn-secondary:hover, focus{
-    color:white;
-    border-color:#636c72;
-    background-color:#636c72;
+.btn-secondary:hover,
+focus {
+    color: white;
+    border-color: #636c72;
+    background-color: #636c72;
 }
 
 p {
@@ -514,11 +526,13 @@ img {
 
 }
 
-@media (min-width: 1200px){
-.container {
-    max-width: 100%;
-    width: 60%;
-    padding-top:0px;
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 100%;
+        width: 60%;
+        padding-top: 0px;
+
     }
 }
 
@@ -527,4 +541,69 @@ small {
     color: darkgray;
     line-height: 1.2em;
 
+}
+
+#mainNav {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 14px;
+    padding: 11px;
+    color: #000;
+    border: 1px solid #fff
+}
+
+#mainNav .navbar-brand {
+    font-weight: 700
+}
+
+#mainNav a {
+    color: #000;
+}
+
+#mainNav .navbar-nav .nav-item {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out
+}
+
+#mainNav .navbar-nav .nav-item:hover {
+    color: fade(white, 80%);
+    outline: 0;
+    background-color: transparent
+}
+
+#mainNav .navbar-nav .nav-item:active,
+#mainNav .navbar-nav .nav-item:focus {
+    outline: 0;
+    background-color: transparent
+}
+
+@media (min-width:992px) {
+    #mainNav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        -webkit-transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
+        -moz-transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
+        transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
+        letter-spacing: 1px;
+        border-bottom: none;
+        background: 0 0
+    }
+    #mainNav.navbar-shrink {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, .3);
+        background: #000
+    }
+    #mainNav .nav-link.active {
+        outline: 0;
+        background-color: rgba(255, 255, 255, .3)
+    }
+    #mainNav .nav-link.active:hover {
+        color: #fff
+    }
 }
