@@ -75,7 +75,7 @@ function renderUserGallery(inkedJSON) {
     overlayText.prepend(deleteButton);
 
     const trashIcon = document.createElement('i');
-    trashIcon.className = "far fa-trash-alt";
+    trashIcon.className = "far fa-trash-alt hoverright";
     trashIcon.setAttribute('id',"trash-icon");
     trashIcon.setAttribute('aria-hidden', 'true');
     deleteButton.prepend(trashIcon);
