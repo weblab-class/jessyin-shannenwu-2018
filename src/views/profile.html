@@ -38,9 +38,9 @@
             <h2 class="text-center">gallery</h2>
         </a>
 
-        <div class="d-flex justify-content-around" style="padding-bottom: 20px">
-            <a id='inked-icon' onclick="showhide(this.id)" style='border-bottom: 4px solid #DDDDDD'><i class="fa fa-paint-brush profile-links" aria-hidden="true" style="font-size: 30px" alt="Inks"></i></a>
-            <a id='ideas-icon' onclick="showhide(this.id)"><i class="far fa-lightbulb profile-links" aria-hidden="true" style="font-size: 30px" alt="Ideas" ></i></a>
+        <div class="d-flex justify-content-center" style="padding-bottom: 20px">
+            <a id='inked-icon' onclick="showhide(this.id)" style='border-bottom: 4px solid white; margin: 0 10% 0 10%;'><i class="fa fa-paint-brush profile-links" aria-hidden="true" style="font-size: 30px" alt="Inks"></i></a>
+            <a id='ideas-icon' onclick="showhide(this.id)" style='margin: 0 10% 0 10%;'><i class="far fa-lightbulb profile-links" aria-hidden="true" style="font-size: 30px;" alt="Ideas" ></i></a>
         </div>
         <div class="container-fluid" id='gallery-container'>
 
@@ -121,13 +121,13 @@
 
     function showhide(id) {
         if (id == 'ideas-icon') {
-            document.getElementById('ideas-icon').style.borderBottom = '4px solid #DDDDDD ';
+            document.getElementById('ideas-icon').style.borderBottom = '4px solid white ';
             document.getElementById('inked-icon').style.borderBottom = '0px';
 
             document.getElementById('inksdiv').style.display = 'none';
             document.getElementById('user-ideas').style.display = 'block';
         } else {
-            document.getElementById('inked-icon').style.borderBottom = '4px solid #DDDDDD';
+            document.getElementById('inked-icon').style.borderBottom = '4px solid ';
             document.getElementById('ideas-icon').style.borderBottom = '0px';
             document.getElementById('user-ideas').style.display = 'none';
             document.getElementById('inksdiv').style.display = 'block';
