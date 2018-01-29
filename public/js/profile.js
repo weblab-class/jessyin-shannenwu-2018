@@ -6,7 +6,7 @@ function main() {
         renderUserData(profileUser);
 
         get('/api/posts', {}, function (postsArr) {
-            for (let i = 0; i < postsArr.length; i++) {
+            for (let i = postsArr.length-1; i >= 0; i--) {
                 if (profileUser._id == postsArr[i].creator_id) {
                     renderUserPosts(postsArr[i]);
                 }
@@ -75,7 +75,8 @@ function renderUserGallery(inkedJSON) {
     overlayText.prepend(deleteButton);
 
     const trashIcon = document.createElement('i');
-    trashIcon.className = "far fa-trash-alt hoverright";
+    trashIcon.className = "far fa-trash-alt";
+    trashIcon.setAttribute('id',"trash-icon");
     trashIcon.setAttribute('aria-hidden', 'true');
     deleteButton.prepend(trashIcon);
     //    }
@@ -88,11 +89,12 @@ function renderUserGallery(inkedJSON) {
     const postAuthorIcon = document.createElement('i');
     postAuthorIcon.className = "far fa-lightbulb";
     overlayPostAuthor.appendChild(postAuthorIcon);
+    overlayPostAuthor.className="post-creator";
 
     const postArtistIcon = document.createElement('i');
     postArtistIcon.className = 'fa fa-paint-brush';
     overlayPostArtist.appendChild(postArtistIcon);
-
+    overlayPostArtist.className="post-creator";
     overlayPostArtist.innerHTML += ("  " + inkedJSON.creator_name);
 
     const artistLink = document.createElement('a');
@@ -104,8 +106,9 @@ function renderUserGallery(inkedJSON) {
             if (inkedJSON.post_id == postsArr[i]._id) {
                 overlayPostContent.innerHTML = postsArr[i].content;
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
-
+                overlayPostContent.setAttribute("style","color:#464a4c;")
                 const contentLink = document.createElement('a');
+                contentLink.className="shadow";
                 contentLink.setAttribute('href', '/p/idea?' + postsArr[i]._id);
                 contentLink.appendChild(overlayPostContent);
 
@@ -134,12 +137,18 @@ function renderUserPosts(postJSON) {
 
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
-    card.className = 'card photo-container';
+    card.className = 'card photo-container box';
     postContainer.appendChild(card);
+
+    const cardHeader=document.createElement('div');
+    cardHeader.className="card-header";
+    card.appendChild(cardHeader);
+
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
     card.appendChild(cardBody);
+
     //UNCOMMENT TO TURN ON USER TEST
     //get('/api/whoami', {}, function (browsingUser) {
     //    if (postJSON.creator_id == browsingUser._id) {
@@ -151,30 +160,39 @@ function renderUserPosts(postJSON) {
         document.getElementById('deletepost').setAttribute('name', postJSON._id);
         document.getElementById('deletepost').setAttribute('onclick', 'deletePost(this.name)');
     }
-    cardBody.prepend(deleteButton);
+    cardHeader.prepend(deleteButton);
 
     const trashIcon = document.createElement('i');
     trashIcon.className = "far fa-trash-alt pull-right";
     trashIcon.setAttribute('aria-hidden', 'true');
     deleteButton.prepend(trashIcon);
-    //    }
-    //});
 
 
+    const contentLink = document.createElement('a');
+    contentLink.setAttribute('href', '/p/idea?' + postJSON._id);
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
     contentSpan.innerText = postJSON.content;
-    cardBody.appendChild(contentSpan);
+    contentLink.appendChild(contentSpan);
+    cardBody.appendChild(contentLink);
 
     const cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
     card.appendChild(cardFooter);
 
+    const timeStamp=document.createElement('p');
+    timeStamp.className='time-stamp';
+    var date = new Date(postJSON.date);
+    timeStamp.innerText=date.toLocaleDateString();
+    cardFooter.appendChild(timeStamp);
+
     const creatorSpan = document.createElement('a');
     creatorSpan.className = 'post-creator card-title';
     creatorSpan.innerText = postJSON.creator_name;
     creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id);
-    cardFooter.appendChild(creatorSpan);
+    creatorSpan.setAttribute('style', "color:#AADDDD")
+    cardHeader.appendChild(creatorSpan);
+
 
     return card;
 }

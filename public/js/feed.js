@@ -51,7 +51,7 @@ function postDOMObject(postJSON, user) {
     creatorSpan.className = 'post-creator card-title pull-left';
     creatorSpan.innerText = postJSON.creator_name;
     creatorSpan.setAttribute('style', 'color:#AADDDD')
-    creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id)
+    creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id);
     inkedDiv.appendChild(creatorSpan);
     card.setAttribute('style', 'margin-bottom:1rem');
     

@@ -19,7 +19,8 @@
 
 .photo-container {
     position: relative;
-    width: 50%;
+    width:100%;
+    margin-bottom:1rem;
 }
 
 .photo-container:hover .overlay {
