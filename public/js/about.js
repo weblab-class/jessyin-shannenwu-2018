@@ -1,7 +1,7 @@
 function main() {
-  get('/api/whoami', {}, function(user){
-  renderNavbar(user); 
-  });
+    get('/api/whoami', {}, function (user) {
+        renderNavbar(user);
+    });
 }
 
 main();

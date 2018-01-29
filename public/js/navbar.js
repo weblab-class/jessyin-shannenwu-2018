@@ -1,6 +1,6 @@
 function newNavbarItem(text, url) {
     const listItem = document.createElement('li');
-    listItem.className = "nav-item active";
+    listItem.className = "nav-item active js-scroll-trigger";
     const itemLink = document.createElement('a');
     itemLink.className = 'nav-link';
     itemLink.setAttribute('id', text);
@@ -15,11 +15,13 @@ function newNavbarItem(text, url) {
 function renderNavbar(user) {
     const navbarDiv = document.getElementById('navbar');
     const navbarDivStyles = document.createElement('nav');
-    navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light bg-faded");
+    navbarDivStyles.setAttribute('id', 'mainNav');
+    navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light navbar-expand-lg");
     navbarDiv.appendChild(navbarDivStyles);
     // do the brand stuff 
     const navbarBrand = document.createElement('a');
-    navbarBrand.setAttribute('class', 'navbar-brand');
+    navbarBrand.setAttribute('class', 'navbar-brand js-scroll-trigger');
+    navbarBrand.href = "#page-top";
     navbarDivStyles.appendChild(navbarBrand);
     // do the toggler
     const navbarToggler = document.createElement('button');
@@ -57,6 +59,7 @@ function renderNavbar(user) {
     }
     navLogoText = document.createElement('span');
     navLogoText.innerHTML = '   inkspire';
+    navLogoText.setAttribute('style', 'font-family: \'Sacramento\', cursive;font-size:30px;');
     navbarBrand.appendChild(navLogoText);
     //navbarBrand.innerText = "inkspire";
 
@@ -71,7 +74,7 @@ function renderNavbar(user) {
     }
 
     navbarLinksList.appendChild(newNavbarItem('about', '/about'));
-    
+
 
     switch (navbarDiv.className) {
         case "ideas":
@@ -79,6 +82,7 @@ function renderNavbar(user) {
             break;
         case "about":
             document.getElementById("about").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            document.getElementById('mainNav').setAttribute('style', "background-color:transparent");
             break;
         case "gallery":
             document.getElementById("gallery").setAttribute("style", "border-bottom: #AADDDD solid 4px; padding-bottom:0;");
@@ -89,3 +93,14 @@ function renderNavbar(user) {
 
     }
 }
+
+$(window).scroll(function () {
+    if ($(document).scrollTop() > 50) {
+        $('nav').addClass('navbar-shrink');
+        $('nav').attr('style', 'background-color:#add;');
+    } else {
+        $('nav').removeClass('navbar-shrink');
+        $('nav').attr('style', 'background-color:transparent;');
+
+    }
+});

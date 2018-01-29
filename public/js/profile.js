@@ -30,7 +30,7 @@ function main() {
         socket.on('updateProPic', function (msg) {
             console.log('updating profile picture');
             const profileImage = document.getElementById('profile-picture');
-            profileImage.style = 'background:url(https://s3.amazonaws.com/inkspire/' + msg.image_url + ') 50% 50% no-repeat; background-size:cover;';
+            profileImage.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(msg.image_url) + '\') 50% 50% no-repeat; background-size: cover;')
         });
 
         socket.on('deletePost', function (msg) {
@@ -208,7 +208,7 @@ function renderUserData(user) {
     });
     overlay.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
     console.log(user.profile_picture);
-    profileImage.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + user.profile_picture + '\') 50% 50% no-repeat; background-size:cover;');
+    profileImage.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(user.profile_picture) + '\') 50% 50% no-repeat; background-size:cover;');
     //profileImage.style = 'background:url(/static/css/propic.jpg) 50% 50% no-repeat; background-size:cover;';
     profileImage.appendChild(overlay);
 
