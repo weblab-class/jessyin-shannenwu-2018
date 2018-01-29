@@ -95,11 +95,17 @@ function renderNavbar(user) {
         case "gallery":
             document.getElementById("gallery").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
             break;
-        case "profile":
-            document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-            break;
+        // case "profile":
+        //     document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+        //     break;
 
     }
+    get('/api/whoami', {}, function (browsingUser) {
+
+        if (window.location.search.substring(1) == browsingUser._id){
+            document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+       } 
+    })
 }
 
 $(window).scroll(function () {

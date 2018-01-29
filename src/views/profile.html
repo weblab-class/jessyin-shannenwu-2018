@@ -35,12 +35,12 @@
     </div>
     <div>
         <a name="gallery">
-            <h2 class="text-center">Gallery</h2>
+            <h2 class="text-center">gallery</h2>
         </a>
 
         <div class="d-flex justify-content-around" style="padding-bottom: 20px">
-            <a id='inked-icon' onclick="showhide(this.id)" style='border-bottom: 4px solid #DDDDDD'><i class="fa fa-paint-brush" aria-hidden="true" style="font-size: 30px" alt="Inks"></i></a>
-            <a id='ideas-icon' onclick="showhide(this.id)"><i class="far fa-lightbulb" aria-hidden="true" style="font-size: 30px" alt="Ideas" ></i></a>
+            <a id='inked-icon' onclick="showhide(this.id)" style='border-bottom: 4px solid #DDDDDD'><i class="fa fa-paint-brush profile-links" aria-hidden="true" style="font-size: 30px" alt="Inks"></i></a>
+            <a id='ideas-icon' onclick="showhide(this.id)"><i class="far fa-lightbulb profile-links" aria-hidden="true" style="font-size: 30px" alt="Ideas" ></i></a>
         </div>
         <div class="container-fluid" id='gallery-container'>
 
@@ -58,8 +58,8 @@
                                 <p class="modal-text" id="modalConfirm">are you sure you want to delete this?</p>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-                                <button type="button" class="btn btn-danger" id="deletepost" data-dismiss="modal"> delete </button>
+                                <button type="button" class="btn btn-secondary profile-links" data-dismiss="modal">cancel</button>
+                                <button type="button" class="btn btn-danger profile-links" id="deletepost" data-dismiss="modal"> delete </button>
                             </div>
                     </div>
                 </div>
@@ -76,16 +76,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">upload</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label class="btn btn-primary" for="photoupload"><i class="fa fa-upload"></i>   choose a file</label>
+                    <label class="btn btn-primary profile-links" for="photoupload"><i class="fa fa-upload"></i>   choose a file</label>
                     <input id="photoupload" name="file" type="file" accept="image/*" style="display:none;">
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cancel" data-dismiss="modal">cancel</button>
-                    <button type="button" class="btn btn-success" id="addphoto" data-dismiss="modal" onclick="addPhoto()">upload</button>
+                    <button type="button" class="btn btn-secondary profile-links" id="cancel" data-dismiss="modal">cancel</button>
+                    <button type="button" class="btn btn-success profile-links" id="addphoto" data-dismiss="modal" onclick="addPhoto()">upload</button>
                 </div>
             </div>
         </div>

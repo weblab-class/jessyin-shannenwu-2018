@@ -29,6 +29,22 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
+.h1, h1{
+    font-size: 5.5rem;
+    font-family: Sacramento;
+    color:white;
+}
+
+.h2, h2 {
+    font-size: 4rem;
+    font-family: Sacramento;
+    color:white;
+}
+
+.profile-links{
+    cursor:pointer;
+}
+
 .trash-link {
     color: black;
 }
@@ -234,6 +250,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
     padding-top: 0.25em;
+    background: #ddddddb8;
 }
 
 .btn {
@@ -521,7 +538,7 @@ ul ul a {
     .container {
         max-width: 100%;
         width: 60%;
-        padding-top: 0.5em;
+        /*padding-top: 0.5em;*/
 
     }
 }
