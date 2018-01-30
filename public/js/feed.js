@@ -171,6 +171,8 @@ function renderPosts(user) {
             postsArr.sort(predicateBy('likes'));
         } else if (window.location.search.substring(1) == 'author') {
             postsArr.sort(predicateBy('creator_id'));
+        } else {
+            postsArr.sort(predicateBy('date'));
         }
         for (let i = 0; i < postsArr.length; i++) {
             const currentPost = postsArr[i];
