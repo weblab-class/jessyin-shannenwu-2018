@@ -65,9 +65,9 @@ function postDOMObject(postJSON, user) {
 
     //like button
     const likeButton = document.createElement('a');
-    likeButton.href = '#boop';
+    // likeButton.href = '#boop';
     likeButton.className = 'hover-bottom-left like-button';
-    //likeButton.setAttribute('onclick', 'likePost(this.value)');
+    likeButton.setAttribute('onclick', 'likePost(this.value)');
     const likeText = document.createElement('span');
     likeText.innerText = ' ' + postJSON.likes;
     likeText.setAttribute('name', postJSON._id);
