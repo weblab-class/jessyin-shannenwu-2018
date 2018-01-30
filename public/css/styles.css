@@ -39,7 +39,10 @@
 
 
 /*customizes font of profile name, idea title, gallery title, inkspire in about pg*/
-
+.gallery-title{
+    font-family:Sacramento;
+    font-size:4.5rem;
+}
 .h1,
 h1 {
     font-family: Sacramento;
