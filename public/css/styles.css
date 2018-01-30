@@ -180,17 +180,16 @@ p {
 
 /*both post creators accessible in cards*/
 
-.post-creator {
-    font-size: small;
+.post-creator,
+.time-stamp {
+/*    font-size: small;*/
+    margin-bottom: 0;
+    font-size: .75em;
+    line-height:1.25em;
 }
 
 .post-creator:hover {
     text-decoration: underline;
-}
-
-.post-creator {
-    margin-bottom: 0;
-    font-size: .75em;
 }
 
 /*customizes cards in posts*/
