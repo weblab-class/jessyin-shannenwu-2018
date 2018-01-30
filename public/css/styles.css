@@ -87,9 +87,11 @@ h2 {
 
 .shadow {
     color: white;
-    text-shadow: 1px 1px #AADDDD,
-    2px 2px #AADDDD,
-    3px 3px #AADDDD;
+/*
+    text-shadow: 1px 1px #464a4c8a,
+    2px 2px #464a4c4a;
+    3px 3px #464a4c40;
+*/
     -webkit-transition: all 0.12s ease-out;
     -moz-transition: all 0.12s ease-out;
     -ms-transition: all 0.12s ease-out;
@@ -101,12 +103,14 @@ h2 {
     position: relative;
     top: -3px;
     left: -3px;
-    text-shadow: 1px 1px #AADDDD,
-    2px 2px #AADDDD,
-    3px 3px #AADDDD,
-    4px 4px #AADDDD,
+    text-shadow: 1px 1px #464a4c8a,
+    2px 2px #464a4c4a;
+    3px 3px #464a4c40;
+/*    4px 4px #AADDDD,*/
+/*
     5px 5px #AADDDD,
     6px 6px #AADDDD;
+*/
 }
 
 .box {
@@ -234,7 +238,7 @@ p {
 }
 
 #navbar {
-    min-width: 800px;
+/*    min-width: 800px;*/
     min-height: 5vh;
     margin-bottom: 4rem;
 }
@@ -272,13 +276,12 @@ a[aria-expanded="true"]::before {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-    padding-top: 0.25em;
-    background: #ddddddb8;
+    background: #b5cccc45;
 }
 
 button {
     border: 0px;
+    cursor:pointer;
 }
 
 .btn {
@@ -316,6 +319,7 @@ button {
     color: #AADDDD;
     background-color: white;
     border-color: #AADDDD;
+    cursor:pointer;
 }
 
 .btn-outline-primary {
@@ -399,6 +403,7 @@ ul ul a {
     padding-left: 30px !important;
     background: #6d7fcc;
 }
+
 
 .modal {
     display: none;
@@ -583,6 +588,7 @@ small {
 #mainNav {
     font-family: "Poppins", sans-serif;
     margin-bottom: 0;
+    background: #93d2d2b3;
 }
 
 #mainNav .navbar-toggler {
@@ -624,14 +630,16 @@ small {
 
 @media (min-width:992px) {
     #mainNav {
+/*
         padding-top: 20px;
         padding-bottom: 20px;
+*/
         -webkit-transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
         -moz-transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
         transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
         letter-spacing: 1px;
         border-bottom: none;
-        background: 0 0
+        background: #93d2d2b3;
     }
     #mainNav.navbar-shrink {
         padding-top: 10px;

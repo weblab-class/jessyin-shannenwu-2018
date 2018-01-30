@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!--local dependencies-->
@@ -102,12 +102,15 @@
         </div>
     </footer>
 </body>
+    
 <script>
     $('#photoupload').change(function() {
         var i = $(this).prev('label').clone();
         var file = $('#photoupload')[0].files[0].name;
-
+        $(this).prev('label').text(file);
     });
+    </script>
+    <script>
 
     // Get the modal
     var modal = document.getElementById('imageModal');
