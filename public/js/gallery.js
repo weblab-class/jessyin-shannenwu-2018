@@ -48,8 +48,9 @@ function renderGallery(inkedJSON) {
     //-----
 
     const overlayPostContent = document.createElement('p');
-    const overlayPostAuthor = document.createElement('p');
-    const overlayPostArtist = document.createElement('p');
+    const overlayPostAuthor = document.createElement('small');
+    const overlayPostArtist = document.createElement('small');
+
 
     const postAuthorIcon = document.createElement('i');
     postAuthorIcon.className = 'far fa-lightbulb';
