@@ -210,6 +210,7 @@ function renderUserPosts(postJSON) {
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
     contentSpan.innerText = postJSON.content;
+    contentSpan.setAttribute('style','padding-bottom:0.25em')
     contentLink.appendChild(contentSpan);
     cardBody.appendChild(contentLink);
 
@@ -248,7 +249,7 @@ function renderUserPosts(postJSON) {
     creatorSpan.className = 'post-creator card-title';
     creatorSpan.innerText = postJSON.creator_name;
     creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id);
-    creatorSpan.setAttribute('style', "color:#AADDDD")
+    creatorSpan.setAttribute('style', "color:#AADDDD;font-size:1em;")
     cardHeader.appendChild(creatorSpan);
 
 
