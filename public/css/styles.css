@@ -130,7 +130,11 @@ h1{
 /*customizes text inside idea posts*/
 p {
     overflow-wrap: break-word;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.75em;
+    font-family: 'Poppins', sans-serif;
+    font-size: medium;
+    line-height: 1.5em;
+    color: #999;
 }
 
 
@@ -320,14 +324,6 @@ focus {
     background-color: #636c72;
 }
 
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
 
 a,
 a:hover,

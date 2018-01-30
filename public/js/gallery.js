@@ -47,7 +47,7 @@ function renderGallery(inkedJSON) {
     expandButton.prepend(expandIcon);
     //-----
 
-    const overlayPostContent = document.createElement('h1');
+    const overlayPostContent = document.createElement('p');
     const overlayPostAuthor = document.createElement('small');
     const overlayPostArtist = document.createElement('small');
 
