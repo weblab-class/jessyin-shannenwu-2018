@@ -16,7 +16,7 @@ function renderGallery(inkedJSON) {
 
     const postContainer = document.getElementById('photo-holder');
     const cardDiv = document.createElement('div');
-    cardDiv.className = "card photo-container";
+    cardDiv.className = "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 card photo-container";
     cardDiv.setAttribute("style", 'padding:0px');
     cardDiv.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(inkedJSON.image_url) + '\') 50% 50% no-repeat; background-size:cover;');
     //    
