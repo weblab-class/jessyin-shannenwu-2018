@@ -7,7 +7,7 @@ function main() {
 
         socket.on('post', function (msg) {
             const postsDiv = document.getElementById('posts');
-
+            console.log(msg);
             postsDiv.prepend(postDOMObject(msg, user));
         });
 
@@ -16,7 +16,7 @@ function main() {
             postsDiv.innerText = ' ' + msg.likes;
             const sid = msg.post_id + "filledheart";
             const oid = msg.post_id + 'emptyheart';
-            console.log(document.getElementById(sid).style);
+
             if (document.getElementById(sid).style.display == 'none') {
                 document.getElementById(sid).style.display = 'inline';
                 document.getElementById(oid).style.display = 'none';

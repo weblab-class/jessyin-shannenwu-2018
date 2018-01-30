@@ -58,6 +58,7 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
                 creator_name: user.name,
                 content: req.body.content,
                 date: Date.now(),
+                likes: '0'
             });
 
 

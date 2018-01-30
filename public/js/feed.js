@@ -179,7 +179,6 @@ function renderPosts(user) {
 
     get('/api/likes', {}, function (userlike) {
         for (let i = 0; i < userlike.length; i++) {
-            console.log(userlike[i], user._id);
             if (userlike[i].user_id == user._id) {
                 console.log('change icon ' + userlike[i].post_id);
                 const id = userlike[i].post_id + 'emptyheart';
