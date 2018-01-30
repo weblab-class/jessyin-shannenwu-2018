@@ -179,11 +179,16 @@ p {
     text-decoration: underline;
 }
 
+.post-creator {
+    margin-bottom: 0;
+    font-size: .75em;
+}
 
 /*customizes cards in posts*/
 
 .card {
     padding: 1em 1.25em 0em 1.25em;
+    border: 0;
 }
 
 .card-footer {
@@ -333,6 +338,10 @@ a:hover,
 a:focus {
     text-decoration: none;
     transition: all 0.3s;
+}
+
+a:focus {
+    color: #ff80b8;
 }
 
 
@@ -738,6 +747,6 @@ footer p {
     color: #f5bcd5;
 }
 
-.like-button:hover{
-    color:#f5bcd5;
+.like-button:hover {
+    color: #f5bcd5;
 }

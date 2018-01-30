@@ -52,7 +52,7 @@ function renderNavbar(user) {
     navbarLinksList.className = 'navbar-nav navbar-right ml-auto'
     navbarLinksDiv.appendChild(navbarLinksList);
     const logo = document.createElement('img');
-    logo.setAttribute('src', "/static/logov6.png");
+    logo.setAttribute('src', "/static/logov7.png");
     logo.setAttribute('style', 'width: auto; height:30px');
     navbarBrand.appendChild(logo);
     if (user._id) {

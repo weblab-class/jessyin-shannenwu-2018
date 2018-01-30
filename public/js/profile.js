@@ -223,6 +223,27 @@ function renderUserPosts(postJSON) {
     timeStamp.innerText = date.toLocaleDateString();
     cardFooter.appendChild(timeStamp);
 
+    //like button
+    const likeButton = document.createElement('a');
+    likeButton.className = 'hover-bottom-left like-button';
+    //likeButton.setAttribute('onclick', 'likePost(this.value)');
+    const likeText = document.createElement('span');
+    likeText.innerText = ' ' + postJSON.likes;
+    likeButton.appendChild(likeText);
+    //gets icon from fontawesome
+    const likedIcon = document.createElement('i');
+    //CHECK IF USER HAS LIKED THIS BEFORE
+    const likedIconDiv = document.createElement('span');
+    likedIcon.className = 'fa fa-heart';
+
+    likedIcon.setAttribute('aria-hidden', 'true');
+    likedIconDiv.appendChild(likedIcon);
+
+    //CHECK IF USER HAS LIKED THIS BEFORE
+    likeButton.prepend(likedIconDiv);
+
+    cardFooter.appendChild(likeButton);
+
     const creatorSpan = document.createElement('a');
     creatorSpan.className = 'post-creator card-title';
     creatorSpan.innerText = postJSON.creator_name;

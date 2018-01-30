@@ -30,7 +30,7 @@ function renderGallery(inkedJSON) {
 
     //THIS IS THE EXPAND ICON TO ZOOM IMAGES
     const expandButton = document.createElement('a');
-    expandButton.setAttribute('href', '#');
+    expandButton.setAttribute('href', '#boop');
     expandButton.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
 
     expandButton.className = "trash-link hover-bottom-right";
