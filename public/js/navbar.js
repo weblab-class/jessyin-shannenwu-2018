@@ -108,13 +108,11 @@ function renderNavbar(user) {
     })
 }
 
-//$(window).scroll(function () {
-//    if ($(document).scrollTop() > 50) {
-//        $('nav').addClass('navbar-shrink');
-//        $('nav').attr('style', 'background-color:#93d2d2;');
-//    } else {
-//        $('nav').removeClass('navbar-shrink');
-//        $('nav').attr('style', 'background-color:transparent;');
-//
-//    }
-//});
+$(window).scroll(function () {
+    if ($(document).scrollTop() > 50) {
+        $('nav').addClass('navbar-shrink');
+    } else {
+        $('nav').removeClass('navbar-shrink');
+
+    }
+});

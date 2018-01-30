@@ -167,7 +167,11 @@ function renderPosts(user) {
 
     const postsDiv = document.getElementById('posts');
     get('/api/posts', {}, function (postsArr) {
-        // postsArr.sort(predicateBy('creator_name'));
+        if (window.location.search.substring(1) == 'likes') {
+            postsArr.sort(predicateBy('likes'));
+        } else if (window.location.search.substring(1) == 'author') {
+            postsArr.sort(predicateBy('creator_id'));
+        }
         for (let i = 0; i < postsArr.length; i++) {
             const currentPost = postsArr[i];
             postsDiv.prepend(postDOMObject(currentPost, user));
