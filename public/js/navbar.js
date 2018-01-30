@@ -1,13 +1,13 @@
 function newNavbarItem(text, url) {
     const listItem = document.createElement('li');
 
-    listItem.className = "nav-item active js-scroll-trigger shadow";
+    listItem.className = "nav-item active js-scroll-trigger shadow navbar-fixed-top";
     const itemLink = document.createElement('a');
-    itemLink.className = 'nav-link';
+    itemLink.className = 'nav-link pull-right';
     itemLink.setAttribute('id', text);
     itemLink.innerText = text;
     itemLink.href = url;
-    itemLink.setAttribute("style", "color:white;")
+    itemLink.setAttribute("style", "color:white;font-size:large");
     listItem.appendChild(itemLink);
 
     return listItem;
@@ -29,7 +29,7 @@ function renderNavbar(user) {
     navbarDivStyles.appendChild(navbarBrand);
     // do the toggler
     const navbarToggler = document.createElement('button');
-    navbarToggler.setAttribute('class', "navbar-toggler navbar-toggler-right");
+    navbarToggler.setAttribute('class', "navbar-toggler navbar-toggler-right button");
     navbarToggler.setAttribute('type', "button");
     navbarToggler.setAttribute('data-toggle', "collapse");
     navbarToggler.setAttribute('data-target', "#navbarNavAltMarkup");
@@ -64,7 +64,7 @@ function renderNavbar(user) {
     navLogoText = document.createElement('span');
 
     navLogoText.innerHTML = '   inkspire';
-    navLogoText.setAttribute('style', 'font-family: \'Sacramento\', cursive;font-size:30px;');
+    navLogoText.setAttribute('style', 'font-family: \'Sacramento\', cursive;font-size:2em;');
 
     navLogoText.className = 'shadow';
 
@@ -85,16 +85,15 @@ function renderNavbar(user) {
 
     switch (navbarDiv.className) {
         case "ideas":
-            document.getElementById("ideas").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            document.getElementById("ideas").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0; font-size:large");
             break;
         case "about":
-
-            document.getElementById("about").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-            document.getElementById('mainNav').setAttribute('style', "background-color:#93d2d2b3");
+            document.getElementById("about").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
+            document.getElementById('mainNav').setAttribute('style', "background-color:transparent");
 
             break;
         case "gallery":
-            document.getElementById("gallery").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            document.getElementById("gallery").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
             break;
             // case "profile":
             //     document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
@@ -102,19 +101,20 @@ function renderNavbar(user) {
     }
     get('/api/whoami', {}, function (browsingUser) {
 
+
         if (window.location.search.substring(1) == browsingUser._id) {
-            document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
         }
     })
 }
 
-$(window).scroll(function () {
-    if ($(document).scrollTop() > 50) {
-        $('nav').addClass('navbar-shrink');
-        $('nav').attr('style', 'background-color:#93d2d2b3;');
-    } else {
-        $('nav').removeClass('navbar-shrink');
-        $('nav').attr('style', 'background-color:#93d2d2b3;');
-
-    }
-});
+//$(window).scroll(function () {
+//    if ($(document).scrollTop() > 50) {
+//        $('nav').addClass('navbar-shrink');
+//        $('nav').attr('style', 'background-color:#93d2d2;');
+//    } else {
+//        $('nav').removeClass('navbar-shrink');
+//        $('nav').attr('style', 'background-color:transparent;');
+//
+//    }
+//});
