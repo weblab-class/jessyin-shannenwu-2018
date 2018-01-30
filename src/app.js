@@ -5,8 +5,11 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
-const socketio = require('socket.io');
-
+//const socketio = require('socket.io');
+const socketio = require('socket.io', {
+    rememberTransport: false,
+    transports: ['WebSocket', 'Flash Socket', 'AJAX long-polling']
+});
 
 const db = require('./db');
 const views = require('./routes/views');
