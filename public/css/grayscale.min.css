@@ -162,6 +162,33 @@ a:hover {
     }
 }
 
+.shadow {
+    color: white;
+    /*
+    text-shadow: 1px 1px #464a4c8a,
+    2px 2px #464a4c4a;
+    3px 3px #464a4c40;
+*/
+    -webkit-transition: all 0.12s ease-out;
+    -moz-transition: all 0.12s ease-out;
+    -ms-transition: all 0.12s ease-out;
+    -o-transition: all 0.12s ease-out;
+}
+
+.shadow:hover {
+    color: white;
+    position: relative;
+    top: -3px;
+    left: -3px;
+    text-shadow: 1px 1px #464a4c8a,
+    2px 2px #464a4c4a;
+    3px 3px #464a4c40;
+    /*    4px 4px #AADDDD,*/
+    /*
+    5px 5px #AADDDD,
+    6px 6px #AADDDD;
+*/
+}
 .btn-circle {
     font-size: 26px;
     width: 55px;
@@ -185,8 +212,8 @@ a:hover {
 }
 
 .content-section {
-    padding-top: 150px;
-    padding-bottom: 150px
+    padding-top: 10rem;
+    padding-bottom: 10rem
 }
 
 .download-section {
