@@ -5,7 +5,7 @@ function postDOMObject(postJSON, user) {
     // creates entire card, adds it to the column
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
-    card.setAttribute('onclick', 'likePost(this.id)');
+    //card.setAttribute('onclick', 'likePost(this.id)');
     card.className = 'card box';
     colDiv.appendChild(card);
 
@@ -67,7 +67,8 @@ function postDOMObject(postJSON, user) {
     const likeButton = document.createElement('a');
     likeButton.href = '#boop';
     likeButton.className = 'hover-bottom-left like-button';
-    //likeButton.setAttribute('onclick', 'likePost(this.value)');
+    likeButton.setAttribute('value', postJSON._id);
+    likeButton.setAttribute('onclick', 'likePost(this)');
     const likeText = document.createElement('span');
     likeText.innerText = ' ' + postJSON.likes;
     likeText.setAttribute('name', postJSON._id);
@@ -206,6 +207,8 @@ function renderPosts(user) {
     });
 }
 
-function likePost(postId) {
+function likePost(post) {
+    console.log($(post).attr('value'));
+    postId = $(post).attr('value');
     get('/api/post/' + postId + '/like', {}, function (post) {});
 }
