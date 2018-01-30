@@ -12,7 +12,7 @@
     left: -1px;
     right: 0;
     height: 15rem;
-    width: 15rem;
+/*    width: 15rem;*/
     opacity: 0;
     transition: .5s ease;
     background-color: #fff;
@@ -20,8 +20,10 @@
 
 .photo-container {
     position: relative;
+/*
     margin: 1rem;
     width: 15rem;
+*/
     height: 15rem;
     display: block;
     background-size: cover;

@@ -13,9 +13,14 @@
     color: #7cd4b5;
 }
 
+/*icons in profile page*/
+#inked-icon{
+    float:right;
+}
+
 #ideas-icon,
 #inked-icon {
-    border-bottom: 4px solid transparent;
+    font-size:30px;
 }
 
 #ideas-icon:hover,
@@ -24,6 +29,7 @@
     color: #57a7a7;
 }
 
+/*post-content on ideas pg*/
 #post-content-input {
     width: 130px;
     font-family: "Poppins", sans-serif;
@@ -35,23 +41,14 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
-a{
-    color:#464a4c;
-}
-
+/*customizes font of profile name, idea title, gallery title, inkspire in about pg*/
 .h1,
-h1 {
-    font-size: 5.5rem;
-    color: white;
+h1{
+    font-family:Sacramento;
+
 }
 
-.h2,
-h2 {
-    font-size: 4rem;
-    font-family: Sacramento;
-    color: white;
-}
-
+/*cursor changes on profile button links*/
 .profile-links {
     cursor: pointer;
 }
@@ -64,6 +61,7 @@ h2 {
     color: #57a7a7;
 }
 
+/*margin for navbar*/
 .navbar-brand {
     margin-left: 10%;
 }
@@ -85,6 +83,7 @@ h2 {
     overflow: hidden;
 }
 
+/*shadow for navbar items, post ideas in cards*/
 .shadow {
     color: white;
 /*
@@ -113,6 +112,7 @@ h2 {
 */
 }
 
+/*shadow behind text post cards*/
 .box {
     transition: box-shadow .3s;
     border-radius: 10px;
@@ -125,22 +125,18 @@ h2 {
     box-shadow: 0 0 20px rgba(33, 33, 33, .2);
 }
 
+/*customizes text inside idea posts*/
 p {
     overflow-wrap: break-word;
     margin-bottom: 0.25em;
 }
 
-@media (min-width: 992px) {
-    .navbar-toggleable-md .navbar-collapse {
-        margin-right: 10%
-    }
-}
 
-/*inked icon accessible*/
+
+/*inked icon on idea posts accessible*/
 
 .card-link{
-/*    font-family:sacramento;*/
-/*    font-size:2em;*/
+    color:#464a4c;
 }
 
 .fa-paint-brush:hover{
@@ -159,6 +155,7 @@ p {
     margin-bottom: 0.25rem;
 }
 
+/*inks,posts gallery profile*/
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -167,25 +164,17 @@ p {
 }
 
 
-/*post creator accessible*/
+/*both post creators accessible in cards*/
 
 .post-creator:hover {
     text-decoration: underline;
 }
 
 
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-height: 10%;
-}
-
-
 /*customizes cards in posts*/
 
 .card {
-    padding: 15px 20px 0px 20px;
+    padding: 1em 1.25em 0em 1.25em;
 }
 
 .card-footer {
@@ -263,6 +252,12 @@ a[aria-expanded="true"]::before {
 
 a[aria-expanded="true"]::before {
     content: '\e260';
+}
+
+@media (min-width: 992px) {
+    .navbar-toggleable-md .navbar-collapse {
+        margin-right: 10%
+    }
 }
 
 @media (max-width: 768px) {
@@ -466,18 +461,36 @@ ul ul a {
 }
 
 #profile-picture {
-    width: 200px;
-    height: 200px;
-    display: block;
-    border-radius: 50%;
+    /* make it responsive */
+    max-width: 100%;
+    width:100%;
+    height:auto;
+    display:block;
+    /* div height to be the same as width*/
+    padding-top:100%;
+
+    /* make it a circle */
+    border-radius:50%;
+
+    /* Centering on image`s center*/
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+
+    /* it makes the clue thing, takes smaller dimension to fill div */
     background-size: cover;
-    margin: 20px;
+
+    /* it is optional, for making this div centered in parent*/
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-#profile-container {
-    margin: 50px;
+.large-profile-container{
+    padding: 0 35%;
 }
-
 
 .item__overlay {
     position: absolute;
