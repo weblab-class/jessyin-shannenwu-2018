@@ -25,35 +25,25 @@ function main() {
 function renderPostData(post) {
     // rendering name
     const postContainer = document.getElementById('post-container');
-    const postSpan = document.createElement('span');
-    /*const ideaIcon = document.createElement('i');
-ideaIcon.className = 'fa fa-lightbulb-o';*/
     const postHeader = document.createElement('h1');
-    postHeader.setAttribute('class', 'page-description text-center');
+    postHeader.setAttribute('class', 'idea-description text-center');
     postHeader.innerText = "\"" + post.content + "\"";
-    //postSpan.appendChild(ideaIcon);
-    postSpan.appendChild(postHeader);
-    postContainer.appendChild(postSpan);
+    postContainer.appendChild(postHeader);
 }
 
 function renderUserGallery(inkedJSON) {
-    console.log(inkedJSON);
     const postContainer = document.getElementById('post-inks');
     const cardDiv = document.createElement('div');
-    cardDiv.className = "card photo-container";
+    cardDiv.className = "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 card photo-container";
     cardDiv.setAttribute("style", 'padding:0px');
     cardDiv.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(inkedJSON.image_url) + '\') 50% 50% no-repeat; background-size:cover;');
-    //    const cardImg = document.createElement('img');
-    //    cardImg.className = 'card-img';
-    //    const url = "https://s3.amazonaws.com/inkspire/" + inkedJSON.image_url;
-    //    cardImg.setAttribute('src', url);
-    //    cardDiv.appendChild(cardImg);
+
     const overlayText = document.createElement('div');
     //THIS IS THE EXPAND ICON TO ZOOM IMAGES
     const expandButton = document.createElement('a');
     expandButton.setAttribute('href', '#');
     expandButton.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
-    expandButton.className = "trash-link hover-bottom-right";
+    expandButton.className = "hover-bottom-right";
 
     expandButton.setAttribute('onclick', 'zoomImage(this)');
 
@@ -67,9 +57,10 @@ function renderUserGallery(inkedJSON) {
     expandIcon.setAttribute('aria-hidden', 'true');
     expandButton.prepend(expandIcon);
     //-----    overlayText.setAttribute('onclick', 'zoomImage(this)');
-    const overlayPostContent = document.createElement('h1');
-    const overlayPostAuthor = document.createElement('small');
-    const overlayPostArtist = document.createElement('small');
+    const overlayContent=document.createElement('div');
+    const overlayPostContent = document.createElement('p');
+    const overlayPostAuthor = document.createElement('p');
+    const overlayPostArtist = document.createElement('p');
 
     const postAuthorIcon = document.createElement('i');
     postAuthorIcon.className = 'far fa-lightbulb';
@@ -102,24 +93,23 @@ function renderUserGallery(inkedJSON) {
                 const authorLink = document.createElement('a');
                 authorLink.setAttribute('href', '/u/profile?' + postsArr[i].creator_id);
                 authorLink.appendChild(overlayPostAuthor);
-                overlayText.prepend(contentLink);
-                overlayText.appendChild(authorLink);
+                overlayContent.prepend(contentLink);
+                overlayContent.appendChild(authorLink);
 
                 const timeStamp = document.createElement('p');
                 timeStamp.className = 'time-stamp';
                 var date = new Date(postsArr[i].date);
                 timeStamp.innerText = date.toLocaleDateString();
                 timeStamp.setAttribute('style', 'font-size:0.75em');
-                overlayText.append(timeStamp);
+                overlayContent.append(timeStamp);
             }
         }
     });
 
-    overlayText.appendChild(artistLink);
-
-    //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
-    overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
-
+    overlayContent.appendChild(artistLink);
+    overlayContent.className = 'overlay-content';
+    overlayText.appendChild(overlayContent);
+    overlayText.className='text overlay align-middle justify-content-center';
     cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
 }

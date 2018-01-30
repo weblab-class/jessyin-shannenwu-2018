@@ -84,15 +84,15 @@ function renderNavbar(user) {
 
     switch (navbarDiv.className) {
         case "ideas":
-            document.getElementById("ideas").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0; font-size:large");
+            document.getElementById("ideas").setAttribute("style", "color:white; border-bottom: #9abfbf solid 4px; padding-bottom:0; font-size:large");
             break;
         case "about":
-            document.getElementById("about").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
+            document.getElementById("about").setAttribute("style", "color:white; border-bottom: #9abfbf solid 4px; padding-bottom:0;font-size:large");
             //            document.getElementById('mainNav').setAttribute('style', "background-color:transparent");
 
             break;
         case "gallery":
-            document.getElementById("gallery").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
+            document.getElementById("gallery").setAttribute("style", "color:white; border-bottom: #9abfbf solid 4px; padding-bottom:0;font-size:large");
             break;
             // case "profile":
             //     document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
@@ -102,7 +102,7 @@ function renderNavbar(user) {
 
 
         if (window.location.search.substring(1) == browsingUser._id) {
-            document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
+            document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #9abfbf solid 4px; padding-bottom:0;font-size:large");
         }
     })
 }

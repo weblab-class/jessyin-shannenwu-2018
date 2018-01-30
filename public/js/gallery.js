@@ -49,7 +49,7 @@ function renderGallery(inkedJSON) {
 
     const overlayContent = document.createElement('div');
     const overlayPostContent = document.createElement('p');
-    overlayPostContent.style.fontSize = '1.5em';
+    overlayPostContent.style.fontSize = 'large';
     overlayPostContent.style.color = '#333';
     const overlayPostAuthor = document.createElement('p');
     const overlayPostArtist = document.createElement('p');
