@@ -38,6 +38,12 @@ router.get('/gallery', function (req, res) {
     });
 });
 
+router.get('/404', function (req, res) {
+    res.sendFile('404.html', {
+        root: 'src/views'
+    });
+});
+
 router.get('/logout', function (req, res) {
     req.logout();
     res.redirect('/');

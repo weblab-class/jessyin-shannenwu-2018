@@ -333,6 +333,10 @@ img::-moz-selection {
     font-size: 1.25em;
 }
 
+#about-section {
+    padding-top: 5em;
+}
+
 .about-thumbnail {
     position: relative;
     padding-bottom: 70%;

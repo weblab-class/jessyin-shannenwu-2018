@@ -61,6 +61,7 @@ app.get('/logout', function (req, res) {
 
 // 404 route
 app.use(function (req, res, next) {
+    res.redirect('/404');
     const err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -68,6 +69,7 @@ app.use(function (req, res, next) {
 
 // route error handler
 app.use(function (err, req, res, next) {
+    res.redirect('/404');
     res.status(err.status || 500);
     res.send({
         status: err.status,
