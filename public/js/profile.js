@@ -50,7 +50,7 @@ function main() {
 function renderUserGallery(inkedJSON) {
     const postContainer = document.getElementById('user-inks');
     const cardDiv = document.createElement('div');
-    cardDiv.className = "col-4 card photo-container";
+    cardDiv.className = "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 card photo-container";
     cardDiv.setAttribute("style", 'padding:0px');
     cardDiv.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(inkedJSON.image_url) + '\') 50% 50% no-repeat; background-size:cover;');
     //const cardImg = document.createElement('img');
@@ -66,7 +66,7 @@ function renderUserGallery(inkedJSON) {
     const expandButton = document.createElement('a');
     expandButton.setAttribute('href', '#')
     expandButton.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
-    expandButton.className = "hover-bottom-right";
+    expandButton.className = "trash-link hover-bottom-right";
 
 
     expandButton.setAttribute('onclick', 'zoomImage(this)');
@@ -106,8 +106,8 @@ function renderUserGallery(inkedJSON) {
     //});
 
     const overlayPostContent = document.createElement('p');
-    const overlayPostAuthor = document.createElement('small');
-    const overlayPostArtist = document.createElement('small');
+    const overlayPostAuthor = document.createElement('p');
+    const overlayPostArtist = document.createElement('p');
 
     const postAuthorIcon = document.createElement('i');
     postAuthorIcon.className = "far fa-lightbulb";
@@ -230,16 +230,14 @@ function renderUserPosts(postJSON) {
 
 function renderUserData(user) {
     // rendering name
-    
     const nameContainer = document.getElementById('name-container');
     const nameHeader = document.createElement('h1');
     nameHeader.innerHTML = user.name;
-    // nameHeader.className = 'page-description text-center';
     nameContainer.appendChild(nameHeader);
 
     // rendering profile image
     const profileImage = document.getElementById('profile-picture');
-    // profileImage.className = 'photo-container';
+    profileImage.className = 'photo-container';
     const overlay = document.createElement('div');
     overlay.setAttribute('style', 'background-color:transparent; width:200px;height:200px');
 

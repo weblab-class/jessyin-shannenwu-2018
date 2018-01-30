@@ -51,6 +51,7 @@ function renderGallery(inkedJSON) {
     const overlayPostAuthor = document.createElement('small');
     const overlayPostArtist = document.createElement('small');
 
+
     const postAuthorIcon = document.createElement('i');
     postAuthorIcon.className = 'far fa-lightbulb';
     overlayPostAuthor.appendChild(postAuthorIcon);
@@ -100,7 +101,7 @@ function renderGallery(inkedJSON) {
     overlayText.appendChild(artistLink);
 
     //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
-    overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
+    overlayText.className = 'text overlay align-items-center justify-content-center';
 
     cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
