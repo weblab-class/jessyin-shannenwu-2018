@@ -1,29 +1,36 @@
+/*
 .text p {
     font-size: large;
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 10%;
 }
+*/
 
 .overlay {
-    position: absolute;
-    top: -1px;
+    position: relative;
+    top: 0;
     bottom: 0;
-    left: -1px;
+    left: 0;
     right: 0;
-    height: 15rem;
-/*    width: 15rem;*/
+    height: 100%;
+    /*    width: 15rem;*/
     opacity: 0;
     transition: .5s ease;
     background-color: #fff;
 }
 
+.overlay-content {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .photo-container {
     position: relative;
-/*
     margin: 1rem;
-    width: 15rem;
-*/
     height: 15rem;
     display: block;
     background-size: cover;

@@ -175,6 +175,12 @@ p {
 
 /*both post creators accessible in cards*/
 
+.post-creator {
+    font-size: .8em;
+    margin: 0;
+    padding: 0;
+}
+
 .post-creator:hover {
     text-decoration: underline;
 }
@@ -184,6 +190,7 @@ p {
 
 .card {
     padding: 1em 1.25em 0em 1.25em;
+    border: 0;
 }
 
 .card-footer {
@@ -199,7 +206,6 @@ p {
 }
 
 }
-
 
 #post-maker {
     min-width: 200px;
@@ -663,6 +669,7 @@ small {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+    font-family: Sacramento
 }
 
 /* Add Animation - Zoom in the Modal */
