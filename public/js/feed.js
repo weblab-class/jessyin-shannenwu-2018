@@ -72,7 +72,6 @@ function postDOMObject(postJSON, user) {
     likeText.innerText = ' ' + postJSON.likes;
     likeText.setAttribute('name', postJSON._id);
     likeButton.appendChild(likeText);
-    likeButton.onclick = function () {} //FILL IN LATER
     //gets icon from fontawesome
     const likedIcon = document.createElement('i');
     //CHECK IF USER HAS LIKED THIS BEFORE

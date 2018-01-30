@@ -64,7 +64,7 @@ function renderUserGallery(inkedJSON) {
 
     //THIS IS THE EXPAND ICON TO ZOOM IMAGES
     const expandButton = document.createElement('a');
-    expandButton.setAttribute('href', '#')
+    expandButton.setAttribute('href', '#boop')
     expandButton.setAttribute('name', encodeURIComponent(inkedJSON.image_url));
     expandButton.className = "trash-link hover-bottom-right";
 
@@ -105,7 +105,11 @@ function renderUserGallery(inkedJSON) {
     //    }
     //});
 
+    //This is the content of the hover overlay
+    const overlayContent = document.createElement('div');
     const overlayPostContent = document.createElement('p');
+    overlayPostContent.style.fontSize = '1.5em';
+    overlayPostContent.style.color = '#333';
     const overlayPostAuthor = document.createElement('p');
     const overlayPostArtist = document.createElement('p');
 
@@ -139,21 +143,23 @@ function renderUserGallery(inkedJSON) {
                 const authorLink = document.createElement('a');
                 authorLink.setAttribute('href', '/u/profile?' + postsArr[i].creator_id);
                 authorLink.appendChild(overlayPostAuthor);
-                overlayText.prepend(contentLink);
-                overlayText.appendChild(authorLink);
+                overlayContent.prepend(contentLink);
+                overlayContent.appendChild(authorLink);
                 const timeStamp = document.createElement('p');
                 timeStamp.className = 'time-stamp';
                 var date = new Date(postsArr[i].date);
                 timeStamp.innerText = date.toLocaleDateString();
                 timeStamp.setAttribute('style', 'font-size:0.75em');
-                overlayText.append(timeStamp);
+                overlayContent.append(timeStamp);
             }
         }
     });
 
 
 
-    overlayText.appendChild(artistLink);
+    overlayContent.appendChild(artistLink);
+    overlayContent.className = 'overlay-content';
+    overlayText.appendChild(overlayContent);
     //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
     overlayText.className = 'text overlay align-items-center justify-content-center';
     cardDiv.appendChild(overlayText);
@@ -233,13 +239,17 @@ function renderUserData(user) {
     const nameContainer = document.getElementById('name-container');
     const nameHeader = document.createElement('h1');
     nameHeader.innerHTML = user.name;
+    nameHeader.style.marginTop = '.75em';
     nameContainer.appendChild(nameHeader);
 
     // rendering profile image
     const profileImage = document.getElementById('profile-picture');
     profileImage.className = 'photo-container';
+    const overlayDiv = document.createElement('div');
+    overlayDiv.className = 'text overlay align-middle justify-content-center';
+    overlayDiv.style.backgroundColor = 'transparent';
     const overlay = document.createElement('div');
-    overlay.setAttribute('style', 'background-color:transparent; width:200px;height:200px');
+    overlay.setAttribute('style', 'background-color:transparent;');
 
     get('/api/whoami', {}, function (browsingUser) {
         if (window.location.search.substring(1) == browsingUser._id) {
@@ -255,11 +265,11 @@ function renderUserData(user) {
             overlay.appendChild(uploadLink);
         }
     });
-    overlay.className = 'text overlay align-items-center justify-content-center';
-    console.log(user.profile_picture);
+    overlay.className = 'overlay-content';
+    overlayDiv.appendChild(overlay);
     profileImage.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(user.profile_picture) + '\') 50% 50% no-repeat; background-size:cover;');
     //profileImage.style = 'background:url(/static/css/propic.jpg) 50% 50% no-repeat; background-size:cover;';
-    profileImage.appendChild(overlay);
+    profileImage.appendChild(overlayDiv);
 
 }
 

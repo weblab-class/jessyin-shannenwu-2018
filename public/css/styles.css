@@ -43,7 +43,7 @@
 .h1,
 h1 {
     font-family: Sacramento;
-    font-size: 4.5rem;
+    font-size: 2.5rem;
 
 }
 
@@ -609,7 +609,7 @@ small {
         padding-top: 0em;
         padding-bottom: 0em;
         border-bottom: 1px solid rgba(255, 255, 255, .3);
-        background: #000
+        background: #93d2d2b3
     }
     #mainNav .nav-link.active {
         outline: 0;
