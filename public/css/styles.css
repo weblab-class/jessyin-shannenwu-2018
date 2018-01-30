@@ -7,20 +7,15 @@
     /* Firefox */
 }
 
-.page-description {
-    font-family: "Sacramento", sans-serif;
-    font-size: 4.5rem;
-    color: #7cd4b5;
-}
-
 /*icons in profile page*/
-#inked-icon{
-    float:right;
+
+#inked-icon {
+    float: right;
 }
 
 #ideas-icon,
 #inked-icon {
-    font-size:30px;
+    font-size: 30px;
 }
 
 #ideas-icon:hover,
@@ -30,6 +25,7 @@
 }
 
 /*post-content on ideas pg*/
+
 #post-content-input {
     width: 130px;
     font-family: "Poppins", sans-serif;
@@ -45,12 +41,14 @@
 /*customizes font of profile name, idea title, gallery title, inkspire in about pg*/
 
 .h1,
-h1{
-    font-family:Sacramento;
+h1 {
+    font-family: Sacramento;
+    font-size: 4.5rem;
 
 }
 
 /*cursor changes on profile button links*/
+
 .profile-links {
     cursor: pointer;
 }
@@ -64,6 +62,7 @@ h1{
 }
 
 /*margin for navbar*/
+
 .navbar-brand {
     margin-left: 10%;
 }
@@ -86,6 +85,7 @@ h1{
 }
 
 /*shadow for navbar items, post ideas in cards*/
+
 .shadow {
     color: white;
     /*
@@ -115,6 +115,7 @@ h1{
 }
 
 /*shadow behind text post cards*/
+
 .box {
     transition: box-shadow .3s;
     border-radius: 10px;
@@ -128,6 +129,7 @@ h1{
 }
 
 /*customizes text inside idea posts*/
+
 p {
     overflow-wrap: break-word;
     margin-bottom: 0.25em;
@@ -137,8 +139,8 @@ p {
 
 /*inked icon on idea posts accessible*/
 
-.card-link{
-    color:#464a4c;
+.card-link {
+    color: #464a4c;
 }
 
 .fa-paint-brush:hover {
@@ -158,6 +160,7 @@ p {
 }
 
 /*inks,posts gallery profile*/
+
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -409,14 +412,14 @@ ul ul a {
 #profile-picture {
     /* make it responsive */
     max-width: 100%;
-    width:100%;
-    height:auto;
-    display:block;
+    width: 100%;
+    height: auto;
+    display: block;
     /* div height to be the same as width*/
-    padding-top:100%;
+    padding-top: 100%;
 
     /* make it a circle */
-    border-radius:50%;
+    border-radius: 50%;
 
     /* Centering on image`s center*/
     background-position-y: center;
@@ -434,7 +437,7 @@ ul ul a {
     bottom: 0;
 }
 
-.large-profile-container{
+.large-profile-container {
     padding: 0 35%;
 }
 

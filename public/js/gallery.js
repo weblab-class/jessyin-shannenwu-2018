@@ -47,9 +47,9 @@ function renderGallery(inkedJSON) {
     expandButton.prepend(expandIcon);
     //-----
 
-    const overlayPostContent = document.createElement('h1');
-    const overlayPostAuthor = document.createElement('small');
-    const overlayPostArtist = document.createElement('small');
+    const overlayPostContent = document.createElement('p');
+    const overlayPostAuthor = document.createElement('p');
+    const overlayPostArtist = document.createElement('p');
 
     const postAuthorIcon = document.createElement('i');
     postAuthorIcon.className = 'far fa-lightbulb';
@@ -100,7 +100,7 @@ function renderGallery(inkedJSON) {
     overlayText.appendChild(artistLink);
 
     //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
-    overlayText.className = 'text overlay d-flex flex-column align-items-center justify-content-center';
+    overlayText.className = 'text overlay align-items-center justify-content-center';
 
     cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
