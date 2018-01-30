@@ -89,7 +89,7 @@ function renderNavbar(user) {
             break;
         case "about":
             document.getElementById("about").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
-            document.getElementById('mainNav').setAttribute('style', "background-color:transparent");
+            //            document.getElementById('mainNav').setAttribute('style', "background-color:transparent");
 
             break;
         case "gallery":
@@ -109,10 +109,17 @@ function renderNavbar(user) {
 }
 
 $(window).scroll(function () {
+    const navbarDiv = document.getElementById('navbar');
     if ($(document).scrollTop() > 50) {
         $('nav').addClass('navbar-shrink');
+        if (navbarDiv.className == 'about') {
+            $('nav').attr('style', 'background-color:#93d2d2b3;');
+        }
     } else {
         $('nav').removeClass('navbar-shrink');
+        if (navbarDiv.className == 'about') {
+            $('nav').attr('style', 'background-color:transparent;');
+        }
 
     }
 });

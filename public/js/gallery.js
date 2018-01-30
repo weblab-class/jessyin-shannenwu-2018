@@ -47,9 +47,12 @@ function renderGallery(inkedJSON) {
     expandButton.prepend(expandIcon);
     //-----
 
+    const overlayContent = document.createElement('div');
     const overlayPostContent = document.createElement('p');
-    const overlayPostAuthor = document.createElement('small');
-    const overlayPostArtist = document.createElement('small');
+    overlayPostContent.style.fontSize = '1.5em';
+    overlayPostContent.style.color = '#333';
+    const overlayPostAuthor = document.createElement('p');
+    const overlayPostArtist = document.createElement('p');
 
 
     const postAuthorIcon = document.createElement('i');
@@ -73,7 +76,7 @@ function renderGallery(inkedJSON) {
                 overlayPostContent.innerHTML = postsArr[i].content;
                 expandButton.setAttribute('id', postsArr[i].content);
                 overlayPostAuthor.innerHTML += ("  " + postsArr[i].creator_name);
-                overlayPostContent.setAttribute("style", "color:#464a4c;")
+                overlayPostContent.style.color = '#464a4c;';
 
                 const contentLink = document.createElement('a');
                 contentLink.className = "shadow";
@@ -84,24 +87,26 @@ function renderGallery(inkedJSON) {
                 const authorLink = document.createElement('a');
                 authorLink.setAttribute('href', '/u/profile?' + postsArr[i].creator_id);
                 authorLink.appendChild(overlayPostAuthor);
-                overlayText.prepend(contentLink);
-                overlayText.appendChild(authorLink);
+                overlayContent.prepend(contentLink);
+                overlayContent.appendChild(authorLink);
 
                 const timeStamp = document.createElement('p');
                 timeStamp.className = 'time-stamp';
                 var date = new Date(postsArr[i].date);
                 timeStamp.innerText = date.toLocaleDateString();
-                timeStamp.setAttribute('style', 'font-size:0.75em');
-                overlayText.append(timeStamp);
+                timeStamp.setAttribute('style', 'font-size:0.75em;');
+                overlayContent.append(timeStamp);
 
             }
         }
     });
 
-    overlayText.appendChild(artistLink);
+    overlayContent.appendChild(artistLink);
+    overlayContent.className = 'overlay-content';
+    overlayText.appendChild(overlayContent);
 
     //overlayText.setAttribute('style', "display: table-cell; vertical-align: middle;");
-    overlayText.className = 'text overlay align-items-center justify-content-center';
+    overlayText.className = 'text overlay align-middle justify-content-center';
 
     cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
