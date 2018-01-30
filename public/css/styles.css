@@ -35,8 +35,8 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
-a{
-    color:#464a4c;
+a {
+    color: #464a4c;
 }
 
 .h1,
@@ -134,21 +134,21 @@ p {
 
 /*inked icon accessible*/
 
-.card-link{
-/*    font-family:sacramento;*/
-/*    font-size:2em;*/
+.card-link {
+    /*    font-family:sacramento;*/
+    /*    font-size:2em;*/
 }
 
-.fa-paint-brush:hover{
-    font-size:1em;
+.fa-paint-brush:hover {
+    font-size: 1em;
 }
 
 .card-link:hover {
     font-weight: bold;
-    font-family:sacramento;
-    font-style:italic;
-    font-size:2em;
-    color:#464a4c;
+    font-family: sacramento;
+    font-style: italic;
+    font-size: 2em;
+    color: #464a4c;
 }
 
 .card-title {
@@ -421,8 +421,9 @@ ul ul a {
     background-color: rgba(0, 0, 0, 0.4);
     /* Black w/ opacity */
 }
-.submit{
-    cursor:pointer;
+
+.submit {
+    cursor: pointer;
 }
 
 /* Modal Content */
@@ -750,4 +751,14 @@ footer {
 footer p {
     font-size: 14px;
     margin: 0
+}
+
+.hover-bottom-left {
+    position: absolute;
+    bottom: 5%;
+    left: 1em;
+}
+
+.like-button {
+    color: #f5bcd5;
 }

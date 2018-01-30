@@ -5,6 +5,7 @@ function postDOMObject(postJSON, user) {
     // creates entire card, adds it to the column
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
+    card.setAttribute('onclick', 'likePost(this.id)');
     card.className = 'card box';
     colDiv.appendChild(card);
 
@@ -61,6 +62,40 @@ function postDOMObject(postJSON, user) {
     var date = new Date(postJSON.date);
     console.log(timeStamp);
     timeStamp.innerText = date.toLocaleDateString();
+
+    //like button
+    const likeButton = document.createElement('a');
+    likeButton.href = '#boop';
+    likeButton.className = 'hover-bottom-left like-button';
+    //likeButton.setAttribute('onclick', 'likePost(this.value)');
+    const likeText = document.createElement('span');
+    likeText.innerText = ' ' + postJSON.likes;
+    likeText.setAttribute('name', postJSON._id);
+    likeButton.appendChild(likeText);
+    likeButton.onclick = function () {} //FILL IN LATER
+    //gets icon from fontawesome
+    const likedIcon = document.createElement('i');
+    //CHECK IF USER HAS LIKED THIS BEFORE
+    const likedIconDiv = document.createElement('span');
+    likedIcon.className = 'fa fa-heart';
+
+    likedIcon.setAttribute('aria-hidden', 'true');
+    likedIconDiv.setAttribute('id', postJSON._id + 'filledheart');
+    likedIconDiv.setAttribute('style', 'display:none');
+    likedIconDiv.appendChild(likedIcon);
+    const likeIcon = document.createElement('i');
+    const likeIconDiv = document.createElement('span');
+
+    //CHECK IF USER HAS LIKED THIS BEFORE
+    likeIcon.className = 'fa fa-heart-o';
+
+    likeIcon.setAttribute('aria-hidden', 'true');
+    likeIconDiv.setAttribute('id', postJSON._id + 'emptyheart');
+    likeIconDiv.appendChild(likeIcon);
+    likeButton.prepend(likeIconDiv);
+    likeButton.prepend(likedIconDiv);
+
+    cardFooter.appendChild(likeButton);
     cardFooter.appendChild(timeStamp);
 
 
@@ -95,10 +130,9 @@ function newPostDOMObject() {
     newPostContent.setAttribute('id', 'post-content-input');
     newPostContent.setAttribute('maxlength', 140);
 
-    const line = document.createElement('span');
-    line.className = 'focus-border';
+
     newPostDiv.appendChild(newPostContent);
-    newPostDiv.appendChild(line);
+
 
     const newPostButtonDiv = document.createElement('div');
     newPostButtonDiv.className = 'input-group-append';
@@ -138,5 +172,27 @@ function renderPosts(user) {
             const currentPost = postsArr[i];
             postsDiv.prepend(postDOMObject(currentPost, user));
         }
+    });
+
+    get('/api/likes', {}, function (userlike) {
+        for (let i = 0; i < userlike.length; i++) {
+            console.log(userlike[i], user._id);
+            if (userlike[i].user_id == user._id) {
+                console.log('change icon ' + userlike[i].post_id);
+                const id = userlike[i].post_id + 'emptyheart';
+                const idfull = userlike[i].post_id + 'filledheart';
+                const heart = document.getElementById(id);
+                heart.setAttribute('style', 'display:none');
+                const heartFull = document.getElementById(idfull);
+                heartFull.setAttribute('style', 'display:inline');
+            }
+        }
+    });
+}
+
+function likePost(postId) {
+    console.log(postId);
+    get('/api/post/' + postId + '/like', {}, function (post) {
+        console.log('like post' + postId);
     });
 }

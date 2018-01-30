@@ -19,7 +19,8 @@ function renderNavbar(user) {
     const navbarDivStyles = document.createElement('nav');
 
     navbarDivStyles.setAttribute('id', 'mainNav');
-    navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light navbar-expand-lg");
+    navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light navbar-expand-lg ");
+    navbarDivStyles.setAttribute('style', 'background-color: #93d2d2b3;');
     navbarDiv.appendChild(navbarDivStyles);
     // do the brand stuff 
     const navbarBrand = document.createElement('a');
@@ -89,32 +90,31 @@ function renderNavbar(user) {
         case "about":
 
             document.getElementById("about").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-            document.getElementById('mainNav').setAttribute('style', "background-color:transparent");
+            document.getElementById('mainNav').setAttribute('style', "background-color:#93d2d2b3");
 
             break;
         case "gallery":
             document.getElementById("gallery").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
             break;
-        // case "profile":
-        //     document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-        //     break;
-
+            // case "profile":
+            //     document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            //     break;
     }
     get('/api/whoami', {}, function (browsingUser) {
 
-        if (window.location.search.substring(1) == browsingUser._id){
+        if (window.location.search.substring(1) == browsingUser._id) {
             document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-       } 
+        }
     })
 }
 
 $(window).scroll(function () {
     if ($(document).scrollTop() > 50) {
         $('nav').addClass('navbar-shrink');
-        $('nav').attr('style', 'background-color:#AADDDD73;');
+        $('nav').attr('style', 'background-color:#93d2d2b3;');
     } else {
         $('nav').removeClass('navbar-shrink');
-        $('nav').attr('style', 'background-color:transparent;');
+        $('nav').attr('style', 'background-color:#93d2d2b3;');
 
     }
 });

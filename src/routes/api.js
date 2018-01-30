@@ -7,6 +7,7 @@ const Post = require('../models/post');
 const User = require('../models/user');
 const Inked = require('../models/inked');
 const ProfilePicture = require('../models/profilepicture');
+const UserLikes = require('../models/userlikes');
 
 
 const router = express.Router();
@@ -44,11 +45,12 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
             'creator_name': user.name,
             'content': req.body.content,
         });
+
         user.save();
 
 
         newPost.save(function (err, post) {
-            console.log(Date.now());
+
             const io = req.app.get('socketio');
             io.emit('post', {
                 _id: post._id,
@@ -141,6 +143,79 @@ router.get('/ink/:id/remove', connect.ensureLoggedIn(), function (req, res) {
         inked_id: req.params.id
     });
 });
+
+router.get('/likes', function (req, res) {
+    UserLikes.find({}, function (err, posts) {
+        res.send(posts);
+    });
+});
+
+
+
+router.get('/post/:id/like', connect.ensureLoggedIn(), function (req, res) {
+    UserLikes.find({
+        user_id: req.user._id,
+        post_id: req.params.id
+    }, function (err, posts) {
+        console.log(posts);
+        console.log(posts.length);
+        if (posts.length == 0) {
+            Post.findOne({
+                _id: req.params.id
+            }, function (err, post) {
+                console.log(post);
+                var count = ~~post.likes + 1;
+                post.set({
+                    likes: count
+                });
+                post.save();
+                const newUserLike = new UserLikes({
+                    user_id: req.user._id,
+                    post_id: req.params.id
+                });
+
+                newUserLike.save(function (err, userlike) {
+                    const io = req.app.get('socketio');
+                    io.emit("updateLike", {
+                        post_id: req.params.id,
+                        likes: count
+                    });
+                    if (err) console.log(err);
+                });
+            });
+
+        } else if (posts.length == 1) {
+            likepost = posts[0];
+            Post.findOne({
+                _id: likepost.post_id
+            }, function (err, post) {
+                var count = ~~post.likes - 1;
+                post.set({
+                    likes: count
+                });
+                post.save();
+                console.log(post);
+
+                UserLikes.findByIdAndRemove({
+                        _id: likepost._id
+                    },
+                    function (err, docs) {
+                        if (err) console.log(err);
+                        else console.log('delete success');
+                    });
+                const io = req.app.get('socketio');
+                io.emit("updateLike", {
+                    post_id: req.params.id,
+                    likes: count
+                });
+                //remove this doc
+            })
+            res.send({});
+        };
+    });
+});
+
+
 
 
 module.exports = router;
