@@ -59,6 +59,11 @@ a:hover {
     color: #1d9b6c
 }
 
+#navbarNavAltMarkup{
+
+    margin-right:10%;
+}
+
 #mainNav {
     font-family: "Poppins", sans-serif;
     margin-bottom: 0;
@@ -73,7 +78,8 @@ a:hover {
 }
 
 #mainNav .navbar-brand {
-    font-weight: 700
+    font-weight: 700;
+    margin-left:10%;
 }
 
 #mainNav a {
@@ -100,8 +106,8 @@ a:hover {
 
 @media (min-width:992px) {
     #mainNav {
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 0.75em;
+        padding-bottom: 0.75em;
         -webkit-transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
         -moz-transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
         transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
