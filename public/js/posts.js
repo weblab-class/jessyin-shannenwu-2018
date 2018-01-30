@@ -7,7 +7,6 @@ function main() {
 
         socket.on('post', function (msg) {
             const postsDiv = document.getElementById('posts');
-            console.log(msg);
             postsDiv.prepend(postDOMObject(msg, user));
         });
 

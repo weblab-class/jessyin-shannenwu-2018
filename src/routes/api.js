@@ -158,13 +158,10 @@ router.get('/post/:id/like', connect.ensureLoggedIn(), function (req, res) {
         user_id: req.user._id,
         post_id: req.params.id
     }, function (err, posts) {
-        console.log(posts);
-        console.log(posts.length);
         if (posts.length == 0) {
             Post.findOne({
                 _id: req.params.id
             }, function (err, post) {
-                console.log(post);
                 var count = ~~post.likes + 1;
                 post.set({
                     likes: count
@@ -195,7 +192,6 @@ router.get('/post/:id/like', connect.ensureLoggedIn(), function (req, res) {
                     likes: count
                 });
                 post.save();
-                console.log(post);
 
                 UserLikes.findByIdAndRemove({
                         _id: likepost._id

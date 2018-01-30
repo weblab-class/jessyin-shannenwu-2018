@@ -83,27 +83,27 @@ function renderUserGallery(inkedJSON) {
     //-----
 
     //UNCOMMENT TO TURN ON USER TEST
-    //get('/api/whoami', {}, function (browsingUser) {
-    //    if (postJSON.creator_id == browsingUser._id) {
-    const deleteButton = document.createElement('a');
-    deleteButton.className = "trash-link";
-    deleteButton.setAttribute('data-toggle', "modal");
-    deleteButton.href = "#delete";
-    deleteButton.onclick = function () {
-        document.getElementById('deletepost').setAttribute('name', inkedJSON._id);
-        document.getElementById('deletepost').setAttribute('onclick', 'deleteInk(this.name)');
-    }
-    overlayText.prepend(deleteButton);
+    get('/api/whoami', {}, function (browsingUser) {
+        if (inkedJSON.creator_id == browsingUser._id) {
+            const deleteButton = document.createElement('a');
+            deleteButton.className = "trash-link";
+            deleteButton.setAttribute('data-toggle', "modal");
+            deleteButton.href = "#delete";
+            deleteButton.onclick = function () {
+                document.getElementById('deletepost').setAttribute('name', inkedJSON._id);
+                document.getElementById('deletepost').setAttribute('onclick', 'deleteInk(this.name)');
+            }
+            overlayText.prepend(deleteButton);
 
-    const trashIcon = document.createElement('i');
+            const trashIcon = document.createElement('i');
 
-    trashIcon.className = "far fa-trash-alt hoverright";
-    trashIcon.setAttribute('id', "trash-icon");
+            trashIcon.className = "far fa-trash-alt hoverright";
+            trashIcon.setAttribute('id', "trash-icon");
 
-    trashIcon.setAttribute('aria-hidden', 'true');
-    deleteButton.prepend(trashIcon);
-    //    }
-    //});
+            trashIcon.setAttribute('aria-hidden', 'true');
+            deleteButton.prepend(trashIcon);
+        }
+    });
 
     //This is the content of the hover overlay
     const overlayContent = document.createElement('div');
@@ -186,24 +186,25 @@ function renderUserPosts(postJSON) {
     card.appendChild(cardBody);
 
     //UNCOMMENT TO TURN ON USER TEST
-    //get('/api/whoami', {}, function (browsingUser) {
-    //    if (postJSON.creator_id == browsingUser._id) {
-    const deleteButton = document.createElement('a');
-    deleteButton.className = "trash-link";
-    deleteButton.setAttribute('data-toggle', "modal");
-    deleteButton.href = "#delete";
-    deleteButton.onclick = function () {
-        document.getElementById('deletepost').setAttribute('name', postJSON._id);
-        document.getElementById('deletepost').setAttribute('onclick', 'deletePost(this.name)');
-    }
-    cardHeader.prepend(deleteButton);
+    get('/api/whoami', {}, function (browsingUser) {
+        if (postJSON.creator_id == browsingUser._id) {
+            const deleteButton = document.createElement('a');
+            deleteButton.className = "trash-link";
+            deleteButton.setAttribute('data-toggle', "modal");
+            deleteButton.href = "#delete";
+            deleteButton.onclick = function () {
+                document.getElementById('deletepost').setAttribute('name', postJSON._id);
+                document.getElementById('deletepost').setAttribute('onclick', 'deletePost(this.name)');
+            }
+            cardHeader.prepend(deleteButton);
 
-    const trashIcon = document.createElement('i');
-    trashIcon.className = "far fa-trash-alt pull-right";
-    trashIcon.setAttribute('aria-hidden', 'true');
+            const trashIcon = document.createElement('i');
+            trashIcon.className = "far fa-trash-alt pull-right";
+            trashIcon.setAttribute('aria-hidden', 'true');
 
-    deleteButton.prepend(trashIcon);
-
+            deleteButton.prepend(trashIcon);
+        }
+    });
 
     const contentLink = document.createElement('a');
     contentLink.setAttribute('href', '/p/idea?' + postJSON._id);
@@ -308,7 +309,6 @@ function deleteInk(inkId) {
 }
 
 function zoomImage(ink) {
-    console.log(ink);
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('img01');
     const captionText = document.getElementById('caption');

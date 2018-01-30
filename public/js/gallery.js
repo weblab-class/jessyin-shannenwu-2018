@@ -113,7 +113,6 @@ function renderGallery(inkedJSON) {
 }
 
 function zoomImage(ink) {
-    console.log(ink);
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('img01');
     const captionText = document.getElementById('caption');

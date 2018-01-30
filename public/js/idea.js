@@ -57,7 +57,7 @@ function renderUserGallery(inkedJSON) {
     expandIcon.setAttribute('aria-hidden', 'true');
     expandButton.prepend(expandIcon);
     //-----    overlayText.setAttribute('onclick', 'zoomImage(this)');
-    const overlayContent=document.createElement('div');
+    const overlayContent = document.createElement('div');
     const overlayPostContent = document.createElement('p');
     const overlayPostAuthor = document.createElement('p');
     const overlayPostArtist = document.createElement('p');
@@ -109,13 +109,12 @@ function renderUserGallery(inkedJSON) {
     overlayContent.appendChild(artistLink);
     overlayContent.className = 'overlay-content';
     overlayText.appendChild(overlayContent);
-    overlayText.className='text overlay align-middle justify-content-center';
+    overlayText.className = 'text overlay align-middle justify-content-center';
     cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
 }
 
 function zoomImage(ink) {
-    console.log(ink);
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('img01');
     const captionText = document.getElementById('caption');

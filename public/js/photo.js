@@ -41,14 +41,13 @@ function addPhoto(postid) {
     }
     var file = files[0];
     var photoKey = files[0].name;
-    console.log(postid);
     get('/api/inked', {}, function (inkedArr) {
         data = {
             image_url: photoKey,
             post_id: postid
         }
         post('/api/inked', data);
-        console.log('uploading');
+
         s3.upload({
             Key: photoKey,
             Body: file,
