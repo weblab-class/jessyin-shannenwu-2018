@@ -41,7 +41,10 @@
     -webkit-transition: width 0.5s ease-in-out;
 }
 
+
 /*customizes font of profile name, idea title, gallery title, inkspire in about pg*/
+
+
 .h1,
 h1{
     font-family:Sacramento;
@@ -86,7 +89,7 @@ h1{
 /*shadow for navbar items, post ideas in cards*/
 .shadow {
     color: white;
-/*
+    /*
     text-shadow: 1px 1px #464a4c8a,
     2px 2px #464a4c4a;
     3px 3px #464a4c40;
@@ -105,8 +108,8 @@ h1{
     text-shadow: 1px 1px #464a4c8a,
     2px 2px #464a4c4a;
     3px 3px #464a4c40;
-/*    4px 4px #AADDDD,*/
-/*
+    /*    4px 4px #AADDDD,*/
+    /*
     5px 5px #AADDDD,
     6px 6px #AADDDD;
 */
@@ -139,16 +142,16 @@ p {
     color:#464a4c;
 }
 
-.fa-paint-brush:hover{
-    font-size:1em;
+.fa-paint-brush:hover {
+    font-size: 1em;
 }
 
 .card-link:hover {
     font-weight: bold;
-    font-family:sacramento;
-    font-style:italic;
-    font-size:2em;
-    color:#464a4c;
+    font-family: sacramento;
+    font-style: italic;
+    font-size: 2em;
+    color: #464a4c;
 }
 
 .card-title {
@@ -227,7 +230,7 @@ p {
 }
 
 #navbar {
-/*    min-width: 800px;*/
+    /*    min-width: 800px;*/
     min-height: 5vh;
     margin-bottom: 4rem;
 }
@@ -276,7 +279,7 @@ body {
 
 button {
     border: 0px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .btn {
@@ -314,7 +317,7 @@ button {
     color: #AADDDD;
     background-color: white;
     border-color: #AADDDD;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .btn-outline-primary {
@@ -418,11 +421,12 @@ ul ul a {
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.9);
     /* Black w/ opacity */
 }
-.submit{
-    cursor:pointer;
+
+.submit {
+    cursor: pointer;
 }
 
 /* Modal Content */
@@ -430,7 +434,6 @@ ul ul a {
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
     border: 1px solid #888;
     width: 100%;
 }
@@ -643,7 +646,7 @@ small {
 
 @media (min-width:992px) {
     #mainNav {
-/*
+        /*
         padding-top: 20px;
         padding-bottom: 20px;
 */
@@ -655,8 +658,8 @@ small {
         background: #93d2d2b3;
     }
     #mainNav.navbar-shrink {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 0em;
+        padding-bottom: 0em;
         border-bottom: 1px solid rgba(255, 255, 255, .3);
         background: #000
     }
@@ -691,9 +694,9 @@ small {
     /* Full height */
     overflow: auto;
     /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     /* Black w/ opacity */
 }
 
@@ -726,6 +729,10 @@ small {
 #caption {
     animation-name: zoom;
     animation-duration: 0.6s;
+    color: #444;
+    font-family: Sacramento;
+    font-weight: 200;
+    font-size: 3rem;
 }
 
 @keyframes zoom {
@@ -743,7 +750,7 @@ small {
     position: absolute;
     top: 15px;
     right: 35px;
-    color: #f1f1f1;
+    color: #444;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
@@ -751,7 +758,7 @@ small {
 
 .close:hover,
 .close:focus {
-    color: #bbb;
+    color: #666;
     text-decoration: none;
     cursor: pointer;
 }
@@ -764,6 +771,13 @@ small {
     }
 }
 
+.dropdown-toggle {
+    background-color: transparent;
+    color: gray;
+    margin-top: 1em;
+    border: 0;
+}
+
 footer {
     padding: 50px 0
 }
@@ -771,4 +785,14 @@ footer {
 footer p {
     font-size: 14px;
     margin: 0
+}
+
+.hover-bottom-left {
+    position: absolute;
+    bottom: 5%;
+    left: 1em;
+}
+
+.like-button {
+    color: #f5bcd5;
 }

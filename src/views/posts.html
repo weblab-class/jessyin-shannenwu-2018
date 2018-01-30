@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>-->
+
     <link rel="stylesheet" type="text/css" href="static/css/styles.css">
 
 
@@ -22,6 +24,17 @@
     <div id="navbar" class="ideas">
     </div>
     <div class="container">
+        <div class="dropdown row justify-content-end ">
+            <button class="btn btn-secondary dropdown-toggle dropdown-menu-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                order by...
+            </button>
+            <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="?likes">likes</a>
+                <a class="dropdown-item" href="?date">date</a>
+                <a class="dropdown-item" href="?author">author</a>
+            </div>
+        </div>
+        
         <div id='new-post' style="padding-top:1.25em; padding-bottom: 1.25em;">
             <!-- this is where posts are inserted -->
         </div>

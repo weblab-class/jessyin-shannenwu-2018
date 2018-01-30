@@ -19,7 +19,8 @@ function renderNavbar(user) {
     const navbarDivStyles = document.createElement('nav');
 
     navbarDivStyles.setAttribute('id', 'mainNav');
-    navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light navbar-expand-lg");
+    navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light navbar-expand-lg ");
+    navbarDivStyles.setAttribute('style', 'background-color: #93d2d2b3;');
     navbarDiv.appendChild(navbarDivStyles);
     // do the brand stuff 
     const navbarBrand = document.createElement('a');
@@ -87,7 +88,6 @@ function renderNavbar(user) {
             document.getElementById("ideas").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0; font-size:large");
             break;
         case "about":
-
             document.getElementById("about").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
             document.getElementById('mainNav').setAttribute('style', "background-color:transparent");
 
@@ -95,26 +95,24 @@ function renderNavbar(user) {
         case "gallery":
             document.getElementById("gallery").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
             break;
-        // case "profile":
-        //     document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
-        //     break;
-
+            // case "profile":
+            //     document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;");
+            //     break;
     }
     get('/api/whoami', {}, function (browsingUser) {
 
-        if (window.location.search.substring(1) == browsingUser._id){
+
+        if (window.location.search.substring(1) == browsingUser._id) {
             document.getElementById("profile").setAttribute("style", "color:white; border-bottom: #AADDDD solid 4px; padding-bottom:0;font-size:large");
-       } 
+        }
     })
 }
 
-//$(window).scroll(function () {
-//    if ($(document).scrollTop() > 50) {
-//        $('nav').addClass('navbar-shrink');
-//        $('nav').attr('style', 'background-color:#93d2d2;');
-//    } else {
-//        $('nav').removeClass('navbar-shrink');
-//        $('nav').attr('style', 'background-color:transparent;');
-//
-//    }
-//});
+$(window).scroll(function () {
+    if ($(document).scrollTop() > 50) {
+        $('nav').addClass('navbar-shrink');
+    } else {
+        $('nav').removeClass('navbar-shrink');
+
+    }
+});
