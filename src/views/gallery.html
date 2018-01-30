@@ -3,11 +3,10 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>inkspire | gallery</title>
 
-    <link rel="icon" href="/static/logo.png">
+    <link rel="icon" href="/static/logov4.png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -23,10 +22,13 @@
     <!--navbar-->
     <div id="navbar" class="gallery">
     </div>
+
+    <!--GALLERY-->
     <h1 class='text-center page-description' style="margin-top: 20px;margin-bottom: 20px">gallery</h1>
-    <div id="photo-holder" class='d-flex flex-wrap justify-content-center' style="margin: 2rem 10% 0 10%;">
+    <div id="photo-holder" class='clearfix row justify-content-center' style="margin: 2rem 10% 0 10%;">
     </div>
 
+    <!--MODALS-->
     <div id="imageModal" class="modal">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('imageModal').style.display='none'">
           <span aria-hidden="true">&times;</span>
@@ -35,11 +37,13 @@
         <div id="caption"></div>
     </div>
 
+    <!--FOOTER-->
     <footer>
         <div class="container text-center" style="margin-top: 10rem;">
             <p>copyright &copy; team boop 2018</p>
         </div>
     </footer>
+
 </body>
 <script>
     // Get the modal
