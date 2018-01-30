@@ -20,7 +20,6 @@ function renderNavbar(user) {
 
     navbarDivStyles.setAttribute('id', 'mainNav');
     navbarDivStyles.setAttribute('class', "navbar fixed-top navbar-toggleable-md navbar-light navbar-expand-lg ");
-    navbarDivStyles.setAttribute('style', 'background-color: #93d2d2b3;');
     navbarDiv.appendChild(navbarDivStyles);
     // do the brand stuff 
     const navbarBrand = document.createElement('a');

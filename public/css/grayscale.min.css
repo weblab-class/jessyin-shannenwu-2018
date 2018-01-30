@@ -109,7 +109,7 @@ a:hover {
         padding-top: 10px;
         padding-bottom: 10px;
         border-bottom: 1px solid rgba(255, 255, 255, .3);
-        background: #000
+        background-color: #93d2d2b3;
     }
     #mainNav .nav-link.active {
         outline: 0;
@@ -189,6 +189,7 @@ a:hover {
     6px 6px #AADDDD;
 */
 }
+
 .btn-circle {
     font-size: 26px;
     width: 55px;
