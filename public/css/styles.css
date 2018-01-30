@@ -135,7 +135,7 @@ p {
     margin-bottom: 0.75em;
     font-family: 'Poppins', sans-serif;
     font-size: medium;
-    line-height: 1.5em;
+    line-height: 1em;
     color: #999;
 }
 
@@ -174,7 +174,9 @@ p {
 
 
 /*both post creators accessible in cards*/
-
+.post-creator{
+    font-size:small;
+}
 .post-creator:hover {
     text-decoration: underline;
 }
@@ -184,6 +186,7 @@ p {
 
 .card {
     padding: 1em 1.25em 0em 1.25em;
+    border:0;
 }
 
 .card-footer {
@@ -197,6 +200,11 @@ p {
     padding-right: 0.25em;
 
 }
+
+/*customizes title in individual idea pgs*/
+.idea-description{
+    font-family:Sacramento;
+    font-size:4.5em;
 
 }
 
@@ -539,7 +547,7 @@ ul ul a {
 small {
     font-size: small;
     color: darkgray;
-    line-height: 1.2em;
+    line-height: 1em;
 
 }
 
