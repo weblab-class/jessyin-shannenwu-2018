@@ -182,10 +182,10 @@ p {
 
 .post-creator,
 .time-stamp {
-/*    font-size: small;*/
+    /*    font-size: small;*/
     margin-bottom: 0;
     font-size: .75em;
-    line-height:1.25em;
+    line-height: 1.25em;
 }
 
 .post-creator:hover {
@@ -194,9 +194,10 @@ p {
 
 /*customizes cards in posts*/
 
-.post-creator-box{
-    font-size:1em;
+.post-creator-box {
+    font-size: 1em;
 }
+
 .card {
     padding: 1em 1.25em 0em 1.25em;
     border: 0;
@@ -688,6 +689,7 @@ small {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+    font-family: Sacramento;
 }
 
 /* Add Animation - Zoom in the Modal */

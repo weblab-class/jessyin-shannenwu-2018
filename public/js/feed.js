@@ -42,7 +42,7 @@ function postDOMObject(postJSON, user) {
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
     contentSpan.innerText = postJSON.content;
-    contentSpan.setAttribute('style','padding-bottom:0.25em');
+    contentSpan.setAttribute('style', 'padding-bottom:0.25em');
     contentLink.appendChild(contentSpan);
     cardBody.appendChild(contentLink);
 
@@ -61,7 +61,6 @@ function postDOMObject(postJSON, user) {
     const timeStamp = document.createElement('p');
     timeStamp.className = 'time-stamp';
     var date = new Date(postJSON.date);
-    console.log(timeStamp);
     timeStamp.innerText = date.toLocaleDateString();
 
     //like button
@@ -181,7 +180,6 @@ function renderPosts(user) {
     get('/api/likes', {}, function (userlike) {
         for (let i = 0; i < userlike.length; i++) {
             if (userlike[i].user_id == user._id) {
-                console.log('change icon ' + userlike[i].post_id);
                 const id = userlike[i].post_id + 'emptyheart';
                 const idfull = userlike[i].post_id + 'filledheart';
                 const heart = document.getElementById(id);
@@ -194,8 +192,5 @@ function renderPosts(user) {
 }
 
 function likePost(postId) {
-    console.log(postId);
-    get('/api/post/' + postId + '/like', {}, function (post) {
-        console.log('like post' + postId);
-    });
+    get('/api/post/' + postId + '/like', {}, function (post) {});
 }
