@@ -42,6 +42,7 @@ function postDOMObject(postJSON, user) {
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
     contentSpan.innerText = postJSON.content;
+    contentSpan.setAttribute('style','padding-bottom:0.25em');
     contentLink.appendChild(contentSpan);
     cardBody.appendChild(contentLink);
 
@@ -50,7 +51,7 @@ function postDOMObject(postJSON, user) {
     card.appendChild(cardFooter);
 
     const creatorSpan = document.createElement('a');
-    creatorSpan.className = 'post-creator card-title pull-left';
+    creatorSpan.className = 'post-creator-box card-title pull-left';
     creatorSpan.innerText = postJSON.creator_name;
     creatorSpan.setAttribute('style', 'color:#AADDDD')
     creatorSpan.setAttribute('href', '/u/profile?' + postJSON.creator_id);

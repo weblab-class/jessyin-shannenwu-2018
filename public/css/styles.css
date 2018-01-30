@@ -194,6 +194,9 @@ p {
 
 /*customizes cards in posts*/
 
+.post-creator-box{
+    font-size:1em;
+}
 .card {
     padding: 1em 1.25em 0em 1.25em;
     border: 0;
@@ -206,8 +209,6 @@ p {
     color: lightgray;
     font-style: italic;
     padding-top: 0.25em;
-    padding-top: 0.25em;
-    padding-bottom: 0em;
     padding-right: 0.25em;
 
 }
@@ -755,7 +756,7 @@ footer p {
 .hover-bottom-left {
     position: absolute;
     bottom: 5%;
-    left: 1em;
+    left: 1.25em;
 }
 
 .like-button {
