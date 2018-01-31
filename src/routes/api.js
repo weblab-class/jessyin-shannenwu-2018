@@ -35,7 +35,7 @@ router.get('/posts', function (req, res) {
     });
 });
 
-
+//Posting posts: adds a post document to the data base. When posts, sends data out to create a new post 
 router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
     User.findOne({
         _id: req.user._id
@@ -50,7 +50,7 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
 
 
         newPost.save(function (err, post) {
-
+            if (err) console.log(err);
             const io = req.app.get('socketio');
             io.emit('post', {
                 _id: post._id,
@@ -60,21 +60,19 @@ router.post('/posts', connect.ensureLoggedIn(), function (req, res) {
                 date: Date.now(),
                 likes: '0'
             });
-
-
-
-            if (err) console.log(err);
         });
         res.send({});
     });
 });
 
+//gets all the inks
 router.get('/inked', function (req, res) {
     Inked.find({}, function (err, posts) {
         res.send(posts);
     });
 });
 
+//posts an inked document
 router.post('/inked', connect.ensureLoggedIn(), function (req, res) {
     User.findOne({
         _id: req.user._id
@@ -94,6 +92,7 @@ router.post('/inked', connect.ensureLoggedIn(), function (req, res) {
     });
 });
 
+//posts a profile picture document. Doesn't actually retrieve from here ever
 router.post('/profilepicture', connect.ensureLoggedIn(), function (req, res) {
     User.findOne({
         _id: req.user._id
@@ -107,16 +106,17 @@ router.post('/profilepicture', connect.ensureLoggedIn(), function (req, res) {
         user.save();
 
         newProfilePicture.save(function (err, post) {
+            if (err) console.log(err);
             const io = req.app.get('socketio');
             io.emit("updateProPic", {
                 image_url: req.body.image_url
             });
-            if (err) console.log(err);
         });
         res.send({});
     });
 });
 
+//removes post
 router.get('/post/:id/remove', connect.ensureLoggedIn(), function (req, res) {
     Post.findByIdAndRemove({
             _id: req.params.id
@@ -124,7 +124,6 @@ router.get('/post/:id/remove', connect.ensureLoggedIn(), function (req, res) {
         function (err, docs) {
             if (err) console.log(err);
             else console.log('delete success');
-
             UserLikes.find({
                 post_id: req.params.id
             }, function (err, likePosts) {
@@ -142,9 +141,11 @@ router.get('/post/:id/remove', connect.ensureLoggedIn(), function (req, res) {
             io.emit("deletePost", {
                 post_id: req.params.id
             });
+            res.send({});
         });
 });
 
+//remove ink
 router.get('/ink/:id/remove', connect.ensureLoggedIn(), function (req, res) {
     Inked.findByIdAndRemove({
             _id: req.params.id
@@ -152,13 +153,15 @@ router.get('/ink/:id/remove', connect.ensureLoggedIn(), function (req, res) {
         function (err, docs) {
             if (err) console.log(err);
             else console.log('delete success');
+            const io = req.app.get('socketio');
+            io.emit("deleteInk", {
+                inked_id: req.params.id
+            });
+            res.send({});
         });
-    const io = req.app.get('socketio');
-    io.emit("deleteInk", {
-        inked_id: req.params.id
-    });
 });
 
+//gets likes
 router.get('/likes', function (req, res) {
     UserLikes.find({}, function (err, posts) {
         res.send(posts);
@@ -217,12 +220,13 @@ router.get('/post/:id/like', connect.ensureLoggedIn(), function (req, res) {
                 const io = req.app.get('socketio');
                 io.emit("updateLike", {
                     post_id: req.params.id,
-                    likes: count
+                    likes: count,
+                    user_id: likepost.user_id
                 });
-                //remove this doc
+
             })
-            res.send({});
-        };
+        }
+        res.send({});
     });
 });
 

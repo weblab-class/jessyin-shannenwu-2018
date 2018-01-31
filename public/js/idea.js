@@ -19,13 +19,6 @@ function main() {
         renderNavbar(user);
     });
 
-    if (jQuery('p').length <= 1) {            
-        const emptyInks = document.createElement('h2');            
-        emptyInks.className = "empty";            
-        emptyInks.innerText = "nothing here yet!";            
-        document.getElementById('post-inks').appendChild(emptyInks);
-
-    }
 }
 
 function renderPostData(post) {
@@ -118,6 +111,13 @@ function renderUserGallery(inkedJSON) {
     overlayText.className = 'text overlay align-middle justify-content-center';
     cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
+    if (jQuery('p').length <= 1) { 
+        console.log(jQuery('p').length);
+        const emptyInks = document.createElement('h2');            
+        emptyInks.className = "empty";            
+        emptyInks.innerText = "nothing here yet!";            
+        document.getElementById('post-inks').appendChild(emptyInks);
+    }
 }
 
 function zoomImage(ink) {

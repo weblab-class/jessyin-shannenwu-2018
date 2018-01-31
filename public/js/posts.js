@@ -11,18 +11,21 @@ function main() {
         });
 
         socket.on('updateLike', function (msg) {
+            if (user._id == msg.user_id) {
+
+                const sid = msg.post_id + "filledheart";
+                const oid = msg.post_id + 'emptyheart';
+
+                if (document.getElementById(sid).style.display == 'none') {
+                    document.getElementById(sid).style.display = 'inline';
+                    document.getElementById(oid).style.display = 'none';
+                } else {
+                    document.getElementById(sid).style.display = 'none';
+                    document.getElementById(oid).style.display = 'inline';
+                }
+            }
             const postsDiv = document.getElementsByName(msg.post_id)[0];
             postsDiv.innerText = ' ' + msg.likes;
-            const sid = msg.post_id + "filledheart";
-            const oid = msg.post_id + 'emptyheart';
-
-            if (document.getElementById(sid).style.display == 'none') {
-                document.getElementById(sid).style.display = 'inline';
-                document.getElementById(oid).style.display = 'none';
-            } else {
-                document.getElementById(sid).style.display = 'none';
-                document.getElementById(oid).style.display = 'inline';
-            }
 
 
         });

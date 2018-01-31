@@ -59,15 +59,14 @@ a:hover {
     color: #1d9b6c
 }
 
-#navbarNavAltMarkup{
+#navbarNavAltMarkup {
 
-    margin-right:10%;
+    margin-right: 10%;
 }
 
 #mainNav {
     font-family: "Poppins", sans-serif;
     margin-bottom: 0;
-    background-color: #fff;
 }
 
 #mainNav .navbar-toggler {
@@ -79,7 +78,7 @@ a:hover {
 
 #mainNav .navbar-brand {
     font-weight: 700;
-    margin-left:10%;
+    margin-left: 10%;
 }
 
 #mainNav a {
