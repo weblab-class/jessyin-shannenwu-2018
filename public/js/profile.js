@@ -18,7 +18,8 @@ function main() {
                 emptyInks.innerText = "nothing here yet!";
                 emptyInks.style.textAlign = 'center';
                 emptyInks.style.fontWeight = 'lighter';
-                emptyInks.style.color = 'lightgray';            
+                emptyInks.style.color = 'lightgray'; 
+                emptyInks.style.margin = '10% 0';
                 document.getElementById('user-ideas').appendChild(emptyInks);
 
             }
@@ -35,7 +36,10 @@ function main() {
                 const emptyInks = document.createElement('h2');            
                 emptyInks.className = "empty";            
                 emptyInks.innerText = "nothing here yet!";
-                emptyInks.style = "text-align:center; font-weight:lighter;color:light grey";            
+                emptyInks.style.textAlign = 'center';
+                emptyInks.style.fontWeight = 'lighter';
+                emptyInks.style.color = 'lightgray'; 
+                emptyInks.style.margin = '10% 0';           
                 document.getElementById('user-inks').appendChild(emptyInks);
 
             }
