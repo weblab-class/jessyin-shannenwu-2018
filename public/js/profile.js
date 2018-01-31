@@ -16,10 +16,13 @@ function main() {
                 const emptyInks = document.createElement('h2');            
                 emptyInks.className = "empty";            
                 emptyInks.innerText = "nothing here yet!";
-                emptyInks.style="text-align:center; font-weight:lighter;color:light grey";            
+                emptyInks.style.textAlign = 'center';
+                emptyInks.style.fontWeight = 'lighter';
+                emptyInks.style.color = 'lightgray';            
                 document.getElementById('user-ideas').appendChild(emptyInks);
 
-        }});
+            }
+        });
 
         get('/api/inked', {}, function (inkedArr) {
             for (let i = 0; i < inkedArr.length; i++) {
@@ -32,10 +35,11 @@ function main() {
                 const emptyInks = document.createElement('h2');            
                 emptyInks.className = "empty";            
                 emptyInks.innerText = "nothing here yet!";
-                emptyInks.style="text-align:center; font-weight:lighter;color:light grey";            
+                emptyInks.style = "text-align:center; font-weight:lighter;color:light grey";            
                 document.getElementById('user-inks').appendChild(emptyInks);
 
-        }});
+            }
+        });
     });
 
     get('/api/whoami', {}, function (user) {
@@ -227,7 +231,7 @@ function renderUserPosts(postJSON) {
     const contentSpan = document.createElement('p');
     contentSpan.className = 'post-content card-text';
     contentSpan.innerText = postJSON.content;
-    contentSpan.setAttribute('style','padding-bottom:0.25em')
+    contentSpan.setAttribute('style', 'padding-bottom:0.25em')
     contentLink.appendChild(contentSpan);
     cardBody.appendChild(contentLink);
 
