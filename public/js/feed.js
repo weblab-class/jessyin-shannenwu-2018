@@ -213,5 +213,18 @@ function renderPosts(user) {
 function likePost(post) {
     console.log($(post).attr('value'));
     postId = $(post).attr('value');
+    get('/api/whoami', {}, function (user) {
+        const sid = postId + "filledheart";
+        const oid = postId + 'emptyheart';
+        console.log(document.getElementById(sid).style.display);
+        if (document.getElementById(sid).style.display == 'none') {
+            document.getElementById(sid).style.display = 'inline';
+            document.getElementById(oid).style.display = 'none';
+        } else {
+            document.getElementById(sid).style.display = 'none';
+            document.getElementById(oid).style.display = 'inline';
+        }
+    });
+
     get('/api/post/' + postId + '/like', {}, function (post) {});
 }
