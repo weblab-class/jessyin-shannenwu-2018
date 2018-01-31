@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/styles.css">
 
 
+
 </head>
 
 <body>
@@ -65,13 +66,10 @@
         </div>
     </footer>
 </body>
-
+<script src="static/js/vendor/typing.js"></script>
 <script>
-    $('#photoupload').change(function() {
-        var i = $(this).prev('label').clone();
-        var file = $('#photoupload')[0].files[0].name;
-        $(this).prev('label').text(file);
-    });
+    var strings = new Array("what do you want to see?", 'what inspires you?', 'what makes you laugh?', 'what do you find interesting?')
+    var isPlaceholder = true;
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -125,7 +125,7 @@ function newPostDOMObject() {
     const newPostContent = document.createElement('input');
 
     newPostContent.setAttribute('type', 'text');
-    newPostContent.setAttribute('placeholder', 'what do you want to see?');
+    newPostContent.setAttribute('placeholder', '');
     newPostContent.className = 'form-control';
     newPostContent.setAttribute('id', 'post-content-input');
     newPostContent.setAttribute('maxlength', 90);
