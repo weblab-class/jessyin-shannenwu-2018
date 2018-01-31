@@ -19,7 +19,13 @@ function main() {
         renderNavbar(user);
     });
 
+    if (jQuery('p').length <= 1) {            
+        const emptyInks = document.createElement('h2');            
+        emptyInks.className = "empty";            
+        emptyInks.innerText = "nothing here yet!";            
+        document.getElementById('post-inks').appendChild(emptyInks);
 
+    }
 }
 
 function renderPostData(post) {
