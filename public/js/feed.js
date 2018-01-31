@@ -129,6 +129,7 @@ function newPostDOMObject() {
     newPostContent.className = 'form-control';
     newPostContent.setAttribute('id', 'post-content-input');
     newPostContent.setAttribute('maxlength', 90);
+    newPostContent.name = 'idea';
 
 
     newPostDiv.appendChild(newPostContent);
@@ -187,7 +188,6 @@ function renderPosts(user) {
                     //
                     var waitForEl = function (selector, callback) {
                         if (jQuery(selector).length >= postsArr.length * 3 + 1) {
-                            console.log(jQuery(selector).length);
                             callback();
                         } else {
                             console.log('not time yet!')
@@ -198,6 +198,7 @@ function renderPosts(user) {
                     };
 
                     waitForEl('i', function () {
+                        console.log(id);
                         const heart = document.getElementById(id);
                         heart.setAttribute('style', 'display:none');
                         const heartFull = document.getElementById(idfull);

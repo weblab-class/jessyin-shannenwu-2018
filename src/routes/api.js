@@ -124,11 +124,25 @@ router.get('/post/:id/remove', connect.ensureLoggedIn(), function (req, res) {
         function (err, docs) {
             if (err) console.log(err);
             else console.log('delete success');
+
+            UserLikes.find({
+                post_id: req.params.id
+            }, function (err, likePosts) {
+                for (let i = 0; i < likePosts.length; i++) {
+                    UserLikes.findByIdAndRemove({
+                            _id: likePosts[i]._id
+                        },
+                        function (err, docs) {
+                            if (err) console.log(err);
+                            else console.log('delete success');
+                        });
+                }
+            });
+            const io = req.app.get('socketio');
+            io.emit("deletePost", {
+                post_id: req.params.id
+            });
         });
-    const io = req.app.get('socketio');
-    io.emit("deletePost", {
-        post_id: req.params.id
-    });
 });
 
 router.get('/ink/:id/remove', connect.ensureLoggedIn(), function (req, res) {

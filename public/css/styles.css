@@ -193,9 +193,11 @@ p {
 }
 
 /*customizes cards in posts*/
-.post-creator-box:hover{
+
+.post-creator-box:hover {
     text-decoration: underline;
 }
+
 .post-creator-box {
     font-size: 1em;
 }
