@@ -1,5 +1,14 @@
 function main() {
     const ideaId = window.location.search.substring(1);
+    const empty = document.createElement('h2');
+    empty.style.fontWeight = 'lighter';
+    empty.style.color = 'lightgray';
+    empty.setAttribute('id', 'nothings-here');
+    empty.innerText = 'nothing here yet!';
+    empty.style.margin = '10% 0';
+
+    document.getElementById('post-inks').appendChild(empty);
+
     get('/api/posts', {}, function (ideaPosts) {
         for (let p = 0; p < ideaPosts.length; p++) {
             if (ideaPosts[p]._id == ideaId) {
@@ -8,6 +17,7 @@ function main() {
                     for (let i = 0; i < inkedArr.length; i++) {
                         if (ideaPosts[p]._id == inkedArr[i].post_id) {
                             renderUserGallery(inkedArr[i]);
+                            empty.style.display = 'none';
                         }
                     }
                 });
@@ -15,9 +25,11 @@ function main() {
         }
     });
 
+
     get('/api/whoami', {}, function (user) {
         renderNavbar(user);
     });
+
 
 }
 
@@ -111,13 +123,6 @@ function renderUserGallery(inkedJSON) {
     overlayText.className = 'text overlay align-middle justify-content-center';
     cardDiv.appendChild(overlayText);
     postContainer.appendChild(cardDiv);
-    if (jQuery('p').length <= 1) { 
-        console.log(jQuery('p').length);
-        const emptyInks = document.createElement('h2');            
-        emptyInks.className = "empty";            
-        emptyInks.innerText = "nothing here yet!";            
-        document.getElementById('post-inks').appendChild(emptyInks);
-    }
 }
 
 function zoomImage(ink) {
