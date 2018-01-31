@@ -11,7 +11,15 @@ function main() {
                     renderUserPosts(postsArr[i]);
                 }
             }
-        });
+            if (jQuery('.post-count').length == 0) { 
+                console.log(jQuery('.post-count').length);
+                const emptyInks = document.createElement('h2');            
+                emptyInks.className = "empty";            
+                emptyInks.innerText = "nothing here yet!";
+                emptyInks.style="text-align:center; font-weight:lighter;color:light grey";            
+                document.getElementById('user-ideas').appendChild(emptyInks);
+
+        }});
 
         get('/api/inked', {}, function (inkedArr) {
             for (let i = 0; i < inkedArr.length; i++) {
@@ -19,7 +27,15 @@ function main() {
                     renderUserGallery(inkedArr[i]);
                 }
             }
-        });
+            if (jQuery('.ink-count').length == 0) { 
+                console.log(jQuery('.ink-count').length);
+                const emptyInks = document.createElement('h2');            
+                emptyInks.className = "empty";            
+                emptyInks.innerText = "nothing here yet!";
+                emptyInks.style="text-align:center; font-weight:lighter;color:light grey";            
+                document.getElementById('user-inks').appendChild(emptyInks);
+
+        }});
     });
 
     get('/api/whoami', {}, function (user) {
@@ -50,7 +66,7 @@ function main() {
 function renderUserGallery(inkedJSON) {
     const postContainer = document.getElementById('user-inks');
     const cardDiv = document.createElement('div');
-    cardDiv.className = "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 card photo-container";
+    cardDiv.className = "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 card photo-container ink-count";
     cardDiv.setAttribute("style", 'padding:0px');
     cardDiv.setAttribute('style', 'background:url(\'https://s3.amazonaws.com/inkspire/' + encodeURIComponent(inkedJSON.image_url) + '\') 50% 50% no-repeat; background-size:cover;');
     //const cardImg = document.createElement('img');
@@ -172,7 +188,7 @@ function renderUserPosts(postJSON) {
 
     const card = document.createElement('div');
     card.setAttribute('id', postJSON._id);
-    card.className = 'card box';
+    card.className = 'card box post-count';
     postContainer.appendChild(card);
 
     const cardHeader = document.createElement('div');
